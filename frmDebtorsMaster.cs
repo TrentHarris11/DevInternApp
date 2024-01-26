@@ -214,7 +214,6 @@ namespace DevInternApp
             this.Close(); // Close the current form (frmStockEnquiry)
             //frmMain mainForm = new frmMain();
             //mainForm.Show(); // Show the main form (frmMain)
-            Console.WriteLine("New code added to repository");
         }
     }
 }
