@@ -29,12 +29,12 @@ namespace DevInternApp
 
         private void PopulateDebtorComboBox()
         {
-            string query = "SELECT AccountCode, (AccountCode + ' - ' + Address1) AS DebtorInfo FROM DebtorsMaster";
+            string query = "SELECT AccountCode, Address1 AS DebtorInfo FROM DebtorsMaster";
             DataTable debtors = new DataTable();
 
             using (SqlConnection conn = new SqlConnection("data source=user\\SQLEXPRESS;initial catalog=xact1;trusted_connection=true"))
             {
-                try
+                try  
                 {
                     conn.Open();
                     using (SqlCommand cmd = new SqlCommand(query, conn))
@@ -66,7 +66,7 @@ namespace DevInternApp
         private void btnSave_Click(object sender, EventArgs e)
         {
            
-        }
+        }  
 
         private void dataGridViewDisplay_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
