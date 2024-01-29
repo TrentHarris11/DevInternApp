@@ -47,12 +47,13 @@
             this.cmbDebtors.Name = "cmbDebtors";
             this.cmbDebtors.Size = new System.Drawing.Size(121, 24);
             this.cmbDebtors.TabIndex = 0;
+            this.cmbDebtors.SelectedIndexChanged += new System.EventHandler(this.cmbDebtors_SelectedIndexChanged);
             // 
             // dtpInvoice
             // 
-            this.dtpInvoice.Location = new System.Drawing.Point(588, 9);
+            this.dtpInvoice.Location = new System.Drawing.Point(557, 9);
             this.dtpInvoice.Name = "dtpInvoice";
-            this.dtpInvoice.Size = new System.Drawing.Size(200, 22);
+            this.dtpInvoice.Size = new System.Drawing.Size(231, 22);
             this.dtpInvoice.TabIndex = 1;
             // 
             // dataGridViewDisplay
@@ -64,6 +65,7 @@
             this.dataGridViewDisplay.RowTemplate.Height = 24;
             this.dataGridViewDisplay.Size = new System.Drawing.Size(776, 262);
             this.dataGridViewDisplay.TabIndex = 2;
+            this.dataGridViewDisplay.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewDisplay_CellContentClick);
             // 
             // btnAdd
             // 
@@ -82,6 +84,7 @@
             this.btnSave.TabIndex = 21;
             this.btnSave.Text = "Save Invoice";
             this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // btnPrint
             // 
@@ -100,6 +103,7 @@
             this.btnClose.TabIndex = 23;
             this.btnClose.Text = "Close";
             this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // lblDebtor
             // 
@@ -113,7 +117,7 @@
             // lblInvoiceDate
             // 
             this.lblInvoiceDate.AutoSize = true;
-            this.lblInvoiceDate.Location = new System.Drawing.Point(469, 9);
+            this.lblInvoiceDate.Location = new System.Drawing.Point(451, 12);
             this.lblInvoiceDate.Name = "lblInvoiceDate";
             this.lblInvoiceDate.Size = new System.Drawing.Size(82, 16);
             this.lblInvoiceDate.TabIndex = 25;
@@ -135,6 +139,7 @@
             this.Controls.Add(this.cmbDebtors);
             this.Name = "frmInvoicing";
             this.Text = "frmInvoicing";
+            this.Load += new System.EventHandler(this.frmInvoicing_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDisplay)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

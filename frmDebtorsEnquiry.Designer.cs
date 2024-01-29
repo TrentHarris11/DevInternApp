@@ -56,9 +56,9 @@
             // 
             // btnRefresh
             // 
-            this.btnRefresh.Location = new System.Drawing.Point(282, 356);
+            this.btnRefresh.Location = new System.Drawing.Point(257, 356);
             this.btnRefresh.Name = "btnRefresh";
-            this.btnRefresh.Size = new System.Drawing.Size(155, 51);
+            this.btnRefresh.Size = new System.Drawing.Size(176, 51);
             this.btnRefresh.TabIndex = 2;
             this.btnRefresh.Text = "Refresh";
             this.btnRefresh.UseVisualStyleBackColor = true;
@@ -66,9 +66,9 @@
             // 
             // btnClose
             // 
-            this.btnClose.Location = new System.Drawing.Point(538, 356);
+            this.btnClose.Location = new System.Drawing.Point(517, 356);
             this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(155, 51);
+            this.btnClose.Size = new System.Drawing.Size(176, 51);
             this.btnClose.TabIndex = 3;
             this.btnClose.Text = "Close";
             this.btnClose.UseVisualStyleBackColor = true;
@@ -88,9 +88,9 @@
             // 
             this.btnViewTransaction.Location = new System.Drawing.Point(12, 356);
             this.btnViewTransaction.Name = "btnViewTransaction";
-            this.btnViewTransaction.Size = new System.Drawing.Size(155, 51);
+            this.btnViewTransaction.Size = new System.Drawing.Size(176, 51);
             this.btnViewTransaction.TabIndex = 5;
-            this.btnViewTransaction.Text = "View Transaction";
+            this.btnViewTransaction.Text = "View Transaction History";
             this.btnViewTransaction.UseVisualStyleBackColor = true;
             this.btnViewTransaction.Click += new System.EventHandler(this.btnViewTransaction_Click);
             // 

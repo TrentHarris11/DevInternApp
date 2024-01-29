@@ -15,21 +15,15 @@ namespace DevInternApp
         public frmMain()
         {
             InitializeComponent();
-            // Event handler for btnDebtors
-            this.btnDebtors.Click += new EventHandler(btnDebtors_Click);
-
-            // Event handler for btnStocks
-            this.btnStock.Click += new EventHandler(btnStock_Click);
-
-            // Event handler for btnInvoicing
-            this.btnInvoices.Click += new EventHandler(btnInvoices_Click);
         }
 
         private void btnDebtors_Click(object sender, EventArgs e)
         {
-            frmDebtorsMaster frm = new frmDebtorsMaster();
-            frm.Show();
-            this.Hide(); //  Hide the main form
+            // Create an instance of the frmDebtorsMaster form
+            frmDebtorsMaster debtorsForm = new frmDebtorsMaster();
+
+            // Show the frmDebtorsMaster form
+            debtorsForm.Show();
         }
 
         private void frmMain_Load(object sender, EventArgs e)
@@ -39,16 +33,19 @@ namespace DevInternApp
 
         private void btnStock_Click(object sender, EventArgs e)
         {
-            frmStockMaster frm = new frmStockMaster();
-            frm.Show();
-            this.Hide(); //Hide the main form
+            frmStockMaster stockMaster = new frmStockMaster();
+            stockMaster.Show();
         }
 
         private void btnInvoices_Click(object sender, EventArgs e)
         {
-            frmInvoicing frm = new frmInvoicing();
-            frm.Show();
-            this.Hide(); //Hide the main form
+            frmInvoicing frmInvoicingForm = new frmInvoicing();
+            frmInvoicingForm.Show();
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

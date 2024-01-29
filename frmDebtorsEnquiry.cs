@@ -22,7 +22,7 @@ namespace DevInternApp
         // Method to populate the Debtors DataGridView with data from the database
         private void PopulateDebtorsDataGridView()
         {
-            string connectionString = "data source=user\\SQLEXPRESS;initial catalog=xact1;trusted_connection=true"; // Replace with your actual connection string
+            string connectionString = "data source=user\\SQLEXPRESS;initial catalog=xact1;trusted_connection=true"; 
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -52,7 +52,7 @@ namespace DevInternApp
         // Method to search for specific debtors
         private void SearchDebtors(string searchTerm)
         {
-            string connectionString = "data source=user\\SQLEXPRESS;initial catalog=xact1;trusted_connection=true"; // Replace with your actual connection string
+            string connectionString = "data source=user\\SQLEXPRESS;initial catalog=xact1;trusted_connection=true"; 
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {

@@ -21,7 +21,7 @@ namespace DevInternApp
         // Method to populate the form with debtor data
         private void PopulateDebtorData(int accountCode)
         {
-            string connectionString = "data source=user\\SQLEXPRESS;initial catalog=xact1;trusted_connection=true"; // Replace with your actual connection string
+            string connectionString = "data source=user\\SQLEXPRESS;initial catalog=xact1;trusted_connection=true"; 
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -48,9 +48,9 @@ namespace DevInternApp
                     }
                     else
                     {
-                        MessageBox.Show("Debtor not found.");
+                       //MessageBox.Show("Debtor not found.");
                     }
-                }
+                }     
                 catch (Exception ex)
                 {
                     MessageBox.Show("An error occurred: " + ex.Message);
@@ -69,7 +69,7 @@ namespace DevInternApp
             decimal salesYearToDate = nudSalesYear.Value;
             decimal costYearToDate = nudCostYear.Value;
 
-            // Validate input data (add your validation logic here)
+            // Validate input data
 
             // Insert a new record into the database
             string connectionString = "data source=user\\SQLEXPRESS;initial catalog=xact1;trusted_connection=true"; 
@@ -122,7 +122,7 @@ namespace DevInternApp
             // Validate input data (add your validation logic here)
 
             // Update the corresponding record in the database
-            string connectionString = "data source=user\\SQLEXPRESS;initial catalog=xact1;trusted_connection=true"; // Replace with your actual connection string
+            string connectionString = "data source=user\\SQLEXPRESS;initial catalog=xact1;trusted_connection=true"; 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 string updateQuery = "UPDATE DebtorsMaster " +
@@ -170,7 +170,7 @@ namespace DevInternApp
                 // Delete the corresponding record from the database
                 int accountCode = Convert.ToInt32(txbAccountCode.Text); // Assuming the account code is used to identify the debtor record
 
-                string connectionString = "data source=user\\SQLEXPRESS;initial catalog=xact1;trusted_connection=true"; // Replace with your actual connection string
+                string connectionString = "data source=user\\SQLEXPRESS;initial catalog=xact1;trusted_connection=true"; 
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {
                     string deleteQuery = "DELETE FROM DebtorsMaster WHERE AccountCode = @AccountCode";
@@ -214,6 +214,12 @@ namespace DevInternApp
             this.Close(); // Close the current form (frmStockEnquiry)
             //frmMain mainForm = new frmMain();
             //mainForm.Show(); // Show the main form (frmMain)
+        }
+
+        private void btnDebtorsEnquiry_Click(object sender, EventArgs e)
+        {
+            frmDebtorsEnquiry debtorsEnquiry = new frmDebtorsEnquiry();
+            debtorsEnquiry.Show();
         }
     }
 }

@@ -20,7 +20,7 @@ namespace DevInternApp
 
         private void PopulateStockDataGridView()
         {
-            string connectionString = "data source=user\\SQLEXPRESS;initial catalog=xact1;trusted_connection=true"; // 
+            string connectionString = "data source=user\\SQLEXPRESS;initial catalog=xact1;trusted_connection=true"; 
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {

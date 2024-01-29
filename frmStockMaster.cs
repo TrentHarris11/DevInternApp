@@ -77,7 +77,7 @@ namespace DevInternApp
             // Validate input data (add your validation logic here)
 
             // Insert a new record into the database
-            string connectionString = "data source=user\\SQLEXPRESS;initial catalog=xact1;trusted_connection=true"; // Replace with your actual connection string
+            string connectionString = "data source=user\\SQLEXPRESS;initial catalog=xact1;trusted_connection=true"; 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 string insertQuery = "INSERT INTO StockMaster (StockCode, StockDescription, Cost, SellingPrice, TotalPurchasesExclVAT, TotalSalesExclVAT, QtyPurchased, QtySold, StockOnHand) " +
@@ -136,7 +136,7 @@ namespace DevInternApp
             // Validate input data (add your validation logic here)
 
             // Update the corresponding record in the database
-            string connectionString = "data source=user\\SQLEXPRESS;initial catalog=xact1;trusted_connection=true"; // Replace with your actual connection string
+            string connectionString = "data source=user\\SQLEXPRESS;initial catalog=xact1;trusted_connection=true"; 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 string updateQuery = "UPDATE StockMaster " +
@@ -187,7 +187,7 @@ namespace DevInternApp
                 // Delete the corresponding record from the database
                 string stockCode = txbStockCode.Text; // Assuming the stock code is used to identify the stock record
 
-                string connectionString = "data source=user\\SQLEXPRESS;initial catalog=xact1;trusted_connection=true"; // Replace with your actual connection string
+                string connectionString = "data source=user\\SQLEXPRESS;initial catalog=xact1;trusted_connection=true"; 
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {
                     string deleteQuery = "DELETE FROM StockMaster WHERE StockCode = @StockCode";
@@ -222,6 +222,12 @@ namespace DevInternApp
             this.Close(); // Close the current form (frmStockEnquiry)
             //frmMain mainForm = new frmMain();
             //mainForm.Show(); // Show the main form (frmMain)
+        }
+
+        private void btnStockMaster_Click(object sender, EventArgs e)
+        {
+            frmStockEnquiry stockEnquiry = new frmStockEnquiry();
+            stockEnquiry.Show();
         }
     }
 }

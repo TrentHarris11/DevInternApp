@@ -24,8 +24,7 @@ namespace DevInternApp
 
         private void PopulateTransactionHistoryDataGridView()
         {
-            // Populate the DataGridView with transaction details based on the selected account code
-            // Replace this with your actual code to retrieve transaction details from the database
+            
             DataTable transactionData = GetTransactionData(selectedAccountCode); // Method to retrieve transaction data
 
             // Bind the transaction data to the DataGridView
@@ -36,7 +35,7 @@ namespace DevInternApp
         {
             DataTable transactionData = new DataTable();
 
-            // Replace "YourConnectionString" with your actual database connection string
+            
             string connectionString = "data source=user\\SQLEXPRESS;initial catalog=xact1;trusted_connection=true";
 
             // SQL query to retrieve transaction details based on the account code

@@ -46,6 +46,7 @@
             this.btnUpdate = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnMainScreen = new System.Windows.Forms.Button();
+            this.btnDebtorsEnquiry = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.nudBalance)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudCostYear)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudSalesYear)).BeginInit();
@@ -55,12 +56,17 @@
             // 
             this.txbAccountCode.Location = new System.Drawing.Point(155, 41);
             this.txbAccountCode.Name = "txbAccountCode";
-            this.txbAccountCode.Size = new System.Drawing.Size(188, 28);
+            this.txbAccountCode.Size = new System.Drawing.Size(188, 22);
             this.txbAccountCode.TabIndex = 0;
             // 
             // nudBalance
             // 
             this.nudBalance.Location = new System.Drawing.Point(531, 45);
+            this.nudBalance.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
             this.nudBalance.Name = "nudBalance";
             this.nudBalance.Size = new System.Drawing.Size(188, 22);
             this.nudBalance.TabIndex = 1;
@@ -68,6 +74,11 @@
             // nudCostYear
             // 
             this.nudCostYear.Location = new System.Drawing.Point(531, 179);
+            this.nudCostYear.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
             this.nudCostYear.Name = "nudCostYear";
             this.nudCostYear.Size = new System.Drawing.Size(188, 22);
             this.nudCostYear.TabIndex = 2;
@@ -75,6 +86,11 @@
             // nudSalesYear
             // 
             this.nudSalesYear.Location = new System.Drawing.Point(531, 104);
+            this.nudSalesYear.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
             this.nudSalesYear.Name = "nudSalesYear";
             this.nudSalesYear.Size = new System.Drawing.Size(188, 22);
             this.nudSalesYear.TabIndex = 3;
@@ -83,21 +99,21 @@
             // 
             this.txbAddress1.Location = new System.Drawing.Point(155, 103);
             this.txbAddress1.Name = "txbAddress1";
-            this.txbAddress1.Size = new System.Drawing.Size(188, 28);
+            this.txbAddress1.Size = new System.Drawing.Size(188, 22);
             this.txbAddress1.TabIndex = 4;
             // 
             // txbAddress2
             // 
             this.txbAddress2.Location = new System.Drawing.Point(155, 173);
             this.txbAddress2.Name = "txbAddress2";
-            this.txbAddress2.Size = new System.Drawing.Size(188, 28);
+            this.txbAddress2.Size = new System.Drawing.Size(188, 22);
             this.txbAddress2.TabIndex = 5;
             // 
             // txbAddress3
             // 
             this.txbAddress3.Location = new System.Drawing.Point(155, 232);
             this.txbAddress3.Name = "txbAddress3";
-            this.txbAddress3.Size = new System.Drawing.Size(188, 28);
+            this.txbAddress3.Size = new System.Drawing.Size(188, 22);
             this.txbAddress3.TabIndex = 6;
             // 
             // lblAccountCode
@@ -105,7 +121,7 @@
             this.lblAccountCode.AutoSize = true;
             this.lblAccountCode.Location = new System.Drawing.Point(12, 41);
             this.lblAccountCode.Name = "lblAccountCode";
-            this.lblAccountCode.Size = new System.Drawing.Size(114, 20);
+            this.lblAccountCode.Size = new System.Drawing.Size(91, 16);
             this.lblAccountCode.TabIndex = 7;
             this.lblAccountCode.Text = "Account Code";
             // 
@@ -114,7 +130,7 @@
             this.lblAddress.AutoSize = true;
             this.lblAddress.Location = new System.Drawing.Point(12, 109);
             this.lblAddress.Name = "lblAddress";
-            this.lblAddress.Size = new System.Drawing.Size(73, 20);
+            this.lblAddress.Size = new System.Drawing.Size(58, 16);
             this.lblAddress.TabIndex = 8;
             this.lblAddress.Text = "Address";
             // 
@@ -132,7 +148,7 @@
             this.lblPostalCode.AutoSize = true;
             this.lblPostalCode.Location = new System.Drawing.Point(12, 238);
             this.lblPostalCode.Name = "lblPostalCode";
-            this.lblPostalCode.Size = new System.Drawing.Size(101, 20);
+            this.lblPostalCode.Size = new System.Drawing.Size(81, 16);
             this.lblPostalCode.TabIndex = 10;
             this.lblPostalCode.Text = "Postal Code";
             // 
@@ -141,7 +157,7 @@
             this.lblBalance.AutoSize = true;
             this.lblBalance.Location = new System.Drawing.Point(377, 47);
             this.lblBalance.Name = "lblBalance";
-            this.lblBalance.Size = new System.Drawing.Size(71, 20);
+            this.lblBalance.Size = new System.Drawing.Size(57, 16);
             this.lblBalance.TabIndex = 11;
             this.lblBalance.Text = "Balance";
             // 
@@ -165,7 +181,7 @@
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(60, 341);
+            this.btnAdd.Location = new System.Drawing.Point(15, 336);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(130, 47);
             this.btnAdd.TabIndex = 14;
@@ -175,7 +191,7 @@
             // 
             // btnUpdate
             // 
-            this.btnUpdate.Location = new System.Drawing.Point(237, 341);
+            this.btnUpdate.Location = new System.Drawing.Point(172, 336);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(130, 47);
             this.btnUpdate.TabIndex = 15;
@@ -185,7 +201,7 @@
             // 
             // btnDelete
             // 
-            this.btnDelete.Location = new System.Drawing.Point(421, 341);
+            this.btnDelete.Location = new System.Drawing.Point(329, 336);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(130, 47);
             this.btnDelete.TabIndex = 16;
@@ -195,7 +211,7 @@
             // 
             // btnMainScreen
             // 
-            this.btnMainScreen.Location = new System.Drawing.Point(599, 341);
+            this.btnMainScreen.Location = new System.Drawing.Point(658, 336);
             this.btnMainScreen.Name = "btnMainScreen";
             this.btnMainScreen.Size = new System.Drawing.Size(130, 47);
             this.btnMainScreen.TabIndex = 17;
@@ -203,11 +219,22 @@
             this.btnMainScreen.UseVisualStyleBackColor = true;
             this.btnMainScreen.Click += new System.EventHandler(this.btnMainScreen_Click);
             // 
+            // btnDebtorsEnquiry
+            // 
+            this.btnDebtorsEnquiry.Location = new System.Drawing.Point(496, 336);
+            this.btnDebtorsEnquiry.Name = "btnDebtorsEnquiry";
+            this.btnDebtorsEnquiry.Size = new System.Drawing.Size(130, 47);
+            this.btnDebtorsEnquiry.TabIndex = 18;
+            this.btnDebtorsEnquiry.Text = "View Debtors";
+            this.btnDebtorsEnquiry.UseVisualStyleBackColor = true;
+            this.btnDebtorsEnquiry.Click += new System.EventHandler(this.btnDebtorsEnquiry_Click);
+            // 
             // frmDebtorsMaster
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnDebtorsEnquiry);
             this.Controls.Add(this.btnMainScreen);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnUpdate);
@@ -257,5 +284,6 @@
         private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnMainScreen;
+        private System.Windows.Forms.Button btnDebtorsEnquiry;
     }
 }

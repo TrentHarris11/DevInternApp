@@ -50,6 +50,7 @@
             this.btnUpdate = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnMainScreen = new System.Windows.Forms.Button();
+            this.btnStockMaster = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.nudSellingP)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudPurchasesExclVat)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudSalesExclVat)).BeginInit();
@@ -97,6 +98,11 @@
             // nudQtyPurchased
             // 
             this.nudQtyPurchased.Location = new System.Drawing.Point(653, 13);
+            this.nudQtyPurchased.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
             this.nudQtyPurchased.Name = "nudQtyPurchased";
             this.nudQtyPurchased.Size = new System.Drawing.Size(120, 22);
             this.nudQtyPurchased.TabIndex = 5;
@@ -104,6 +110,11 @@
             // nudQtySold
             // 
             this.nudQtySold.Location = new System.Drawing.Point(653, 64);
+            this.nudQtySold.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
             this.nudQtySold.Name = "nudQtySold";
             this.nudQtySold.Size = new System.Drawing.Size(120, 22);
             this.nudQtySold.TabIndex = 6;
@@ -111,6 +122,11 @@
             // nudStock
             // 
             this.nudStock.Location = new System.Drawing.Point(653, 126);
+            this.nudStock.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
             this.nudStock.Name = "nudStock";
             this.nudStock.Size = new System.Drawing.Size(120, 22);
             this.nudStock.TabIndex = 7;
@@ -215,7 +231,7 @@
             // 
             // btnUpdate
             // 
-            this.btnUpdate.Location = new System.Drawing.Point(202, 375);
+            this.btnUpdate.Location = new System.Drawing.Point(165, 375);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(130, 47);
             this.btnUpdate.TabIndex = 20;
@@ -225,7 +241,7 @@
             // 
             // btnDelete
             // 
-            this.btnDelete.Location = new System.Drawing.Point(395, 375);
+            this.btnDelete.Location = new System.Drawing.Point(327, 375);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(130, 47);
             this.btnDelete.TabIndex = 21;
@@ -235,7 +251,7 @@
             // 
             // btnMainScreen
             // 
-            this.btnMainScreen.Location = new System.Drawing.Point(581, 375);
+            this.btnMainScreen.Location = new System.Drawing.Point(643, 375);
             this.btnMainScreen.Name = "btnMainScreen";
             this.btnMainScreen.Size = new System.Drawing.Size(130, 47);
             this.btnMainScreen.TabIndex = 22;
@@ -243,11 +259,22 @@
             this.btnMainScreen.UseVisualStyleBackColor = true;
             this.btnMainScreen.Click += new System.EventHandler(this.btnMainScreen_Click);
             // 
+            // btnStockMaster
+            // 
+            this.btnStockMaster.Location = new System.Drawing.Point(487, 375);
+            this.btnStockMaster.Name = "btnStockMaster";
+            this.btnStockMaster.Size = new System.Drawing.Size(130, 47);
+            this.btnStockMaster.TabIndex = 23;
+            this.btnStockMaster.Text = "View Stocks";
+            this.btnStockMaster.UseVisualStyleBackColor = true;
+            this.btnStockMaster.Click += new System.EventHandler(this.btnStockMaster_Click);
+            // 
             // frmStockMaster
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnStockMaster);
             this.Controls.Add(this.btnMainScreen);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnUpdate);
@@ -309,5 +336,6 @@
         private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnMainScreen;
+        private System.Windows.Forms.Button btnStockMaster;
     }
 }
