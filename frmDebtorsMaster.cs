@@ -33,7 +33,7 @@ namespace DevInternApp
                 try
                 {
                     connection.Open();
-                    SqlDataReader reader = command.ExecuteReader();
+                    SqlDataReader reader = command.ExecuteReader(); //Retrieving data
 
                     if (reader.Read())
                     {
@@ -48,7 +48,7 @@ namespace DevInternApp
                     }
                     else
                     {
-                       //MessageBox.Show("Debtor not found.");
+                       MessageBox.Show("Debtor not found.");
                     }
                 }     
                 catch (Exception ex)

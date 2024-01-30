@@ -14,12 +14,49 @@ namespace DevInternApp
     public partial class frmInvoicing : Form
     {
 
-        
+        private int currentInvoiceNo;
         public frmInvoicing()
         {
             InitializeComponent();
             dtpInvoice.Value = DateTime.Now; // Set to current date
             PopulateDebtorComboBox();
+            PopulateInvoiceDetails();
+        }
+
+        private void PopulateInvoiceDetails()
+        {
+            DataTable invoiceDetails = GetInvoiceDetails(currentInvoiceNo);
+            dataGridViewDisplay.DataSource = invoiceDetails;
+        }
+
+        private DataTable GetInvoiceDetails(int invoiceNo)
+        {
+            DataTable dtInvoiceDetails = new DataTable();
+            string connectionString = "data source=user\\SQLEXPRESS;initial catalog=xact1;trusted_connection=true";
+            string query = @"
+            SELECT id.StockCode, sm.StockDescription, id.QtySold, id.UnitCost, id.UnitSell, id.Disc, id.Total
+            FROM InvoiceDetail id
+            INNER JOIN StockMaster sm ON id.StockCode = sm.StockCode
+            WHERE id.InvoiceNo = @InvoiceNo";
+
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                SqlCommand cmd = new SqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@InvoiceNo", invoiceNo);
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+
+                try
+                {
+                    conn.Open();
+                    da.Fill(dtInvoiceDetails);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("An error occurred while populating invoice details: " + ex.Message);
+                }
+            }
+
+            return dtInvoiceDetails;
         }
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -60,9 +97,10 @@ namespace DevInternApp
 
         private void frmInvoicing_Load(object sender, EventArgs e)
         {
-            
+            PopulateDebtorComboBox();
         }
 
+       
         private void btnSave_Click(object sender, EventArgs e)
         {
            
@@ -78,6 +116,11 @@ namespace DevInternApp
             dataGridViewDisplay.Columns.Add("UnitSell", "Unit Sell");
             dataGridViewDisplay.Columns.Add("Discount", "Discount");
             dataGridViewDisplay.Columns.Add("Total", "Total");
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
