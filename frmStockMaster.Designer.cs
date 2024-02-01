@@ -77,6 +77,11 @@
             // nudSellingP
             // 
             this.nudSellingP.Location = new System.Drawing.Point(202, 185);
+            this.nudSellingP.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
             this.nudSellingP.Name = "nudSellingP";
             this.nudSellingP.Size = new System.Drawing.Size(120, 22);
             this.nudSellingP.TabIndex = 2;
@@ -84,6 +89,11 @@
             // nudPurchasesExclVat
             // 
             this.nudPurchasesExclVat.Location = new System.Drawing.Point(202, 238);
+            this.nudPurchasesExclVat.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
             this.nudPurchasesExclVat.Name = "nudPurchasesExclVat";
             this.nudPurchasesExclVat.Size = new System.Drawing.Size(120, 22);
             this.nudPurchasesExclVat.TabIndex = 3;
@@ -91,6 +101,11 @@
             // nudSalesExclVat
             // 
             this.nudSalesExclVat.Location = new System.Drawing.Point(202, 290);
+            this.nudSalesExclVat.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
             this.nudSalesExclVat.Name = "nudSalesExclVat";
             this.nudSalesExclVat.Size = new System.Drawing.Size(120, 22);
             this.nudSalesExclVat.TabIndex = 4;
@@ -134,6 +149,11 @@
             // nudCost
             // 
             this.nudCost.Location = new System.Drawing.Point(202, 137);
+            this.nudCost.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
             this.nudCost.Name = "nudCost";
             this.nudCost.Size = new System.Drawing.Size(120, 22);
             this.nudCost.TabIndex = 8;

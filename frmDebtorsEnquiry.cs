@@ -118,5 +118,10 @@ namespace DevInternApp
             //frmMain mainForm = new frmMain();
             //mainForm.Show(); // Show the main form (frmMain)
         }
+
+        private void dataGridViewDisplay_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

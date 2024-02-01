@@ -48,7 +48,7 @@ namespace DevInternApp
                     }
                     else
                     {
-                       MessageBox.Show("Debtor not found.");
+                      //MessageBox.Show("Debtor not found.");
                     }
                 }     
                 catch (Exception ex)
