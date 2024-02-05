@@ -230,7 +230,7 @@
             // 
             // dtpDate
             // 
-            this.dtpDate.Location = new System.Drawing.Point(175, 120);
+            this.dtpDate.Location = new System.Drawing.Point(175, 118);
             this.dtpDate.Name = "dtpDate";
             this.dtpDate.Size = new System.Drawing.Size(244, 22);
             this.dtpDate.TabIndex = 37;

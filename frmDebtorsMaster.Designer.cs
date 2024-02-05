@@ -54,136 +54,152 @@
             // 
             // txbAccountCode
             // 
-            this.txbAccountCode.Location = new System.Drawing.Point(155, 41);
+            this.txbAccountCode.Location = new System.Drawing.Point(116, 33);
+            this.txbAccountCode.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txbAccountCode.Name = "txbAccountCode";
-            this.txbAccountCode.Size = new System.Drawing.Size(188, 22);
+            this.txbAccountCode.Size = new System.Drawing.Size(142, 20);
             this.txbAccountCode.TabIndex = 0;
+            this.txbAccountCode.TextChanged += new System.EventHandler(this.txbAccountCode_TextChanged);
             // 
             // nudBalance
             // 
-            this.nudBalance.Location = new System.Drawing.Point(531, 45);
+            this.nudBalance.Location = new System.Drawing.Point(398, 37);
+            this.nudBalance.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.nudBalance.Maximum = new decimal(new int[] {
             10000,
             0,
             0,
             0});
             this.nudBalance.Name = "nudBalance";
-            this.nudBalance.Size = new System.Drawing.Size(188, 22);
+            this.nudBalance.Size = new System.Drawing.Size(141, 20);
             this.nudBalance.TabIndex = 1;
             // 
             // nudCostYear
             // 
-            this.nudCostYear.Location = new System.Drawing.Point(531, 179);
+            this.nudCostYear.Location = new System.Drawing.Point(398, 145);
+            this.nudCostYear.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.nudCostYear.Maximum = new decimal(new int[] {
             10000,
             0,
             0,
             0});
             this.nudCostYear.Name = "nudCostYear";
-            this.nudCostYear.Size = new System.Drawing.Size(188, 22);
+            this.nudCostYear.Size = new System.Drawing.Size(141, 20);
             this.nudCostYear.TabIndex = 2;
             // 
             // nudSalesYear
             // 
-            this.nudSalesYear.Location = new System.Drawing.Point(531, 104);
+            this.nudSalesYear.Location = new System.Drawing.Point(398, 84);
+            this.nudSalesYear.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.nudSalesYear.Maximum = new decimal(new int[] {
             10000,
             0,
             0,
             0});
             this.nudSalesYear.Name = "nudSalesYear";
-            this.nudSalesYear.Size = new System.Drawing.Size(188, 22);
+            this.nudSalesYear.Size = new System.Drawing.Size(141, 20);
             this.nudSalesYear.TabIndex = 3;
             // 
             // txbAddress1
             // 
-            this.txbAddress1.Location = new System.Drawing.Point(155, 103);
+            this.txbAddress1.Location = new System.Drawing.Point(116, 84);
+            this.txbAddress1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txbAddress1.Name = "txbAddress1";
-            this.txbAddress1.Size = new System.Drawing.Size(188, 22);
+            this.txbAddress1.Size = new System.Drawing.Size(142, 20);
             this.txbAddress1.TabIndex = 4;
             // 
             // txbAddress2
             // 
-            this.txbAddress2.Location = new System.Drawing.Point(155, 173);
+            this.txbAddress2.Location = new System.Drawing.Point(116, 141);
+            this.txbAddress2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txbAddress2.Name = "txbAddress2";
-            this.txbAddress2.Size = new System.Drawing.Size(188, 22);
+            this.txbAddress2.Size = new System.Drawing.Size(142, 20);
             this.txbAddress2.TabIndex = 5;
             // 
             // txbAddress3
             // 
-            this.txbAddress3.Location = new System.Drawing.Point(155, 232);
+            this.txbAddress3.Location = new System.Drawing.Point(116, 188);
+            this.txbAddress3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txbAddress3.Name = "txbAddress3";
-            this.txbAddress3.Size = new System.Drawing.Size(188, 22);
+            this.txbAddress3.Size = new System.Drawing.Size(142, 20);
             this.txbAddress3.TabIndex = 6;
             // 
             // lblAccountCode
             // 
             this.lblAccountCode.AutoSize = true;
-            this.lblAccountCode.Location = new System.Drawing.Point(12, 41);
+            this.lblAccountCode.Location = new System.Drawing.Point(9, 33);
+            this.lblAccountCode.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblAccountCode.Name = "lblAccountCode";
-            this.lblAccountCode.Size = new System.Drawing.Size(91, 16);
+            this.lblAccountCode.Size = new System.Drawing.Size(75, 13);
             this.lblAccountCode.TabIndex = 7;
             this.lblAccountCode.Text = "Account Code";
             // 
             // lblAddress
             // 
             this.lblAddress.AutoSize = true;
-            this.lblAddress.Location = new System.Drawing.Point(12, 109);
+            this.lblAddress.Location = new System.Drawing.Point(9, 89);
+            this.lblAddress.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblAddress.Name = "lblAddress";
-            this.lblAddress.Size = new System.Drawing.Size(58, 16);
+            this.lblAddress.Size = new System.Drawing.Size(45, 13);
             this.lblAddress.TabIndex = 8;
             this.lblAddress.Text = "Address";
             // 
             // lblCity
             // 
             this.lblCity.AutoSize = true;
-            this.lblCity.Location = new System.Drawing.Point(12, 179);
+            this.lblCity.Location = new System.Drawing.Point(9, 145);
+            this.lblCity.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblCity.Name = "lblCity";
-            this.lblCity.Size = new System.Drawing.Size(29, 16);
+            this.lblCity.Size = new System.Drawing.Size(24, 13);
             this.lblCity.TabIndex = 9;
             this.lblCity.Text = "City";
             // 
             // lblPostalCode
             // 
             this.lblPostalCode.AutoSize = true;
-            this.lblPostalCode.Location = new System.Drawing.Point(12, 238);
+            this.lblPostalCode.Location = new System.Drawing.Point(9, 193);
+            this.lblPostalCode.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblPostalCode.Name = "lblPostalCode";
-            this.lblPostalCode.Size = new System.Drawing.Size(81, 16);
+            this.lblPostalCode.Size = new System.Drawing.Size(64, 13);
             this.lblPostalCode.TabIndex = 10;
             this.lblPostalCode.Text = "Postal Code";
             // 
             // lblBalance
             // 
             this.lblBalance.AutoSize = true;
-            this.lblBalance.Location = new System.Drawing.Point(377, 47);
+            this.lblBalance.Location = new System.Drawing.Point(283, 38);
+            this.lblBalance.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblBalance.Name = "lblBalance";
-            this.lblBalance.Size = new System.Drawing.Size(57, 16);
+            this.lblBalance.Size = new System.Drawing.Size(46, 13);
             this.lblBalance.TabIndex = 11;
             this.lblBalance.Text = "Balance";
             // 
             // lblSalesYearToDate
             // 
             this.lblSalesYearToDate.AutoSize = true;
-            this.lblSalesYearToDate.Location = new System.Drawing.Point(377, 109);
+            this.lblSalesYearToDate.Location = new System.Drawing.Point(283, 89);
+            this.lblSalesYearToDate.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblSalesYearToDate.Name = "lblSalesYearToDate";
-            this.lblSalesYearToDate.Size = new System.Drawing.Size(129, 16);
+            this.lblSalesYearToDate.Size = new System.Drawing.Size(103, 13);
             this.lblSalesYearToDate.TabIndex = 12;
             this.lblSalesYearToDate.Text = "Sales Year To Date:";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(377, 181);
+            this.label7.Location = new System.Drawing.Point(283, 147);
+            this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(118, 16);
+            this.label7.Size = new System.Drawing.Size(95, 13);
             this.label7.TabIndex = 13;
             this.label7.Text = "Cost Year To Date";
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(15, 336);
+            this.btnAdd.Location = new System.Drawing.Point(11, 273);
+            this.btnAdd.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(130, 47);
+            this.btnAdd.Size = new System.Drawing.Size(98, 38);
             this.btnAdd.TabIndex = 14;
             this.btnAdd.Text = "Add";
             this.btnAdd.UseVisualStyleBackColor = true;
@@ -191,9 +207,10 @@
             // 
             // btnUpdate
             // 
-            this.btnUpdate.Location = new System.Drawing.Point(172, 336);
+            this.btnUpdate.Location = new System.Drawing.Point(129, 273);
+            this.btnUpdate.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(130, 47);
+            this.btnUpdate.Size = new System.Drawing.Size(98, 38);
             this.btnUpdate.TabIndex = 15;
             this.btnUpdate.Text = "Update";
             this.btnUpdate.UseVisualStyleBackColor = true;
@@ -201,9 +218,10 @@
             // 
             // btnDelete
             // 
-            this.btnDelete.Location = new System.Drawing.Point(329, 336);
+            this.btnDelete.Location = new System.Drawing.Point(247, 273);
+            this.btnDelete.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(130, 47);
+            this.btnDelete.Size = new System.Drawing.Size(98, 38);
             this.btnDelete.TabIndex = 16;
             this.btnDelete.Text = "Delete";
             this.btnDelete.UseVisualStyleBackColor = true;
@@ -211,9 +229,10 @@
             // 
             // btnMainScreen
             // 
-            this.btnMainScreen.Location = new System.Drawing.Point(658, 336);
+            this.btnMainScreen.Location = new System.Drawing.Point(494, 273);
+            this.btnMainScreen.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnMainScreen.Name = "btnMainScreen";
-            this.btnMainScreen.Size = new System.Drawing.Size(130, 47);
+            this.btnMainScreen.Size = new System.Drawing.Size(98, 38);
             this.btnMainScreen.TabIndex = 17;
             this.btnMainScreen.Text = "Main Screen";
             this.btnMainScreen.UseVisualStyleBackColor = true;
@@ -221,9 +240,10 @@
             // 
             // btnDebtorsEnquiry
             // 
-            this.btnDebtorsEnquiry.Location = new System.Drawing.Point(496, 336);
+            this.btnDebtorsEnquiry.Location = new System.Drawing.Point(372, 273);
+            this.btnDebtorsEnquiry.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnDebtorsEnquiry.Name = "btnDebtorsEnquiry";
-            this.btnDebtorsEnquiry.Size = new System.Drawing.Size(130, 47);
+            this.btnDebtorsEnquiry.Size = new System.Drawing.Size(98, 38);
             this.btnDebtorsEnquiry.TabIndex = 18;
             this.btnDebtorsEnquiry.Text = "View Debtors";
             this.btnDebtorsEnquiry.UseVisualStyleBackColor = true;
@@ -231,9 +251,9 @@
             // 
             // frmDebtorsMaster
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(600, 366);
             this.Controls.Add(this.btnDebtorsEnquiry);
             this.Controls.Add(this.btnMainScreen);
             this.Controls.Add(this.btnDelete);
@@ -253,6 +273,7 @@
             this.Controls.Add(this.nudCostYear);
             this.Controls.Add(this.nudBalance);
             this.Controls.Add(this.txbAccountCode);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "frmDebtorsMaster";
             this.Text = "frmDebtorsMaster";
             this.Load += new System.EventHandler(this.frmDebtorsMaster_Load);

@@ -111,8 +111,27 @@ namespace DevInternApp
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            frmInvoiceHeader frmInvoiceHeader = new frmInvoiceHeader();
+            // Assuming you have a way to obtain the currently selected InvoiceNo from your DataGridView or another control
+            int invoiceNo = GetSelectedInvoiceNo();
+
+            // Now, you pass this invoiceNo when constructing the frmInvoiceDetails form
+            frmInvoiceDetails frmInvoiceHeader = new frmInvoiceDetails(invoiceNo);
             frmInvoiceHeader.Show();
+        }
+
+        private int GetSelectedInvoiceNo()
+        {
+            // You need to implement the logic to retrieve the selected invoice number from your DataGridView
+            // Here is just a placeholder for the logic you need to implement
+            if (dataGridViewDisplay.CurrentRow != null)
+            {
+                return Convert.ToInt32(dataGridViewDisplay.CurrentRow.Cells["InvoiceNo"].Value); //
+            }
+            else
+            {
+                MessageBox.Show("Please select an invoice from the list.");
+                return 0; // Or handle this scenario appropriately
+            }
         }
 
         private void lblTotalCost_Click(object sender, EventArgs e)
@@ -123,25 +142,42 @@ namespace DevInternApp
         private void btnAddInvoice_Click(object sender, EventArgs e)
         {
             string connectionString = @"data source=user\SQLEXPRESS;initial catalog=xact1;trusted_connection=true";
-            int accountCode;
-            if (!int.TryParse(txbAccCode.Text, out accountCode))
+            // Attempt to parse the account code from the textbox
+            if (!int.TryParse(txbAccCode.Text, out int accountCode))
             {
                 MessageBox.Show("Please enter a valid Account Code.");
                 return;
             }
 
             // Parse other input values, performing validation as necessary
-            decimal totalSellExclVat = decimal.Parse(txbTotalSellExclVat.Text);
-            decimal vat = decimal.Parse(txbVat.Text);
-            decimal totalCost = decimal.Parse(txbTotalCost.Text);
-            DateTime invoiceDate = dtpDate.Value;
+            if (!decimal.TryParse(txbTotalSellExclVat.Text, out decimal totalSellExclVat))
+            {
+                MessageBox.Show("Please enter a valid Total Sell Amount Excluding VAT.");
+                return;
+            }
+
+            if (!decimal.TryParse(txbVat.Text, out decimal vat))
+            {
+                MessageBox.Show("Please enter a valid VAT amount.");
+                return;
+            }
+
+            if (!decimal.TryParse(txbTotalCost.Text, out decimal totalCost))
+            {
+                MessageBox.Show("Please enter a valid Total Cost amount.");
+                return;
+            }
+
+            DateTime invoiceDate = dtpDate.Value; // Get the date from the DateTimePicker
 
             string insertQuery = @"INSERT INTO InvoiceHeader (AccountCode, Date, TotalSellAmountExclVAT, Vat, TotalCost)
-                           VALUES (@AccountCode, @Date, @TotalSellAmountExclVAT, @Vat, @TotalCost);";
+                           VALUES (@AccountCode, @Date, @TotalSellAmountExclVAT, @Vat, @TotalCost);
+                           SELECT SCOPE_IDENTITY();"; // This will return the last identity value inserted
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             using (SqlCommand command = new SqlCommand(insertQuery, connection))
             {
+                // Add parameters to SqlCommand
                 command.Parameters.AddWithValue("@AccountCode", accountCode);
                 command.Parameters.AddWithValue("@Date", invoiceDate);
                 command.Parameters.AddWithValue("@TotalSellAmountExclVAT", totalSellExclVat);
@@ -151,16 +187,19 @@ namespace DevInternApp
                 try
                 {
                     connection.Open();
-                    command.ExecuteNonQuery();
-                    MessageBox.Show("Invoice added successfully.");
+                    // ExecuteScalar() is used because SCOPE_IDENTITY() returns a value
+                    var invoiceNo = command.ExecuteScalar();
 
-                    // Optionally retrieve and show the generated InvoiceNo here
-                    // Clear the form fields after successful insertion
-                    ClearFormFields();
+                    // If the insert was successful and an identity value was generated,
+                    // it will be assigned to txbInvoiceNo.Text
+                    if (invoiceNo != null)
+                    {
+                        txbInvoiceNo.Text = invoiceNo.ToString();
+                    }
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("An error occurred: " + ex.Message);
+                    MessageBox.Show("An error occurred while inserting the invoice: " + ex.Message);
                 }
             }
         }

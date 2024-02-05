@@ -39,9 +39,10 @@
             // 
             // btnViewTransaction
             // 
-            this.btnViewTransaction.Location = new System.Drawing.Point(12, 320);
+            this.btnViewTransaction.Location = new System.Drawing.Point(9, 260);
+            this.btnViewTransaction.Margin = new System.Windows.Forms.Padding(2);
             this.btnViewTransaction.Name = "btnViewTransaction";
-            this.btnViewTransaction.Size = new System.Drawing.Size(155, 51);
+            this.btnViewTransaction.Size = new System.Drawing.Size(116, 41);
             this.btnViewTransaction.TabIndex = 11;
             this.btnViewTransaction.Text = "View Transaction";
             this.btnViewTransaction.UseVisualStyleBackColor = true;
@@ -50,18 +51,20 @@
             // dataGridViewDisplay
             // 
             this.dataGridViewDisplay.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewDisplay.Location = new System.Drawing.Point(12, 59);
+            this.dataGridViewDisplay.Location = new System.Drawing.Point(9, 48);
+            this.dataGridViewDisplay.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridViewDisplay.Name = "dataGridViewDisplay";
             this.dataGridViewDisplay.RowHeadersWidth = 51;
             this.dataGridViewDisplay.RowTemplate.Height = 24;
-            this.dataGridViewDisplay.Size = new System.Drawing.Size(681, 150);
+            this.dataGridViewDisplay.Size = new System.Drawing.Size(511, 122);
             this.dataGridViewDisplay.TabIndex = 10;
             // 
             // btnClose
             // 
-            this.btnClose.Location = new System.Drawing.Point(538, 320);
+            this.btnClose.Location = new System.Drawing.Point(404, 260);
+            this.btnClose.Margin = new System.Windows.Forms.Padding(2);
             this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(155, 51);
+            this.btnClose.Size = new System.Drawing.Size(116, 41);
             this.btnClose.TabIndex = 9;
             this.btnClose.Text = "Close";
             this.btnClose.UseVisualStyleBackColor = true;
@@ -69,9 +72,10 @@
             // 
             // btnRefresh
             // 
-            this.btnRefresh.Location = new System.Drawing.Point(261, 320);
+            this.btnRefresh.Location = new System.Drawing.Point(200, 260);
+            this.btnRefresh.Margin = new System.Windows.Forms.Padding(2);
             this.btnRefresh.Name = "btnRefresh";
-            this.btnRefresh.Size = new System.Drawing.Size(155, 51);
+            this.btnRefresh.Size = new System.Drawing.Size(116, 41);
             this.btnRefresh.TabIndex = 8;
             this.btnRefresh.Text = "Refresh";
             this.btnRefresh.UseVisualStyleBackColor = true;
@@ -79,9 +83,10 @@
             // 
             // btnSearch
             // 
-            this.btnSearch.Location = new System.Drawing.Point(699, 12);
+            this.btnSearch.Location = new System.Drawing.Point(524, 10);
+            this.btnSearch.Margin = new System.Windows.Forms.Padding(2);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(98, 23);
+            this.btnSearch.Size = new System.Drawing.Size(74, 19);
             this.btnSearch.TabIndex = 7;
             this.btnSearch.Text = "Search";
             this.btnSearch.UseVisualStyleBackColor = true;
@@ -89,22 +94,24 @@
             // 
             // txbSearch
             // 
-            this.txbSearch.Location = new System.Drawing.Point(12, 12);
+            this.txbSearch.Location = new System.Drawing.Point(9, 10);
+            this.txbSearch.Margin = new System.Windows.Forms.Padding(2);
             this.txbSearch.Name = "txbSearch";
-            this.txbSearch.Size = new System.Drawing.Size(681, 22);
+            this.txbSearch.Size = new System.Drawing.Size(512, 20);
             this.txbSearch.TabIndex = 6;
             // 
             // frmStockEnquiry
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(808, 450);
+            this.ClientSize = new System.Drawing.Size(606, 366);
             this.Controls.Add(this.btnViewTransaction);
             this.Controls.Add(this.dataGridViewDisplay);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.btnRefresh);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.txbSearch);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmStockEnquiry";
             this.Text = "frmStockEnquiry";
             this.Load += new System.EventHandler(this.frmStockEnquiry_Load);

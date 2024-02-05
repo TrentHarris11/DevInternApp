@@ -74,5 +74,42 @@ namespace DevInternApp
         {
             this.Close();
         }
+
+        private void InsertNewStockTransaction()
+        {
+            string connectionString = "data source=user\\SQLEXPRESS;initial catalog=xact1;trusted_connection=true";
+            string insertQuery = @"INSERT INTO StockTransaction (StockCode, Date, TransactionType, DocumentNo, Qty, UnitCost, UnitSell)
+                           VALUES (@StockCode, @Date, @TransactionType, @DocumentNo, @Qty, @UnitCost, @UnitSell);";
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            using (SqlCommand command = new SqlCommand(insertQuery, connection))
+            {
+                // Add parameter values from form controls
+                command.Parameters.AddWithValue("@StockCode", selectedStockCode);
+                command.Parameters.AddWithValue("@Date", dtpDate.Value);
+                command.Parameters.AddWithValue("@TransactionType", txbTransactionType.Text);
+                command.Parameters.AddWithValue("@DocumentNo", txbDocumentNo.Text);
+                command.Parameters.AddWithValue("@Qty", Convert.ToInt32(txbQty.Text));
+                command.Parameters.AddWithValue("@UnitCost", Convert.ToDecimal(txbUnitCost.Text));
+                command.Parameters.AddWithValue("@UnitSell", Convert.ToDecimal(txbUnitSell.Text));
+
+                try
+                {
+                    connection.Open();
+                    command.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("An error occurred while inserting a new stock transaction: " + ex.Message);
+                }
+            }
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            InsertNewStockTransaction();
+            PopulateStockTransactionsDataGridView();
+        }
+
     }
 }

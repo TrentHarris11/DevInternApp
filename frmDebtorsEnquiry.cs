@@ -114,9 +114,7 @@ namespace DevInternApp
 
         private void btnClose_Click(object sender, EventArgs e)
         {
-            this.Close(); // Close the current form (frmDebtorsEnquiry)
-            //frmMain mainForm = new frmMain();
-            //mainForm.Show(); // Show the main form (frmMain)
+            this.Close(); 
         }
 
         private void dataGridViewDisplay_CellContentClick(object sender, DataGridViewCellEventArgs e)

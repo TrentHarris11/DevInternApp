@@ -61,7 +61,20 @@ namespace DevInternApp
         private void btnAdd_Click(object sender, EventArgs e)
         {
             // Collect data from input fields
-            int accountCode = Convert.ToInt32(txbAccountCode.Text);
+            int accountCode;
+            if (!int.TryParse(txbAccountCode.Text, out accountCode))
+            {
+                MessageBox.Show("Please enter a valid account code.");
+                return;
+            }
+
+            if (DoesAccountCodeExist(accountCode))
+            {
+                MessageBox.Show("This account code has already been created.");
+                return;
+            }
+
+            // If the account code does not exist, proceed with adding the new debtor record
             string address1 = txbAddress1.Text;
             string address2 = txbAddress2.Text;
             string address3 = txbAddress3.Text;
@@ -69,10 +82,8 @@ namespace DevInternApp
             decimal salesYearToDate = nudSalesYear.Value;
             decimal costYearToDate = nudCostYear.Value;
 
-            // Validate input data
-
             // Insert a new record into the database
-            string connectionString = "data source=user\\SQLEXPRESS;initial catalog=xact1;trusted_connection=true"; 
+            string connectionString = "data source=user\\SQLEXPRESS;initial catalog=xact1;trusted_connection=true";
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 string insertQuery = "INSERT INTO DebtorsMaster (AccountCode, Address1, Address2, Address3, Balance, SalesYearToDate, CostYearToDate) " +
@@ -106,6 +117,31 @@ namespace DevInternApp
                     MessageBox.Show("An error occurred: " + ex.Message);
                 }
             }
+        }
+
+        private bool DoesAccountCodeExist(int accountCode)
+        {
+            bool exists = false;
+            string connectionString = "data source=user\\SQLEXPRESS;initial catalog=xact1;trusted_connection=true";
+            string query = "SELECT COUNT(1) FROM DebtorsMaster WHERE AccountCode = @AccountCode";
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            using (SqlCommand command = new SqlCommand(query, connection))
+            {
+                command.Parameters.AddWithValue("@AccountCode", accountCode);
+
+                try
+                {
+                    connection.Open();
+                    exists = (int)command.ExecuteScalar() > 0;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("An error occurred while checking the account code: " + ex.Message);
+                }
+            }
+
+            return exists;
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
@@ -221,5 +257,12 @@ namespace DevInternApp
             frmDebtorsEnquiry debtorsEnquiry = new frmDebtorsEnquiry();
             debtorsEnquiry.Show();
         }
+
+        private void txbAccountCode_TextChanged(object sender, EventArgs e)
+        {
+            
+            
+        }
+       
     }
 }

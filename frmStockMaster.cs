@@ -21,7 +21,7 @@ namespace DevInternApp
         // Method to populate the form with stock data
         private void PopulateStockData(string stockCode)
         {
-            string connectionString = "data source=user\\SQLEXPRESS;initial catalog=xact1;trusted_connection=true"; // Replace with your actual connection string
+            string connectionString = "data source=user\\SQLEXPRESS;initial catalog=xact1;trusted_connection=true"; 
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {

@@ -39,16 +39,18 @@
             // 
             // txbSearch
             // 
-            this.txbSearch.Location = new System.Drawing.Point(12, 12);
+            this.txbSearch.Location = new System.Drawing.Point(9, 10);
+            this.txbSearch.Margin = new System.Windows.Forms.Padding(2);
             this.txbSearch.Name = "txbSearch";
-            this.txbSearch.Size = new System.Drawing.Size(681, 22);
+            this.txbSearch.Size = new System.Drawing.Size(512, 20);
             this.txbSearch.TabIndex = 0;
             // 
             // btnSearch
             // 
-            this.btnSearch.Location = new System.Drawing.Point(699, 12);
+            this.btnSearch.Location = new System.Drawing.Point(524, 10);
+            this.btnSearch.Margin = new System.Windows.Forms.Padding(2);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(98, 23);
+            this.btnSearch.Size = new System.Drawing.Size(74, 19);
             this.btnSearch.TabIndex = 1;
             this.btnSearch.Text = "Search";
             this.btnSearch.UseVisualStyleBackColor = true;
@@ -56,19 +58,21 @@
             // 
             // btnRefresh
             // 
-            this.btnRefresh.Location = new System.Drawing.Point(257, 356);
+            this.btnRefresh.Location = new System.Drawing.Point(193, 289);
+            this.btnRefresh.Margin = new System.Windows.Forms.Padding(2);
             this.btnRefresh.Name = "btnRefresh";
-            this.btnRefresh.Size = new System.Drawing.Size(176, 51);
+            this.btnRefresh.Size = new System.Drawing.Size(132, 41);
             this.btnRefresh.TabIndex = 2;
-            this.btnRefresh.Text = "Refresh";
+            this.btnRefresh.Text = "Load";
             this.btnRefresh.UseVisualStyleBackColor = true;
             this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
             // btnClose
             // 
-            this.btnClose.Location = new System.Drawing.Point(517, 356);
+            this.btnClose.Location = new System.Drawing.Point(388, 289);
+            this.btnClose.Margin = new System.Windows.Forms.Padding(2);
             this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(176, 51);
+            this.btnClose.Size = new System.Drawing.Size(132, 41);
             this.btnClose.TabIndex = 3;
             this.btnClose.Text = "Close";
             this.btnClose.UseVisualStyleBackColor = true;
@@ -77,35 +81,38 @@
             // dataGridViewDisplay
             // 
             this.dataGridViewDisplay.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewDisplay.Location = new System.Drawing.Point(12, 49);
+            this.dataGridViewDisplay.Location = new System.Drawing.Point(9, 40);
+            this.dataGridViewDisplay.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridViewDisplay.Name = "dataGridViewDisplay";
             this.dataGridViewDisplay.RowHeadersWidth = 51;
             this.dataGridViewDisplay.RowTemplate.Height = 24;
-            this.dataGridViewDisplay.Size = new System.Drawing.Size(681, 150);
+            this.dataGridViewDisplay.Size = new System.Drawing.Size(511, 122);
             this.dataGridViewDisplay.TabIndex = 4;
             this.dataGridViewDisplay.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewDisplay_CellContentClick);
             // 
             // btnViewTransaction
             // 
-            this.btnViewTransaction.Location = new System.Drawing.Point(12, 356);
+            this.btnViewTransaction.Location = new System.Drawing.Point(9, 289);
+            this.btnViewTransaction.Margin = new System.Windows.Forms.Padding(2);
             this.btnViewTransaction.Name = "btnViewTransaction";
-            this.btnViewTransaction.Size = new System.Drawing.Size(176, 51);
+            this.btnViewTransaction.Size = new System.Drawing.Size(132, 41);
             this.btnViewTransaction.TabIndex = 5;
-            this.btnViewTransaction.Text = "View Transaction History";
+            this.btnViewTransaction.Text = "Transaction History";
             this.btnViewTransaction.UseVisualStyleBackColor = true;
             this.btnViewTransaction.Click += new System.EventHandler(this.btnViewTransaction_Click);
             // 
             // frmDebtorsEnquiry
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(600, 366);
             this.Controls.Add(this.btnViewTransaction);
             this.Controls.Add(this.dataGridViewDisplay);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.btnRefresh);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.txbSearch);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmDebtorsEnquiry";
             this.Text = "frmDebtorsEnquiry";
             this.Load += new System.EventHandler(this.frmDebtorsEnquiry_Load);

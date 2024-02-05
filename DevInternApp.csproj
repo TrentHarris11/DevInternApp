@@ -52,17 +52,11 @@
     <Compile Include="frmAddItem.Designer.cs">
       <DependentUpon>frmAddItem.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmInvoiceDetail.cs">
+    <Compile Include="frmInvoiceDetails.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmInvoiceDetail.Designer.cs">
-      <DependentUpon>frmInvoiceDetail.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmInvoiceHeader.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmInvoiceHeader.Designer.cs">
-      <DependentUpon>frmInvoiceHeader.cs</DependentUpon>
+    <Compile Include="frmInvoiceDetails.Designer.cs">
+      <DependentUpon>frmInvoiceDetails.cs</DependentUpon>
     </Compile>
     <Compile Include="frmMain.cs">
       <SubType>Form</SubType>
@@ -123,8 +117,8 @@
     <EmbeddedResource Include="frmDebtorsMaster.resx">
       <DependentUpon>frmDebtorsMaster.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmInvoiceHeader.resx">
-      <DependentUpon>frmInvoiceHeader.cs</DependentUpon>
+    <EmbeddedResource Include="frmInvoiceDetails.resx">
+      <DependentUpon>frmInvoiceDetails.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmInvoicing.resx">
       <DependentUpon>frmInvoicing.cs</DependentUpon>
