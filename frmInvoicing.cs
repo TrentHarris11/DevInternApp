@@ -9,13 +9,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Drawing.Printing;
 
 namespace DevInternApp
 {
     public partial class frmInvoicing : Form
     {
 
-        private int currentInvoiceNo;
+        //private int currentInvoiceNo;
         public frmInvoicing()
         {
             InitializeComponent();
@@ -216,6 +217,70 @@ namespace DevInternApp
         private void btnClear_Click(object sender, EventArgs e)
         {
             ClearFormFields();
+        }
+
+        private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        {
+            Graphics graphics = e.Graphics;
+            Font headerFont = new Font("Arial", 10, FontStyle.Bold);
+            Font contentFont = new Font("Arial", 10);
+            int startX = 50;
+            int startY = 55;
+            int offsetY = 0;
+
+            // Set header widths based on your content width
+            int[] columnWidths = new int[] { 120, 100, 180, 50, 100 }; // Adjust the widths as needed
+
+            // Print headers and draw vertical lines
+            int headerX = startX;
+            for (int i = 0; i < dataGridViewDisplay.Columns.Count; i++)
+            {
+                graphics.DrawString(dataGridViewDisplay.Columns[i].HeaderText,
+                                    headerFont,
+                                    Brushes.Black,
+                                    headerX,
+                                    startY);
+                headerX += columnWidths[i];
+                // Draw vertical line after the header
+                graphics.DrawLine(Pens.Black, headerX, startY, headerX, startY + offsetY + (dataGridViewDisplay.Rows.Count * contentFont.GetHeight()) + (5 * dataGridViewDisplay.Rows.Count));
+            }
+
+            offsetY += (int)headerFont.GetHeight() + 10; // Add some padding below headers
+
+            // Draw a line under the headers
+            graphics.DrawLine(Pens.Black, startX, startY + offsetY, startX + columnWidths.Sum(), startY + offsetY);
+
+            offsetY += 3; // Padding below the header line
+
+            // Print each cell value and draw vertical lines
+            foreach (DataGridViewRow row in dataGridViewDisplay.Rows)
+            {
+                if (row.IsNewRow) continue; // Skip the new row at the end
+
+                int rowX = startX;
+                for (int i = 0; i < row.Cells.Count; i++)
+                {
+                    graphics.DrawString(row.Cells[i].FormattedValue.ToString(),
+                                        contentFont,
+                                        Brushes.Black,
+                                        rowX,
+                                        startY + offsetY);
+                    rowX += columnWidths[i];
+                    // Draw vertical line after the cell value
+                    graphics.DrawLine(Pens.Black, rowX, startY + offsetY - 3, rowX, startY + offsetY + contentFont.GetHeight());
+                }
+
+                offsetY += (int)contentFont.GetHeight() + 5; // Add padding between rows
+            }
+
+            // Draw a horizontal line at the bottom of the last row
+            graphics.DrawLine(Pens.Black, startX, startY + offsetY, startX + columnWidths.Sum(), startY + offsetY);
+
+        }
+
+        private void btnPrint_Click(object sender, EventArgs e)
+        {
+            printDocument1.Print();
         }
     }
 }

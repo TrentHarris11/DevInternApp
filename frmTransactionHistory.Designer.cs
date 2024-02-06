@@ -36,11 +36,11 @@
             this.lblDocumentNo = new System.Windows.Forms.Label();
             this.lblGrossTransaction = new System.Windows.Forms.Label();
             this.lblVat = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.txbGrossTransaction = new System.Windows.Forms.TextBox();
             this.txbVat = new System.Windows.Forms.TextBox();
             this.dtpDate = new System.Windows.Forms.DateTimePicker();
+            this.txbTransactionType = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDisplay)).BeginInit();
             this.SuspendLayout();
             // 
@@ -48,7 +48,7 @@
             // 
             this.dataGridViewDisplay.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewDisplay.Location = new System.Drawing.Point(91, 208);
-            this.dataGridViewDisplay.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dataGridViewDisplay.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridViewDisplay.Name = "dataGridViewDisplay";
             this.dataGridViewDisplay.RowHeadersWidth = 51;
             this.dataGridViewDisplay.RowTemplate.Height = 24;
@@ -59,7 +59,7 @@
             // btnClose
             // 
             this.btnClose.Location = new System.Drawing.Point(359, 451);
-            this.btnClose.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnClose.Margin = new System.Windows.Forms.Padding(2);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(114, 46);
             this.btnClose.TabIndex = 1;
@@ -76,6 +76,7 @@
             this.btnAddTransaction.TabIndex = 2;
             this.btnAddTransaction.Text = "Add Transaction";
             this.btnAddTransaction.UseVisualStyleBackColor = true;
+            this.btnAddTransaction.Click += new System.EventHandler(this.btnAddTransaction_Click);
             // 
             // lblDate
             // 
@@ -122,13 +123,6 @@
             this.lblVat.TabIndex = 7;
             this.lblVat.Text = "Vat";
             // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(138, 77);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(200, 20);
-            this.textBox1.TabIndex = 8;
-            // 
             // textBox2
             // 
             this.textBox2.Location = new System.Drawing.Point(138, 40);
@@ -158,16 +152,23 @@
             this.dtpDate.Size = new System.Drawing.Size(200, 20);
             this.dtpDate.TabIndex = 12;
             // 
+            // txbTransactionType
+            // 
+            this.txbTransactionType.Location = new System.Drawing.Point(138, 81);
+            this.txbTransactionType.Name = "txbTransactionType";
+            this.txbTransactionType.Size = new System.Drawing.Size(200, 20);
+            this.txbTransactionType.TabIndex = 13;
+            // 
             // frmTransactionHistory
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(715, 551);
+            this.Controls.Add(this.txbTransactionType);
             this.Controls.Add(this.dtpDate);
             this.Controls.Add(this.txbVat);
             this.Controls.Add(this.txbGrossTransaction);
             this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.lblVat);
             this.Controls.Add(this.lblGrossTransaction);
             this.Controls.Add(this.lblDocumentNo);
@@ -176,7 +177,7 @@
             this.Controls.Add(this.btnAddTransaction);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.dataGridViewDisplay);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmTransactionHistory";
             this.Text = "frmTransactionHistory";
             this.Load += new System.EventHandler(this.frmTransactionHistory_Load);
@@ -196,10 +197,10 @@
         private System.Windows.Forms.Label lblDocumentNo;
         private System.Windows.Forms.Label lblGrossTransaction;
         private System.Windows.Forms.Label lblVat;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.TextBox txbGrossTransaction;
         private System.Windows.Forms.TextBox txbVat;
         private System.Windows.Forms.DateTimePicker dtpDate;
+        private System.Windows.Forms.TextBox txbTransactionType;
     }
 }

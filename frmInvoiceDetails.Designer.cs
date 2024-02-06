@@ -47,6 +47,8 @@
             this.btnAddInvoice = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
             this.cmbStockCode = new System.Windows.Forms.ComboBox();
+            this.btnPrint = new System.Windows.Forms.Button();
+            this.printDocument1 = new System.Drawing.Printing.PrintDocument();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDisplay)).BeginInit();
             this.SuspendLayout();
             // 
@@ -185,17 +187,17 @@
             // 
             // btnAddInvoice
             // 
-            this.btnAddInvoice.Location = new System.Drawing.Point(220, 378);
+            this.btnAddInvoice.Location = new System.Drawing.Point(166, 378);
             this.btnAddInvoice.Name = "btnAddInvoice";
             this.btnAddInvoice.Size = new System.Drawing.Size(113, 40);
             this.btnAddInvoice.TabIndex = 17;
-            this.btnAddInvoice.Text = "Add Invoice";
+            this.btnAddInvoice.Text = "Add To Invoice";
             this.btnAddInvoice.UseVisualStyleBackColor = true;
             this.btnAddInvoice.Click += new System.EventHandler(this.btnAddInvoice_Click);
             // 
             // btnClose
             // 
-            this.btnClose.Location = new System.Drawing.Point(367, 378);
+            this.btnClose.Location = new System.Drawing.Point(457, 378);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(113, 40);
             this.btnClose.TabIndex = 18;
@@ -212,11 +214,26 @@
             this.cmbStockCode.TabIndex = 19;
             this.cmbStockCode.SelectedIndexChanged += new System.EventHandler(this.cmbStockCode_SelectedIndexChanged);
             // 
+            // btnPrint
+            // 
+            this.btnPrint.Location = new System.Drawing.Point(310, 378);
+            this.btnPrint.Name = "btnPrint";
+            this.btnPrint.Size = new System.Drawing.Size(113, 40);
+            this.btnPrint.TabIndex = 20;
+            this.btnPrint.Text = "Print";
+            this.btnPrint.UseVisualStyleBackColor = true;
+            this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
+            // 
+            // printDocument1
+            // 
+            this.printDocument1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument1_PrintPage);
+            // 
             // frmInvoiceDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(723, 502);
+            this.Controls.Add(this.btnPrint);
             this.Controls.Add(this.cmbStockCode);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.btnAddInvoice);
@@ -267,5 +284,7 @@
         private System.Windows.Forms.Button btnAddInvoice;
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.ComboBox cmbStockCode;
+        private System.Windows.Forms.Button btnPrint;
+        private System.Drawing.Printing.PrintDocument printDocument1;
     }
 }

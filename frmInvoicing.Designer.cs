@@ -51,41 +51,46 @@
             this.dtpDate = new System.Windows.Forms.DateTimePicker();
             this.btnAddInvoice = new System.Windows.Forms.Button();
             this.btnClear = new System.Windows.Forms.Button();
+            this.printDocument1 = new System.Drawing.Printing.PrintDocument();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDisplay)).BeginInit();
             this.SuspendLayout();
             // 
             // cmbDebtors
             // 
             this.cmbDebtors.FormattingEnabled = true;
-            this.cmbDebtors.Location = new System.Drawing.Point(175, 332);
+            this.cmbDebtors.Location = new System.Drawing.Point(131, 270);
+            this.cmbDebtors.Margin = new System.Windows.Forms.Padding(2);
             this.cmbDebtors.Name = "cmbDebtors";
-            this.cmbDebtors.Size = new System.Drawing.Size(302, 24);
+            this.cmbDebtors.Size = new System.Drawing.Size(228, 21);
             this.cmbDebtors.TabIndex = 0;
             this.cmbDebtors.SelectedIndexChanged += new System.EventHandler(this.cmbDebtors_SelectedIndexChanged);
             // 
             // dtpInvoice
             // 
-            this.dtpInvoice.Location = new System.Drawing.Point(600, 331);
+            this.dtpInvoice.Location = new System.Drawing.Point(450, 269);
+            this.dtpInvoice.Margin = new System.Windows.Forms.Padding(2);
             this.dtpInvoice.Name = "dtpInvoice";
-            this.dtpInvoice.Size = new System.Drawing.Size(255, 22);
+            this.dtpInvoice.Size = new System.Drawing.Size(192, 20);
             this.dtpInvoice.TabIndex = 1;
             // 
             // dataGridViewDisplay
             // 
             this.dataGridViewDisplay.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewDisplay.Location = new System.Drawing.Point(124, 379);
+            this.dataGridViewDisplay.Location = new System.Drawing.Point(31, 308);
+            this.dataGridViewDisplay.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridViewDisplay.Name = "dataGridViewDisplay";
             this.dataGridViewDisplay.RowHeadersWidth = 51;
             this.dataGridViewDisplay.RowTemplate.Height = 24;
-            this.dataGridViewDisplay.Size = new System.Drawing.Size(731, 262);
+            this.dataGridViewDisplay.Size = new System.Drawing.Size(630, 213);
             this.dataGridViewDisplay.TabIndex = 2;
             this.dataGridViewDisplay.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewDisplay_CellContentClick);
             // 
             // btnView
             // 
-            this.btnView.Location = new System.Drawing.Point(124, 686);
+            this.btnView.Location = new System.Drawing.Point(93, 557);
+            this.btnView.Margin = new System.Windows.Forms.Padding(2);
             this.btnView.Name = "btnView";
-            this.btnView.Size = new System.Drawing.Size(130, 47);
+            this.btnView.Size = new System.Drawing.Size(98, 38);
             this.btnView.TabIndex = 20;
             this.btnView.Text = "View Details";
             this.btnView.UseVisualStyleBackColor = true;
@@ -93,9 +98,10 @@
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(332, 686);
+            this.btnSave.Location = new System.Drawing.Point(249, 557);
+            this.btnSave.Margin = new System.Windows.Forms.Padding(2);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(130, 47);
+            this.btnSave.Size = new System.Drawing.Size(98, 38);
             this.btnSave.TabIndex = 21;
             this.btnSave.Text = "Save Invoice";
             this.btnSave.UseVisualStyleBackColor = true;
@@ -103,18 +109,21 @@
             // 
             // btnPrint
             // 
-            this.btnPrint.Location = new System.Drawing.Point(533, 686);
+            this.btnPrint.Location = new System.Drawing.Point(400, 557);
+            this.btnPrint.Margin = new System.Windows.Forms.Padding(2);
             this.btnPrint.Name = "btnPrint";
-            this.btnPrint.Size = new System.Drawing.Size(130, 47);
+            this.btnPrint.Size = new System.Drawing.Size(98, 38);
             this.btnPrint.TabIndex = 22;
             this.btnPrint.Text = "Print Invoice";
             this.btnPrint.UseVisualStyleBackColor = true;
+            this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
             // 
             // btnClose
             // 
-            this.btnClose.Location = new System.Drawing.Point(725, 686);
+            this.btnClose.Location = new System.Drawing.Point(544, 557);
+            this.btnClose.Margin = new System.Windows.Forms.Padding(2);
             this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(130, 47);
+            this.btnClose.Size = new System.Drawing.Size(98, 38);
             this.btnClose.TabIndex = 23;
             this.btnClose.Text = "Close";
             this.btnClose.UseVisualStyleBackColor = true;
@@ -123,123 +132,138 @@
             // lblDebtor
             // 
             this.lblDebtor.AutoSize = true;
-            this.lblDebtor.Location = new System.Drawing.Point(121, 335);
+            this.lblDebtor.Location = new System.Drawing.Point(91, 272);
+            this.lblDebtor.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblDebtor.Name = "lblDebtor";
-            this.lblDebtor.Size = new System.Drawing.Size(48, 16);
+            this.lblDebtor.Size = new System.Drawing.Size(39, 13);
             this.lblDebtor.TabIndex = 24;
             this.lblDebtor.Text = "Debtor";
             // 
             // lblInvoiceDate
             // 
             this.lblInvoiceDate.AutoSize = true;
-            this.lblInvoiceDate.Location = new System.Drawing.Point(499, 336);
+            this.lblInvoiceDate.Location = new System.Drawing.Point(374, 273);
+            this.lblInvoiceDate.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblInvoiceDate.Name = "lblInvoiceDate";
-            this.lblInvoiceDate.Size = new System.Drawing.Size(82, 16);
+            this.lblInvoiceDate.Size = new System.Drawing.Size(68, 13);
             this.lblInvoiceDate.TabIndex = 25;
             this.lblInvoiceDate.Text = "Invoice Date";
             // 
             // lblInvoiceNo
             // 
             this.lblInvoiceNo.AutoSize = true;
-            this.lblInvoiceNo.Location = new System.Drawing.Point(37, 34);
+            this.lblInvoiceNo.Location = new System.Drawing.Point(28, 28);
+            this.lblInvoiceNo.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblInvoiceNo.Name = "lblInvoiceNo";
-            this.lblInvoiceNo.Size = new System.Drawing.Size(71, 16);
+            this.lblInvoiceNo.Size = new System.Drawing.Size(59, 13);
             this.lblInvoiceNo.TabIndex = 26;
             this.lblInvoiceNo.Text = "Invoice No";
             // 
             // lblAccountCode
             // 
             this.lblAccountCode.AutoSize = true;
-            this.lblAccountCode.Location = new System.Drawing.Point(37, 72);
+            this.lblAccountCode.Location = new System.Drawing.Point(28, 58);
+            this.lblAccountCode.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblAccountCode.Name = "lblAccountCode";
-            this.lblAccountCode.Size = new System.Drawing.Size(91, 16);
+            this.lblAccountCode.Size = new System.Drawing.Size(75, 13);
             this.lblAccountCode.TabIndex = 27;
             this.lblAccountCode.Text = "Account Code";
             // 
             // lblDate
             // 
             this.lblDate.AutoSize = true;
-            this.lblDate.Location = new System.Drawing.Point(37, 120);
+            this.lblDate.Location = new System.Drawing.Point(28, 98);
+            this.lblDate.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblDate.Name = "lblDate";
-            this.lblDate.Size = new System.Drawing.Size(36, 16);
+            this.lblDate.Size = new System.Drawing.Size(30, 13);
             this.lblDate.TabIndex = 28;
             this.lblDate.Text = "Date";
             // 
             // lblTotalSellAmountExclVat
             // 
             this.lblTotalSellAmountExclVat.AutoSize = true;
-            this.lblTotalSellAmountExclVat.Location = new System.Drawing.Point(542, 34);
+            this.lblTotalSellAmountExclVat.Location = new System.Drawing.Point(406, 28);
+            this.lblTotalSellAmountExclVat.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblTotalSellAmountExclVat.Name = "lblTotalSellAmountExclVat";
-            this.lblTotalSellAmountExclVat.Size = new System.Drawing.Size(171, 16);
+            this.lblTotalSellAmountExclVat.Size = new System.Drawing.Size(138, 13);
             this.lblTotalSellAmountExclVat.TabIndex = 29;
             this.lblTotalSellAmountExclVat.Text = "Total Sell Amount (Excl Vat)";
             // 
             // lblVat
             // 
             this.lblVat.AutoSize = true;
-            this.lblVat.Location = new System.Drawing.Point(542, 72);
+            this.lblVat.Location = new System.Drawing.Point(406, 58);
+            this.lblVat.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblVat.Name = "lblVat";
-            this.lblVat.Size = new System.Drawing.Size(27, 16);
+            this.lblVat.Size = new System.Drawing.Size(23, 13);
             this.lblVat.TabIndex = 30;
             this.lblVat.Text = "Vat";
             // 
             // lblTotalCost
             // 
             this.lblTotalCost.AutoSize = true;
-            this.lblTotalCost.Location = new System.Drawing.Point(542, 117);
+            this.lblTotalCost.Location = new System.Drawing.Point(406, 95);
+            this.lblTotalCost.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblTotalCost.Name = "lblTotalCost";
-            this.lblTotalCost.Size = new System.Drawing.Size(68, 16);
+            this.lblTotalCost.Size = new System.Drawing.Size(55, 13);
             this.lblTotalCost.TabIndex = 31;
             this.lblTotalCost.Text = "Total Cost";
             this.lblTotalCost.Click += new System.EventHandler(this.lblTotalCost_Click);
             // 
             // txbInvoiceNo
             // 
-            this.txbInvoiceNo.Location = new System.Drawing.Point(175, 28);
+            this.txbInvoiceNo.Location = new System.Drawing.Point(131, 23);
+            this.txbInvoiceNo.Margin = new System.Windows.Forms.Padding(2);
             this.txbInvoiceNo.Name = "txbInvoiceNo";
-            this.txbInvoiceNo.Size = new System.Drawing.Size(135, 22);
+            this.txbInvoiceNo.Size = new System.Drawing.Size(102, 20);
             this.txbInvoiceNo.TabIndex = 32;
             // 
             // txbAccCode
             // 
-            this.txbAccCode.Location = new System.Drawing.Point(175, 66);
+            this.txbAccCode.Location = new System.Drawing.Point(131, 54);
+            this.txbAccCode.Margin = new System.Windows.Forms.Padding(2);
             this.txbAccCode.Name = "txbAccCode";
-            this.txbAccCode.Size = new System.Drawing.Size(135, 22);
+            this.txbAccCode.Size = new System.Drawing.Size(102, 20);
             this.txbAccCode.TabIndex = 33;
             // 
             // txbTotalCost
             // 
-            this.txbTotalCost.Location = new System.Drawing.Point(744, 120);
+            this.txbTotalCost.Location = new System.Drawing.Point(558, 98);
+            this.txbTotalCost.Margin = new System.Windows.Forms.Padding(2);
             this.txbTotalCost.Name = "txbTotalCost";
-            this.txbTotalCost.Size = new System.Drawing.Size(135, 22);
+            this.txbTotalCost.Size = new System.Drawing.Size(102, 20);
             this.txbTotalCost.TabIndex = 34;
             // 
             // txbVat
             // 
-            this.txbVat.Location = new System.Drawing.Point(745, 75);
+            this.txbVat.Location = new System.Drawing.Point(559, 61);
+            this.txbVat.Margin = new System.Windows.Forms.Padding(2);
             this.txbVat.Name = "txbVat";
-            this.txbVat.Size = new System.Drawing.Size(135, 22);
+            this.txbVat.Size = new System.Drawing.Size(102, 20);
             this.txbVat.TabIndex = 35;
             // 
             // txbTotalSellExclVat
             // 
-            this.txbTotalSellExclVat.Location = new System.Drawing.Point(745, 28);
+            this.txbTotalSellExclVat.Location = new System.Drawing.Point(559, 23);
+            this.txbTotalSellExclVat.Margin = new System.Windows.Forms.Padding(2);
             this.txbTotalSellExclVat.Name = "txbTotalSellExclVat";
-            this.txbTotalSellExclVat.Size = new System.Drawing.Size(135, 22);
+            this.txbTotalSellExclVat.Size = new System.Drawing.Size(102, 20);
             this.txbTotalSellExclVat.TabIndex = 36;
             // 
             // dtpDate
             // 
-            this.dtpDate.Location = new System.Drawing.Point(175, 118);
+            this.dtpDate.Location = new System.Drawing.Point(131, 96);
+            this.dtpDate.Margin = new System.Windows.Forms.Padding(2);
             this.dtpDate.Name = "dtpDate";
-            this.dtpDate.Size = new System.Drawing.Size(244, 22);
+            this.dtpDate.Size = new System.Drawing.Size(184, 20);
             this.dtpDate.TabIndex = 37;
             // 
             // btnAddInvoice
             // 
-            this.btnAddInvoice.Location = new System.Drawing.Point(360, 206);
+            this.btnAddInvoice.Location = new System.Drawing.Point(270, 167);
+            this.btnAddInvoice.Margin = new System.Windows.Forms.Padding(2);
             this.btnAddInvoice.Name = "btnAddInvoice";
-            this.btnAddInvoice.Size = new System.Drawing.Size(130, 46);
+            this.btnAddInvoice.Size = new System.Drawing.Size(98, 37);
             this.btnAddInvoice.TabIndex = 38;
             this.btnAddInvoice.Text = "Add Invoice";
             this.btnAddInvoice.UseVisualStyleBackColor = true;
@@ -247,19 +271,24 @@
             // 
             // btnClear
             // 
-            this.btnClear.Location = new System.Drawing.Point(533, 206);
+            this.btnClear.Location = new System.Drawing.Point(400, 167);
+            this.btnClear.Margin = new System.Windows.Forms.Padding(2);
             this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(130, 46);
+            this.btnClear.Size = new System.Drawing.Size(98, 37);
             this.btnClear.TabIndex = 39;
             this.btnClear.Text = "Clear";
             this.btnClear.UseVisualStyleBackColor = true;
             this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
+            // printDocument1
+            // 
+            this.printDocument1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument1_PrintPage);
+            // 
             // frmInvoicing
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1035, 767);
+            this.ClientSize = new System.Drawing.Size(727, 623);
             this.Controls.Add(this.btnClear);
             this.Controls.Add(this.btnAddInvoice);
             this.Controls.Add(this.dtpDate);
@@ -283,6 +312,7 @@
             this.Controls.Add(this.dataGridViewDisplay);
             this.Controls.Add(this.dtpInvoice);
             this.Controls.Add(this.cmbDebtors);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmInvoicing";
             this.Text = "frmInvoicing";
             this.Load += new System.EventHandler(this.frmInvoicing_Load);
@@ -317,5 +347,6 @@
         private System.Windows.Forms.DateTimePicker dtpDate;
         private System.Windows.Forms.Button btnAddInvoice;
         private System.Windows.Forms.Button btnClear;
+        private System.Drawing.Printing.PrintDocument printDocument1;
     }
 }

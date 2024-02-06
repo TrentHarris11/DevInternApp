@@ -77,7 +77,7 @@
             this.btnRefresh.Name = "btnRefresh";
             this.btnRefresh.Size = new System.Drawing.Size(116, 41);
             this.btnRefresh.TabIndex = 8;
-            this.btnRefresh.Text = "Refresh";
+            this.btnRefresh.Text = "Load";
             this.btnRefresh.UseVisualStyleBackColor = true;
             this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 

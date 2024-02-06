@@ -84,5 +84,10 @@ namespace DevInternApp
         {
 
         }
+
+        private void btnAddTransaction_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

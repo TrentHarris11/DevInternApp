@@ -34,7 +34,7 @@ namespace DevInternApp
         {
             DataTable stockData = new DataTable();
 
-            
+
             string connectionString = "data source=user\\SQLEXPRESS;initial catalog=xact1;trusted_connection=true";
 
             // SQL query to retrieve transaction details based on the account code
@@ -87,7 +87,7 @@ namespace DevInternApp
                 // Add parameter values from form controls
                 command.Parameters.AddWithValue("@StockCode", selectedStockCode);
                 command.Parameters.AddWithValue("@Date", dtpDate.Value);
-                command.Parameters.AddWithValue("@TransactionType", txbTransactionType.Text);
+                command.Parameters.AddWithValue("@TransactionType", cmbTransactionType.Text);
                 command.Parameters.AddWithValue("@DocumentNo", txbDocumentNo.Text);
                 command.Parameters.AddWithValue("@Qty", Convert.ToInt32(txbQty.Text));
                 command.Parameters.AddWithValue("@UnitCost", Convert.ToDecimal(txbUnitCost.Text));
@@ -107,9 +107,92 @@ namespace DevInternApp
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
+            // Assume that you have validated the inputs and converted them to the appropriate data types
+            string stockCode = selectedStockCode; // The stock code selected from the previous form
+            string transactionType = cmbTransactionType.SelectedItem.ToString(); // The transaction type selected from the ComboBox
+            int quantity; // The quantity entered by the user
+            decimal unitCost; // The unit cost entered by the user for a purchase
+            decimal unitSell; // The unit sell amount entered by the user for a sale
+
+
             InsertNewStockTransaction();
             PopulateStockTransactionsDataGridView();
+            // Convert and validate quantity, unit cost, and unit sell inputs
+            if (!int.TryParse(txbQty.Text, out quantity))
+            {
+                MessageBox.Show("Please enter a valid quantity.");
+                return;
+            }
+
+            // Assuming txbUnitCost and txbUnitSell are TextBoxes where the user enters unit cost and sell amount
+            if (!decimal.TryParse(txbUnitCost.Text, out unitCost))
+            {
+                MessageBox.Show("Please enter a valid unit cost.");
+                return;
+            }
+
+            if (!decimal.TryParse(txbUnitSell.Text, out unitSell))
+            {
+                MessageBox.Show("Please enter a valid unit sell amount.");
+                return;
+            }
+
+            // Call the method to update the StockMaster table
+            UpdateStockMaster(stockCode, transactionType, quantity, unitCost, unitSell);
         }
+
+       private void UpdateStockMaster(string stockCode, string transactionType, int qty, decimal unitCost, decimal unitSell)
+{
+    string connectionString = "data source=user\\SQLEXPRESS;initial catalog=xact1;trusted_connection=true";
+    string updateQuery = "";
+
+    using (SqlConnection connection = new SqlConnection(connectionString))
+    {
+        if (transactionType.Equals("Sale", StringComparison.OrdinalIgnoreCase))
+        {
+            updateQuery = @"
+                UPDATE StockMaster
+                SET QtySold = QtySold + @Qty,
+                    TotalSalesExclVat = TotalSalesExclVat + (@Qty * @UnitSell),
+                    StockOnHand = StockOnHand - @Qty
+                WHERE StockCode = @StockCode";
+        }
+        else if (transactionType.Equals("Purchase", StringComparison.OrdinalIgnoreCase))
+        {
+            updateQuery = @"
+                UPDATE StockMaster
+                SET QtyPurchased = QtyPurchased + @Qty,
+                    TotalPurchasesExclVat = TotalPurchasesExclVat + (@Qty * @UnitCost),
+                    StockOnHand = StockOnHand + @Qty
+                WHERE StockCode = @StockCode";
+        }
+
+        // If the query is not set, no valid transaction type was selected
+        if (string.IsNullOrEmpty(updateQuery))
+        {
+            MessageBox.Show("Invalid transaction type selected.");
+            return;
+        }
+
+        using (SqlCommand command = new SqlCommand(updateQuery, connection))
+        {
+            command.Parameters.AddWithValue("@StockCode", stockCode);
+            command.Parameters.AddWithValue("@Qty", qty);
+            command.Parameters.AddWithValue("@UnitCost", unitCost);
+            command.Parameters.AddWithValue("@UnitSell", unitSell);
+
+            try
+            {
+                connection.Open();
+                command.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred while updating the stock: " + ex.Message);
+            }
+        }
+    }
+}
 
     }
 }

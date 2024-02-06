@@ -38,11 +38,11 @@
             this.lblUnitCost = new System.Windows.Forms.Label();
             this.lblUnitSell = new System.Windows.Forms.Label();
             this.dtpDate = new System.Windows.Forms.DateTimePicker();
-            this.txbTransactionType = new System.Windows.Forms.TextBox();
             this.txbDocumentNo = new System.Windows.Forms.TextBox();
             this.txbQty = new System.Windows.Forms.TextBox();
             this.txbUnitCost = new System.Windows.Forms.TextBox();
             this.txbUnitSell = new System.Windows.Forms.TextBox();
+            this.cmbTransactionType = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDisplay)).BeginInit();
             this.SuspendLayout();
             // 
@@ -139,13 +139,6 @@
             this.dtpDate.Size = new System.Drawing.Size(215, 20);
             this.dtpDate.TabIndex = 11;
             // 
-            // txbTransactionType
-            // 
-            this.txbTransactionType.Location = new System.Drawing.Point(138, 58);
-            this.txbTransactionType.Name = "txbTransactionType";
-            this.txbTransactionType.Size = new System.Drawing.Size(215, 20);
-            this.txbTransactionType.TabIndex = 12;
-            // 
             // txbDocumentNo
             // 
             this.txbDocumentNo.Location = new System.Drawing.Point(138, 112);
@@ -174,16 +167,27 @@
             this.txbUnitSell.Size = new System.Drawing.Size(215, 20);
             this.txbUnitSell.TabIndex = 16;
             // 
+            // cmbTransactionType
+            // 
+            this.cmbTransactionType.FormattingEnabled = true;
+            this.cmbTransactionType.Items.AddRange(new object[] {
+            "Purchase ",
+            "Sale"});
+            this.cmbTransactionType.Location = new System.Drawing.Point(138, 66);
+            this.cmbTransactionType.Name = "cmbTransactionType";
+            this.cmbTransactionType.Size = new System.Drawing.Size(215, 21);
+            this.cmbTransactionType.TabIndex = 17;
+            // 
             // frmStockTransactions
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(693, 472);
+            this.Controls.Add(this.cmbTransactionType);
             this.Controls.Add(this.txbUnitSell);
             this.Controls.Add(this.txbUnitCost);
             this.Controls.Add(this.txbQty);
             this.Controls.Add(this.txbDocumentNo);
-            this.Controls.Add(this.txbTransactionType);
             this.Controls.Add(this.dtpDate);
             this.Controls.Add(this.lblUnitSell);
             this.Controls.Add(this.lblUnitCost);
@@ -216,10 +220,10 @@
         private System.Windows.Forms.Label lblUnitCost;
         private System.Windows.Forms.Label lblUnitSell;
         private System.Windows.Forms.DateTimePicker dtpDate;
-        private System.Windows.Forms.TextBox txbTransactionType;
         private System.Windows.Forms.TextBox txbDocumentNo;
         private System.Windows.Forms.TextBox txbQty;
         private System.Windows.Forms.TextBox txbUnitCost;
         private System.Windows.Forms.TextBox txbUnitSell;
+        private System.Windows.Forms.ComboBox cmbTransactionType;
     }
 }
