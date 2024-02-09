@@ -34,13 +34,13 @@
             this.lblDate = new System.Windows.Forms.Label();
             this.lblTransactionType = new System.Windows.Forms.Label();
             this.lblDocumentNo = new System.Windows.Forms.Label();
-            this.lblGrossTransaction = new System.Windows.Forms.Label();
+            this.lblTransactionValue = new System.Windows.Forms.Label();
             this.lblVat = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txbDocumentNo = new System.Windows.Forms.TextBox();
             this.txbGrossTransaction = new System.Windows.Forms.TextBox();
             this.txbVat = new System.Windows.Forms.TextBox();
             this.dtpDate = new System.Windows.Forms.DateTimePicker();
-            this.txbTransactionType = new System.Windows.Forms.TextBox();
+            this.cmbTransactionType = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDisplay)).BeginInit();
             this.SuspendLayout();
             // 
@@ -105,14 +105,14 @@
             this.lblDocumentNo.TabIndex = 5;
             this.lblDocumentNo.Text = "Document No";
             // 
-            // lblGrossTransaction
+            // lblTransactionValue
             // 
-            this.lblGrossTransaction.AutoSize = true;
-            this.lblGrossTransaction.Location = new System.Drawing.Point(37, 117);
-            this.lblGrossTransaction.Name = "lblGrossTransaction";
-            this.lblGrossTransaction.Size = new System.Drawing.Size(93, 13);
-            this.lblGrossTransaction.TabIndex = 6;
-            this.lblGrossTransaction.Text = "Gross Transaction";
+            this.lblTransactionValue.AutoSize = true;
+            this.lblTransactionValue.Location = new System.Drawing.Point(37, 117);
+            this.lblTransactionValue.Name = "lblTransactionValue";
+            this.lblTransactionValue.Size = new System.Drawing.Size(93, 13);
+            this.lblTransactionValue.TabIndex = 6;
+            this.lblTransactionValue.Text = "Transaction Value";
             // 
             // lblVat
             // 
@@ -123,12 +123,12 @@
             this.lblVat.TabIndex = 7;
             this.lblVat.Text = "Vat";
             // 
-            // textBox2
+            // txbDocumentNo
             // 
-            this.textBox2.Location = new System.Drawing.Point(138, 40);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(200, 20);
-            this.textBox2.TabIndex = 9;
+            this.txbDocumentNo.Location = new System.Drawing.Point(138, 40);
+            this.txbDocumentNo.Name = "txbDocumentNo";
+            this.txbDocumentNo.Size = new System.Drawing.Size(200, 20);
+            this.txbDocumentNo.TabIndex = 9;
             // 
             // txbGrossTransaction
             // 
@@ -152,25 +152,30 @@
             this.dtpDate.Size = new System.Drawing.Size(200, 20);
             this.dtpDate.TabIndex = 12;
             // 
-            // txbTransactionType
+            // cmbTransactionType
             // 
-            this.txbTransactionType.Location = new System.Drawing.Point(138, 81);
-            this.txbTransactionType.Name = "txbTransactionType";
-            this.txbTransactionType.Size = new System.Drawing.Size(200, 20);
-            this.txbTransactionType.TabIndex = 13;
+            this.cmbTransactionType.FormattingEnabled = true;
+            this.cmbTransactionType.Items.AddRange(new object[] {
+            "Purchase",
+            "Sale",
+            "Invoice"});
+            this.cmbTransactionType.Location = new System.Drawing.Point(138, 81);
+            this.cmbTransactionType.Name = "cmbTransactionType";
+            this.cmbTransactionType.Size = new System.Drawing.Size(200, 21);
+            this.cmbTransactionType.TabIndex = 14;
             // 
             // frmTransactionHistory
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(715, 551);
-            this.Controls.Add(this.txbTransactionType);
+            this.Controls.Add(this.cmbTransactionType);
             this.Controls.Add(this.dtpDate);
             this.Controls.Add(this.txbVat);
             this.Controls.Add(this.txbGrossTransaction);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.txbDocumentNo);
             this.Controls.Add(this.lblVat);
-            this.Controls.Add(this.lblGrossTransaction);
+            this.Controls.Add(this.lblTransactionValue);
             this.Controls.Add(this.lblDocumentNo);
             this.Controls.Add(this.lblTransactionType);
             this.Controls.Add(this.lblDate);
@@ -195,12 +200,12 @@
         private System.Windows.Forms.Label lblDate;
         private System.Windows.Forms.Label lblTransactionType;
         private System.Windows.Forms.Label lblDocumentNo;
-        private System.Windows.Forms.Label lblGrossTransaction;
+        private System.Windows.Forms.Label lblTransactionValue;
         private System.Windows.Forms.Label lblVat;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txbDocumentNo;
         private System.Windows.Forms.TextBox txbGrossTransaction;
         private System.Windows.Forms.TextBox txbVat;
         private System.Windows.Forms.DateTimePicker dtpDate;
-        private System.Windows.Forms.TextBox txbTransactionType;
+        private System.Windows.Forms.ComboBox cmbTransactionType;
     }
 }

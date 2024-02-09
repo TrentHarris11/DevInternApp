@@ -49,7 +49,7 @@
             // btnClose
             // 
             this.btnClose.Location = new System.Drawing.Point(364, 409);
-            this.btnClose.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnClose.Margin = new System.Windows.Forms.Padding(2);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(94, 46);
             this.btnClose.TabIndex = 3;
@@ -61,7 +61,7 @@
             // 
             this.dataGridViewDisplay.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewDisplay.Location = new System.Drawing.Point(23, 166);
-            this.dataGridViewDisplay.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dataGridViewDisplay.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridViewDisplay.Name = "dataGridViewDisplay";
             this.dataGridViewDisplay.RowHeadersWidth = 51;
             this.dataGridViewDisplay.RowTemplate.Height = 24;
@@ -177,6 +177,7 @@
             this.cmbTransactionType.Name = "cmbTransactionType";
             this.cmbTransactionType.Size = new System.Drawing.Size(215, 21);
             this.cmbTransactionType.TabIndex = 17;
+            this.cmbTransactionType.SelectedIndexChanged += new System.EventHandler(this.cmbTransactionType_SelectedIndexChanged);
             // 
             // frmStockTransactions
             // 
@@ -198,7 +199,7 @@
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.dataGridViewDisplay);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmStockTransactions";
             this.Text = "frmStockTransactions";
             this.Load += new System.EventHandler(this.frmStockTransactions_Load);

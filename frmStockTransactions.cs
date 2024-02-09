@@ -141,40 +141,46 @@ namespace DevInternApp
             UpdateStockMaster(stockCode, transactionType, quantity, unitCost, unitSell);
         }
 
-       private void UpdateStockMaster(string stockCode, string transactionType, int qty, decimal unitCost, decimal unitSell)
-{
-    string connectionString = "data source=user\\SQLEXPRESS;initial catalog=xact1;trusted_connection=true";
-    string updateQuery = "";
-
-    using (SqlConnection connection = new SqlConnection(connectionString))
-    {
-        if (transactionType.Equals("Sale", StringComparison.OrdinalIgnoreCase))
+        private void UpdateStockMaster(string stockCode, string transactionType, int qty, decimal unitCost, decimal unitSell)
         {
-            updateQuery = @"
+            // Trim the transactionType to remove any leading/trailing whitespaces
+            transactionType = transactionType.Trim();
+
+            // Debugging line to check the actual transaction type value
+            System.Diagnostics.Debug.WriteLine("Transaction Type: " + transactionType);
+
+            string connectionString = "data source=user\\SQLEXPRESS;initial catalog=xact1;trusted_connection=true";
+            string updateQuery = "";
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                if (transactionType.Equals("Sale", StringComparison.OrdinalIgnoreCase))
+                {
+                    updateQuery = @"
                 UPDATE StockMaster
                 SET QtySold = QtySold + @Qty,
                     TotalSalesExclVat = TotalSalesExclVat + (@Qty * @UnitSell),
                     StockOnHand = StockOnHand - @Qty
                 WHERE StockCode = @StockCode";
-        }
-        else if (transactionType.Equals("Purchase", StringComparison.OrdinalIgnoreCase))
-        {
-            updateQuery = @"
+                }
+                else if (transactionType.Equals("Purchase", StringComparison.OrdinalIgnoreCase))
+                {
+                    updateQuery = @"
                 UPDATE StockMaster
                 SET QtyPurchased = QtyPurchased + @Qty,
                     TotalPurchasesExclVat = TotalPurchasesExclVat + (@Qty * @UnitCost),
                     StockOnHand = StockOnHand + @Qty
                 WHERE StockCode = @StockCode";
-        }
+                }
 
-        // If the query is not set, no valid transaction type was selected
-        if (string.IsNullOrEmpty(updateQuery))
-        {
-            MessageBox.Show("Invalid transaction type selected.");
-            return;
-        }
+                // If the query is not set, no valid transaction type was selected
+                if (string.IsNullOrEmpty(updateQuery))
+                {
+                    MessageBox.Show("Invalid transaction type selected.");
+                    return;
+                }
 
-        using (SqlCommand command = new SqlCommand(updateQuery, connection))
+                using (SqlCommand command = new SqlCommand(updateQuery, connection))
         {
             command.Parameters.AddWithValue("@StockCode", stockCode);
             command.Parameters.AddWithValue("@Qty", qty);
@@ -194,5 +200,9 @@ namespace DevInternApp
     }
 }
 
+        private void cmbTransactionType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
