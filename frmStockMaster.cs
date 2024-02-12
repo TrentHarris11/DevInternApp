@@ -67,17 +67,17 @@ namespace DevInternApp
             string stockCode = txbStockCode.Text;
             string description = txbStockDescription.Text;
             decimal cost = nudCost.Value;
-            decimal sellingPrice = nudPurchasesExclVat.Value;
-            decimal totalPurchasesExclVAT = nudSalesExclVat.Value;
-            decimal totalSalesExclVAT = nudSalesExclVat.Value;
+            decimal sellingPrice = nudSellingP.Value; // Correct control for selling price
+            decimal totalPurchasesExclVAT = cost * Convert.ToInt32(nudQtyPurchased.Value); // Cost multiplied by quantity purchased
+            decimal totalSalesExclVAT = 0; // Since no sales have been made yet
             int qtyPurchased = Convert.ToInt32(nudQtyPurchased.Value);
-            int qtySold = Convert.ToInt32(nudQtySold.Value);
-            int stockOnHand = Convert.ToInt32(nudStock.Value);
+            int qtySold = 0; // Since no sales have been made yet
+            int stockOnHand = qtyPurchased - qtySold; // Initially, stock on hand will be equal to quantity purchased
 
             // Validate input data (add your validation logic here)
 
             // Insert a new record into the database
-            string connectionString = "data source=user\\SQLEXPRESS;initial catalog=xact1;trusted_connection=true"; 
+            string connectionString = "data source=user\\SQLEXPRESS;initial catalog=xact1;trusted_connection=true";
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 string insertQuery = "INSERT INTO StockMaster (StockCode, StockDescription, Cost, SellingPrice, TotalPurchasesExclVAT, TotalSalesExclVAT, QtyPurchased, QtySold, StockOnHand) " +
@@ -85,7 +85,7 @@ namespace DevInternApp
 
                 SqlCommand command = new SqlCommand(insertQuery, connection);
                 command.Parameters.AddWithValue("@StockCode", stockCode);
-                command.Parameters.AddWithValue("@StockDescription", description);
+                command.Parameters.AddWithValue("@StockDescription", description); // Ensure the column name in the database matches
                 command.Parameters.AddWithValue("@Cost", cost);
                 command.Parameters.AddWithValue("@SellingPrice", sellingPrice);
                 command.Parameters.AddWithValue("@TotalPurchasesExclVAT", totalPurchasesExclVAT);
