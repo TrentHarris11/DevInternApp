@@ -52,6 +52,7 @@
             this.btnAddInvoice = new System.Windows.Forms.Button();
             this.btnClear = new System.Windows.Forms.Button();
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
+            this.btnRefresh = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDisplay)).BeginInit();
             this.SuspendLayout();
             // 
@@ -87,7 +88,7 @@
             // 
             // btnView
             // 
-            this.btnView.Location = new System.Drawing.Point(93, 557);
+            this.btnView.Location = new System.Drawing.Point(32, 557);
             this.btnView.Margin = new System.Windows.Forms.Padding(2);
             this.btnView.Name = "btnView";
             this.btnView.Size = new System.Drawing.Size(98, 38);
@@ -98,7 +99,7 @@
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(249, 557);
+            this.btnSave.Location = new System.Drawing.Point(155, 557);
             this.btnSave.Margin = new System.Windows.Forms.Padding(2);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(98, 38);
@@ -109,7 +110,7 @@
             // 
             // btnPrint
             // 
-            this.btnPrint.Location = new System.Drawing.Point(400, 557);
+            this.btnPrint.Location = new System.Drawing.Point(409, 557);
             this.btnPrint.Margin = new System.Windows.Forms.Padding(2);
             this.btnPrint.Name = "btnPrint";
             this.btnPrint.Size = new System.Drawing.Size(98, 38);
@@ -120,7 +121,7 @@
             // 
             // btnClose
             // 
-            this.btnClose.Location = new System.Drawing.Point(544, 557);
+            this.btnClose.Location = new System.Drawing.Point(558, 557);
             this.btnClose.Margin = new System.Windows.Forms.Padding(2);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(98, 38);
@@ -284,11 +285,23 @@
             // 
             this.printDocument1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument1_PrintPage);
             // 
+            // btnRefresh
+            // 
+            this.btnRefresh.Location = new System.Drawing.Point(281, 557);
+            this.btnRefresh.Margin = new System.Windows.Forms.Padding(2);
+            this.btnRefresh.Name = "btnRefresh";
+            this.btnRefresh.Size = new System.Drawing.Size(98, 38);
+            this.btnRefresh.TabIndex = 41;
+            this.btnRefresh.Text = "Refresh";
+            this.btnRefresh.UseVisualStyleBackColor = true;
+            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
+            // 
             // frmInvoicing
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(727, 623);
+            this.Controls.Add(this.btnRefresh);
             this.Controls.Add(this.btnClear);
             this.Controls.Add(this.btnAddInvoice);
             this.Controls.Add(this.dtpDate);
@@ -348,5 +361,6 @@
         private System.Windows.Forms.Button btnAddInvoice;
         private System.Windows.Forms.Button btnClear;
         private System.Drawing.Printing.PrintDocument printDocument1;
+        private System.Windows.Forms.Button btnRefresh;
     }
 }

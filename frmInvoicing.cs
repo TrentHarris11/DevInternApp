@@ -16,13 +16,44 @@ namespace DevInternApp
     public partial class frmInvoicing : Form
     {
 
+        private int _accountCode;
+        private string _documentNo;
+        private DateTime _date;
+        private decimal _totalSellExclVat;
+        private decimal _vat;
+
         //private int currentInvoiceNo;
+        public frmInvoicing(int accountCode, string documentNo, DateTime date, decimal totalSellExclVat, decimal vat)
+        {
+            InitializeComponent();
+
+            _accountCode = accountCode;
+            _documentNo = documentNo;
+            _date = date;
+            _totalSellExclVat = totalSellExclVat;
+            _vat = vat;
+
+            PopulateDebtorComboBox();
+            PopulateInvoiceFields();
+        }
+
         public frmInvoicing()
         {
             InitializeComponent();
-            dtpInvoice.Value = DateTime.Now; // Set to current date
-            PopulateDebtorComboBox();
-            
+        }
+
+
+
+        private void PopulateInvoiceFields()
+        {
+            // Use the private fields to populate the form's controls
+            txbAccCode.Text = _accountCode.ToString();
+            txbInvoiceNo.Text = _documentNo;
+            dtpDate.Value = _date != DateTime.MinValue ? _date : DateTime.Today; // Check for default DateTime value
+            txbTotalSellExclVat.Text = _totalSellExclVat.ToString("N2"); // Format for currency
+            txbVat.Text = _vat.ToString("N2"); // Format for currency
+                                               // Assuming TotalCost is the sum of _totalSellExclVat and _vat
+            txbTotalCost.Text = (_totalSellExclVat + _vat).ToString("N2");
         }
 
         private void PopulateInvoiceDataGridView(int accountCode)
@@ -99,6 +130,7 @@ namespace DevInternApp
         }
 
        
+
         private void btnSave_Click(object sender, EventArgs e)
         {
            
@@ -281,6 +313,12 @@ namespace DevInternApp
         private void btnPrint_Click(object sender, EventArgs e)
         {
             printDocument1.Print();
+        }
+
+        private void btnRefresh_Click(object sender, EventArgs e)
+        {
+            int selectedAccountCode = Convert.ToInt32(cmbDebtors.SelectedValue);
+            PopulateInvoiceDataGridView(selectedAccountCode);
         }
     }
 }

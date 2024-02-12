@@ -45,6 +45,8 @@ namespace DevInternApp
 
         private void RefreshDataGridView()
         {
+
+           
             string selectQuery = @"SELECT ItemNo, StockCode, QtySold, UnitCost, UnitSell, Disc, Total 
                                FROM InvoiceDetail WHERE InvoiceNo = @InvoiceNo";
 
@@ -118,6 +120,8 @@ namespace DevInternApp
 
             RefreshDataGridView();
         }
+
+      
 
         private void btnRefresh_Click(object sender, EventArgs e)
         {

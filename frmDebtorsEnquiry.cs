@@ -18,8 +18,6 @@ namespace DevInternApp
             InitializeComponent();
         }
 
-        // Method to populate the Debtors DataGridView with data from the database
-        // Method to populate the Debtors DataGridView with data from the database
         private void PopulateDebtorsDataGridView()
         {
             string connectionString = "data source=user\\SQLEXPRESS;initial catalog=xact1;trusted_connection=true"; 
@@ -98,12 +96,19 @@ namespace DevInternApp
 
         private void btnViewTransaction_Click(object sender, EventArgs e)
         {
+            // Check if a row is actually selected
+            if (dataGridViewDisplay.CurrentRow == null)
+            {
+                MessageBox.Show("Please select a debtor to view transactions.");
+                return;
+            }
+
             // Get the selected debtor's account code from the Debtors DataGridView
-            string selectedAccountCode = dataGridViewDisplay.CurrentRow.Cells["AccountCode"].Value.ToString();
+            int selectedAccountCode = Convert.ToInt32(dataGridViewDisplay.CurrentRow.Cells["AccountCode"].Value);
 
             // Open the frmTransactionHistory form and pass the selected account code
             frmTransactionHistory transactionHistoryForm = new frmTransactionHistory(selectedAccountCode);
-            transactionHistoryForm.Show();
+            transactionHistoryForm.Show(); // Show the form as a modal dialog
         }
 
         private void btnRefresh_Click(object sender, EventArgs e)

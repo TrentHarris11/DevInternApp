@@ -13,51 +13,53 @@ namespace DevInternApp
 {
     public partial class frmTransactionHistory : Form
     {
-        private string selectedAccountCode;
+      
+        private readonly int _accountCode; // Field to store account code
 
-        public frmTransactionHistory(string accountCode)
+        public frmTransactionHistory(int accountCode)
         {
             InitializeComponent();
-            selectedAccountCode = accountCode;
+            _accountCode = accountCode;
+
+            // Set the account code in a textbox if you have one on the form
+            // Make sure the textbox is read-only if it should not be editable
+            txbAccountCode.Text = _accountCode.ToString();
+            txbAccountCode.ReadOnly = true;
+
             PopulateTransactionHistoryDataGridView();
         }
 
         private void PopulateTransactionHistoryDataGridView()
         {
-            
-            DataTable transactionData = GetTransactionData(selectedAccountCode); // Method to retrieve transaction data
-
-            // Bind the transaction data to the DataGridView
+            DataTable transactionData = GetTransactionData(_accountCode);
             dataGridViewDisplay.DataSource = transactionData;
         }
 
-        private DataTable GetTransactionData(string accountCode)
+        private DataTable GetTransactionData(int accountCode)
         {
             DataTable transactionData = new DataTable();
-
-            
             string connectionString = "data source=user\\SQLEXPRESS;initial catalog=xact1;trusted_connection=true";
 
-            // SQL query to retrieve transaction details based on the account code
-            string selectQuery = "SELECT Date, TransactionType, DocumentNo, GrossTransactionValue, VatValue FROM DebtorsTransaction WHERE AccountCode = @AccountCode";
+            // Include AccountCode in the SELECT statement
+            string selectQuery = @"
+        SELECT AccountCode, Date, TransactionType, DocumentNo, GrossTransactionValue, VatValue 
+        FROM DebtorsTransaction 
+        WHERE AccountCode = @AccountCode";
 
             using (SqlConnection connection = new SqlConnection(connectionString))
+            using (SqlCommand command = new SqlCommand(selectQuery, connection))
             {
-                using (SqlCommand command = new SqlCommand(selectQuery, connection))
-                {
-                    command.Parameters.AddWithValue("@AccountCode", accountCode);
+                command.Parameters.AddWithValue("@AccountCode", accountCode);
 
-                    try
-                    {
-                        connection.Open();
-                        SqlDataReader reader = command.ExecuteReader();
-                        transactionData.Load(reader); // Load data directly from the SqlDataReader
-                    }
-                    catch (Exception ex)
-                    {
-                        // Handle the exception, e.g., display an error message
-                        MessageBox.Show("An error occurred while retrieving transaction data: " + ex.Message);
-                    }
+                try
+                {
+                    connection.Open();
+                    SqlDataReader reader = command.ExecuteReader();
+                    transactionData.Load(reader);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("An error occurred while retrieving transaction data: " + ex.Message);
                 }
             }
 
@@ -87,7 +89,96 @@ namespace DevInternApp
 
         private void btnAddTransaction_Click(object sender, EventArgs e)
         {
+            // Use the private readonly field _accountCode
+            int accountCode = this._accountCode;
+            DateTime date = dtpDate.Value;
+            string transactionType = cmbTransactionType.SelectedItem.ToString();
+            string documentNo = txbDocumentNo.Text;
+            decimal grossTransactionValue = decimal.Parse(txbGrossTransaction.Text);
+            decimal vatValue = decimal.Parse(txbVat.Text);
 
+            string connectionString = @"data source=user\SQLEXPRESS;initial catalog=xact1;trusted_connection=true";
+            string insertQuery = @"
+INSERT INTO DebtorsTransaction (AccountCode, Date, TransactionType, DocumentNo, GrossTransactionValue, VatValue)
+VALUES (@AccountCode, @Date, @TransactionType, @DocumentNo, @GrossTransactionValue, @VatValue)";
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            using (SqlCommand command = new SqlCommand(insertQuery, connection))
+            {
+                command.Parameters.AddWithValue("@AccountCode", accountCode);
+                command.Parameters.AddWithValue("@Date", date);
+                command.Parameters.AddWithValue("@TransactionType", transactionType);
+                command.Parameters.AddWithValue("@DocumentNo", documentNo);
+                command.Parameters.AddWithValue("@GrossTransactionValue", grossTransactionValue);
+                command.Parameters.AddWithValue("@VatValue", vatValue);
+
+                try
+                {
+                    connection.Open();
+                    command.ExecuteNonQuery();
+                    MessageBox.Show("Transaction added successfully.");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("An error occurred: " + ex.Message);
+                }
+            }
+
+            // Refresh the DataGridView to show the new transaction
+            PopulateTransactionHistoryDataGridView();
+        }
+
+        private void PopulateDataGridView(int accountCode)
+        {
+            string connectionString = @"data source=user\SQLEXPRESS;initial catalog=xact1;trusted_connection=true";
+            string selectQuery = @"
+        SELECT * FROM DebtorsTransaction
+        WHERE AccountCode = @AccountCode";
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            using (SqlCommand command = new SqlCommand(selectQuery, connection))
+            {
+                command.Parameters.AddWithValue("@AccountCode", accountCode);
+
+                SqlDataAdapter adapter = new SqlDataAdapter(command);
+                DataTable dataTable = new DataTable();
+
+                try
+                {
+                    connection.Open();
+                    adapter.Fill(dataTable);
+                    dataGridViewDisplay.DataSource = dataTable;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("An error occurred while fetching transaction data: " + ex.Message);
+                }
+            }
+        }
+
+        private void btnAddInvoice_Click(object sender, EventArgs e)
+        {
+            // Check if there is any selected row first
+            if (dataGridViewDisplay.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Please select a transaction to add an invoice.");
+                return; // Exit the method if no row is selected
+            }
+
+            // Now we can safely assume that there is at least one selected row
+            var selectedRow = dataGridViewDisplay.SelectedRows[0];
+
+            // Use _accountCode directly since it's not part of the DataGridView
+            int accountCode = _accountCode;
+
+            string documentNo = selectedRow.Cells["DocumentNo"].Value.ToString();
+            DateTime date = (DateTime)selectedRow.Cells["Date"].Value;
+            decimal totalSellExclVat = (decimal)selectedRow.Cells["GrossTransactionValue"].Value;
+            decimal vat = (decimal)selectedRow.Cells["VatValue"].Value;
+
+            // Open frmInvoicing with the selected data
+            frmInvoicing invoicingForm = new frmInvoicing(accountCode, documentNo, date, totalSellExclVat, vat);
+            invoicingForm.ShowDialog(); // This opens it as a modal dialog box
         }
     }
 }
