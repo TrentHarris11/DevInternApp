@@ -20,14 +20,14 @@ namespace DevInternApp
         {
             InitializeComponent();
             _accountCode = accountCode;
-
             // Set the account code in a textbox if you have one on the form
             // Make sure the textbox is read-only if it should not be editable
             txbAccountCode.Text = _accountCode.ToString();
             txbAccountCode.ReadOnly = true;
-
             PopulateTransactionHistoryDataGridView();
         }
+
+       
 
         private void PopulateTransactionHistoryDataGridView()
         {

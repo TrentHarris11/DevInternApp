@@ -48,7 +48,7 @@
             // 
             // btnClose
             // 
-            this.btnClose.Location = new System.Drawing.Point(364, 409);
+            this.btnClose.Location = new System.Drawing.Point(291, 414);
             this.btnClose.Margin = new System.Windows.Forms.Padding(2);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(94, 46);
@@ -70,7 +70,7 @@
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(235, 409);
+            this.btnAdd.Location = new System.Drawing.Point(162, 414);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(94, 46);
             this.btnAdd.TabIndex = 4;

@@ -159,6 +159,7 @@
             this.txbDiscount.Name = "txbDiscount";
             this.txbDiscount.Size = new System.Drawing.Size(134, 20);
             this.txbDiscount.TabIndex = 14;
+            this.txbDiscount.Text = "l";
             // 
             // lblDisc
             // 

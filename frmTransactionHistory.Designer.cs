@@ -86,7 +86,7 @@
             this.lblDate.AutoSize = true;
             this.lblDate.Location = new System.Drawing.Point(12, 52);
             this.lblDate.Name = "lblDate";
-            this.lblDate.Size = new System.Drawing.Size(30, 13);
+            this.lblDate.Size = new System.Drawing.Size(36, 16);
             this.lblDate.TabIndex = 3;
             this.lblDate.Text = "Date";
             // 
@@ -95,7 +95,7 @@
             this.lblTransactionType.AutoSize = true;
             this.lblTransactionType.Location = new System.Drawing.Point(12, 123);
             this.lblTransactionType.Name = "lblTransactionType";
-            this.lblTransactionType.Size = new System.Drawing.Size(90, 13);
+            this.lblTransactionType.Size = new System.Drawing.Size(113, 16);
             this.lblTransactionType.TabIndex = 4;
             this.lblTransactionType.Text = "Transaction Type";
             // 
@@ -104,7 +104,7 @@
             this.lblDocumentNo.AutoSize = true;
             this.lblDocumentNo.Location = new System.Drawing.Point(12, 82);
             this.lblDocumentNo.Name = "lblDocumentNo";
-            this.lblDocumentNo.Size = new System.Drawing.Size(73, 13);
+            this.lblDocumentNo.Size = new System.Drawing.Size(89, 16);
             this.lblDocumentNo.TabIndex = 5;
             this.lblDocumentNo.Text = "Document No";
             // 
@@ -113,7 +113,7 @@
             this.lblTransactionValue.AutoSize = true;
             this.lblTransactionValue.Location = new System.Drawing.Point(12, 156);
             this.lblTransactionValue.Name = "lblTransactionValue";
-            this.lblTransactionValue.Size = new System.Drawing.Size(93, 13);
+            this.lblTransactionValue.Size = new System.Drawing.Size(116, 16);
             this.lblTransactionValue.TabIndex = 6;
             this.lblTransactionValue.Text = "Transaction Value";
             // 
@@ -122,7 +122,7 @@
             this.lblVat.AutoSize = true;
             this.lblVat.Location = new System.Drawing.Point(32, 196);
             this.lblVat.Name = "lblVat";
-            this.lblVat.Size = new System.Drawing.Size(23, 13);
+            this.lblVat.Size = new System.Drawing.Size(27, 16);
             this.lblVat.TabIndex = 7;
             this.lblVat.Text = "Vat";
             // 
@@ -130,21 +130,21 @@
             // 
             this.txbDocumentNo.Location = new System.Drawing.Point(113, 79);
             this.txbDocumentNo.Name = "txbDocumentNo";
-            this.txbDocumentNo.Size = new System.Drawing.Size(200, 20);
+            this.txbDocumentNo.Size = new System.Drawing.Size(200, 22);
             this.txbDocumentNo.TabIndex = 9;
             // 
             // txbGrossTransaction
             // 
             this.txbGrossTransaction.Location = new System.Drawing.Point(113, 153);
             this.txbGrossTransaction.Name = "txbGrossTransaction";
-            this.txbGrossTransaction.Size = new System.Drawing.Size(200, 20);
+            this.txbGrossTransaction.Size = new System.Drawing.Size(200, 22);
             this.txbGrossTransaction.TabIndex = 10;
             // 
             // txbVat
             // 
             this.txbVat.Location = new System.Drawing.Point(113, 193);
             this.txbVat.Name = "txbVat";
-            this.txbVat.Size = new System.Drawing.Size(200, 20);
+            this.txbVat.Size = new System.Drawing.Size(200, 22);
             this.txbVat.TabIndex = 11;
             this.txbVat.TextChanged += new System.EventHandler(this.textBox4_TextChanged);
             // 
@@ -152,7 +152,7 @@
             // 
             this.dtpDate.Location = new System.Drawing.Point(113, 45);
             this.dtpDate.Name = "dtpDate";
-            this.dtpDate.Size = new System.Drawing.Size(200, 20);
+            this.dtpDate.Size = new System.Drawing.Size(200, 22);
             this.dtpDate.TabIndex = 12;
             // 
             // cmbTransactionType
@@ -160,7 +160,7 @@
             this.cmbTransactionType.FormattingEnabled = true;
             this.cmbTransactionType.Items.AddRange(new object[] {
             "Purchase",
-            "Sale"});
+            "Credit"});
             this.cmbTransactionType.Location = new System.Drawing.Point(113, 120);
             this.cmbTransactionType.Name = "cmbTransactionType";
             this.cmbTransactionType.Size = new System.Drawing.Size(200, 21);
@@ -182,7 +182,7 @@
             this.lblAccountCode.AutoSize = true;
             this.lblAccountCode.Location = new System.Drawing.Point(10, 19);
             this.lblAccountCode.Name = "lblAccountCode";
-            this.lblAccountCode.Size = new System.Drawing.Size(75, 13);
+            this.lblAccountCode.Size = new System.Drawing.Size(91, 16);
             this.lblAccountCode.TabIndex = 16;
             this.lblAccountCode.Text = "Account Code";
             // 
@@ -191,7 +191,7 @@
             this.txbAccountCode.Location = new System.Drawing.Point(113, 13);
             this.txbAccountCode.Name = "txbAccountCode";
             this.txbAccountCode.ReadOnly = true;
-            this.txbAccountCode.Size = new System.Drawing.Size(200, 20);
+            this.txbAccountCode.Size = new System.Drawing.Size(200, 22);
             this.txbAccountCode.TabIndex = 17;
             // 
             // frmTransactionHistory
