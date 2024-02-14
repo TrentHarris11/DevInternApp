@@ -94,9 +94,19 @@ namespace DevInternApp
             // Get the selected stock account code from the Stocks DataGridView
             string selectedStockCode = dataGridViewDisplay.CurrentRow.Cells["StockCode"].Value.ToString();
 
-            // Open the frmTransactionHistory form and pass the selected account code
-            frmStockTransactions stockTransactionsForm = new frmStockTransactions(selectedStockCode);
-            stockTransactionsForm.Show();
+            if (dataGridViewDisplay.CurrentRow != null)
+            {
+                int selectedStockID = Convert.ToInt32(dataGridViewDisplay.CurrentRow.Cells["StockCode"].Value);
+                decimal unitCost = Convert.ToDecimal(dataGridViewDisplay.CurrentRow.Cells["Cost"].Value);
+                decimal unitSell = Convert.ToDecimal(dataGridViewDisplay.CurrentRow.Cells["SellingPrice"].Value);
+
+                frmStockTransactions transactionsForm = new frmStockTransactions(selectedStockID, unitCost, unitSell);
+                transactionsForm.Show();
+            }
+            else
+            {
+                MessageBox.Show("Please select a stock item to view transactions.");
+            }
         }
 
         private void btnClose_Click(object sender, EventArgs e)

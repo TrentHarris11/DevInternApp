@@ -21,6 +21,14 @@ namespace DevInternApp
             PopulateStockTransactionsDataGridView();
         }
 
+        public frmStockTransactions(int selectedStockID, decimal unitCost, decimal unitSell)
+        {
+            InitializeComponent();
+            // Populate txbUnitCost and txbUnitSell with the passed values
+            txbUnitCost.Text = unitCost.ToString();
+            txbUnitSell.Text = unitSell.ToString();
+        }
+
         private void PopulateStockTransactionsDataGridView()
         {
             // Populate the DataGridView with transaction details based on the selected account code

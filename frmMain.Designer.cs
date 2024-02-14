@@ -41,8 +41,9 @@
             this.pictureBoxXACT.Dock = System.Windows.Forms.DockStyle.Top;
             this.pictureBoxXACT.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxXACT.Image")));
             this.pictureBoxXACT.Location = new System.Drawing.Point(0, 0);
+            this.pictureBoxXACT.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pictureBoxXACT.Name = "pictureBoxXACT";
-            this.pictureBoxXACT.Size = new System.Drawing.Size(949, 200);
+            this.pictureBoxXACT.Size = new System.Drawing.Size(712, 200);
             this.pictureBoxXACT.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.pictureBoxXACT.TabIndex = 0;
             this.pictureBoxXACT.TabStop = false;
@@ -52,9 +53,10 @@
             this.btnStock.BackColor = System.Drawing.Color.LimeGreen;
             this.btnStock.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnStock.ForeColor = System.Drawing.Color.Gold;
-            this.btnStock.Location = new System.Drawing.Point(449, 286);
+            this.btnStock.Location = new System.Drawing.Point(337, 232);
+            this.btnStock.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnStock.Name = "btnStock";
-            this.btnStock.Size = new System.Drawing.Size(165, 55);
+            this.btnStock.Size = new System.Drawing.Size(124, 45);
             this.btnStock.TabIndex = 2;
             this.btnStock.Text = "Stocks";
             this.btnStock.UseVisualStyleBackColor = false;
@@ -65,9 +67,10 @@
             this.btnInvoices.BackColor = System.Drawing.Color.LimeGreen;
             this.btnInvoices.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnInvoices.ForeColor = System.Drawing.Color.Gold;
-            this.btnInvoices.Location = new System.Drawing.Point(701, 286);
+            this.btnInvoices.Location = new System.Drawing.Point(526, 232);
+            this.btnInvoices.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnInvoices.Name = "btnInvoices";
-            this.btnInvoices.Size = new System.Drawing.Size(159, 55);
+            this.btnInvoices.Size = new System.Drawing.Size(119, 45);
             this.btnInvoices.TabIndex = 3;
             this.btnInvoices.Text = "Invoices";
             this.btnInvoices.UseVisualStyleBackColor = false;
@@ -78,9 +81,10 @@
             this.btnDebtors.BackColor = System.Drawing.Color.LimeGreen;
             this.btnDebtors.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDebtors.ForeColor = System.Drawing.Color.Gold;
-            this.btnDebtors.Location = new System.Drawing.Point(174, 286);
+            this.btnDebtors.Location = new System.Drawing.Point(130, 232);
+            this.btnDebtors.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnDebtors.Name = "btnDebtors";
-            this.btnDebtors.Size = new System.Drawing.Size(165, 55);
+            this.btnDebtors.Size = new System.Drawing.Size(124, 45);
             this.btnDebtors.TabIndex = 4;
             this.btnDebtors.Text = "Debtors";
             this.btnDebtors.UseVisualStyleBackColor = false;
@@ -88,14 +92,16 @@
             // 
             // frmMain
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(949, 450);
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.ClientSize = new System.Drawing.Size(712, 366);
             this.Controls.Add(this.btnDebtors);
             this.Controls.Add(this.btnInvoices);
             this.Controls.Add(this.btnStock);
             this.Controls.Add(this.pictureBoxXACT);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "frmMain";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.frmMain_Load);

@@ -45,6 +45,7 @@
             this.btnAddInvoice = new System.Windows.Forms.Button();
             this.lblAccountCode = new System.Windows.Forms.Label();
             this.txbAccountCode = new System.Windows.Forms.TextBox();
+            this.btnCalculate = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDisplay)).BeginInit();
             this.SuspendLayout();
             // 
@@ -160,8 +161,7 @@
             // 
             this.cmbTransactionType.FormattingEnabled = true;
             this.cmbTransactionType.Items.AddRange(new object[] {
-            "Purchase",
-            "Credit"});
+            "Purchase"});
             this.cmbTransactionType.Location = new System.Drawing.Point(113, 120);
             this.cmbTransactionType.Name = "cmbTransactionType";
             this.cmbTransactionType.Size = new System.Drawing.Size(200, 21);
@@ -195,6 +195,16 @@
             this.txbAccountCode.Size = new System.Drawing.Size(200, 20);
             this.txbAccountCode.TabIndex = 17;
             // 
+            // btnCalculate
+            // 
+            this.btnCalculate.Location = new System.Drawing.Point(322, 192);
+            this.btnCalculate.Name = "btnCalculate";
+            this.btnCalculate.Size = new System.Drawing.Size(75, 20);
+            this.btnCalculate.TabIndex = 18;
+            this.btnCalculate.Text = "Calculate";
+            this.btnCalculate.UseVisualStyleBackColor = true;
+            this.btnCalculate.Click += new System.EventHandler(this.btnCalculate_Click);
+            // 
             // frmTransactionHistory
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -202,6 +212,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(715, 551);
+            this.Controls.Add(this.btnCalculate);
             this.Controls.Add(this.txbAccountCode);
             this.Controls.Add(this.lblAccountCode);
             this.Controls.Add(this.btnAddInvoice);
@@ -246,5 +257,6 @@
         private System.Windows.Forms.Button btnAddInvoice;
         private System.Windows.Forms.Label lblAccountCode;
         private System.Windows.Forms.TextBox txbAccountCode;
+        private System.Windows.Forms.Button btnCalculate;
     }
 }

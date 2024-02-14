@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -174,6 +175,21 @@ VALUES (@AccountCode, @Date, @TransactionType, @DocumentNo, @GrossTransactionVal
             // Open frmInvoicing with the selected data
             frmInvoicing invoicingForm = new frmInvoicing(accountCode, documentNo, date, totalSellExclVat, vat);
             invoicingForm.Show(); 
+        }
+
+        private void btnCalculate_Click(object sender, EventArgs e)
+        {
+            if (decimal.TryParse(txbGrossTransaction.Text, out decimal grossTransaction))
+            {
+                decimal vat = grossTransaction * 0.15m;
+
+                // Populate the Vat textbox with the calculated value, formatted as currency without the symbol
+                txbVat.Text = vat.ToString("C", CultureInfo.CreateSpecificCulture("en-ZA")).Substring(1).Trim();
+            }
+            else
+            {
+                MessageBox.Show("Please enter a valid amount in Gross Transaction.");
+            }
         }
     }
 }
