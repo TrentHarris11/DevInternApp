@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmStockEnquiry));
             this.btnViewTransaction = new System.Windows.Forms.Button();
             this.dataGridViewDisplay = new System.Windows.Forms.DataGridView();
             this.btnClose = new System.Windows.Forms.Button();
@@ -39,7 +40,7 @@
             // 
             // btnViewTransaction
             // 
-            this.btnViewTransaction.Location = new System.Drawing.Point(9, 260);
+            this.btnViewTransaction.Location = new System.Drawing.Point(80, 188);
             this.btnViewTransaction.Margin = new System.Windows.Forms.Padding(2);
             this.btnViewTransaction.Name = "btnViewTransaction";
             this.btnViewTransaction.Size = new System.Drawing.Size(116, 41);
@@ -56,12 +57,12 @@
             this.dataGridViewDisplay.Name = "dataGridViewDisplay";
             this.dataGridViewDisplay.RowHeadersWidth = 51;
             this.dataGridViewDisplay.RowTemplate.Height = 24;
-            this.dataGridViewDisplay.Size = new System.Drawing.Size(511, 122);
+            this.dataGridViewDisplay.Size = new System.Drawing.Size(586, 122);
             this.dataGridViewDisplay.TabIndex = 10;
             // 
             // btnClose
             // 
-            this.btnClose.Location = new System.Drawing.Point(404, 260);
+            this.btnClose.Location = new System.Drawing.Point(405, 188);
             this.btnClose.Margin = new System.Windows.Forms.Padding(2);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(116, 41);
@@ -72,7 +73,7 @@
             // 
             // btnRefresh
             // 
-            this.btnRefresh.Location = new System.Drawing.Point(200, 260);
+            this.btnRefresh.Location = new System.Drawing.Point(241, 188);
             this.btnRefresh.Margin = new System.Windows.Forms.Padding(2);
             this.btnRefresh.Name = "btnRefresh";
             this.btnRefresh.Size = new System.Drawing.Size(116, 41);
@@ -104,6 +105,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(606, 366);
             this.Controls.Add(this.btnViewTransaction);
             this.Controls.Add(this.dataGridViewDisplay);

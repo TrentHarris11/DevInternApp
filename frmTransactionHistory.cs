@@ -13,15 +13,12 @@ namespace DevInternApp
 {
     public partial class frmTransactionHistory : Form
     {
-      
         private readonly int _accountCode; // Field to store account code
 
         public frmTransactionHistory(int accountCode)
         {
             InitializeComponent();
             _accountCode = accountCode;
-            // Set the account code in a textbox if you have one on the form
-            // Make sure the textbox is read-only if it should not be editable
             txbAccountCode.Text = _accountCode.ToString();
             txbAccountCode.ReadOnly = true;
             PopulateTransactionHistoryDataGridView();
@@ -40,7 +37,6 @@ namespace DevInternApp
             DataTable transactionData = new DataTable();
             string connectionString = "data source=user\\SQLEXPRESS;initial catalog=xact1;trusted_connection=true";
 
-            // Include AccountCode in the SELECT statement
             string selectQuery = @"
         SELECT AccountCode, Date, TransactionType, DocumentNo, GrossTransactionValue, VatValue 
         FROM DebtorsTransaction 
@@ -65,7 +61,6 @@ namespace DevInternApp
 
             return transactionData;
         }
-
 
         private void frmTransactionHistory_Load(object sender, EventArgs e)
         {
@@ -178,7 +173,7 @@ VALUES (@AccountCode, @Date, @TransactionType, @DocumentNo, @GrossTransactionVal
 
             // Open frmInvoicing with the selected data
             frmInvoicing invoicingForm = new frmInvoicing(accountCode, documentNo, date, totalSellExclVat, vat);
-            invoicingForm.ShowDialog(); // This opens it as a modal dialog box
+            invoicingForm.Show(); 
         }
     }
 }

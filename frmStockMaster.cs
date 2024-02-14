@@ -74,8 +74,6 @@ namespace DevInternApp
             int qtySold = 0; // Since no sales have been made yet
             int stockOnHand = qtyPurchased - qtySold; // Initially, stock on hand will be equal to quantity purchased
 
-            // Validate input data (add your validation logic here)
-
             // Insert a new record into the database
             string connectionString = "data source=user\\SQLEXPRESS;initial catalog=xact1;trusted_connection=true";
             using (SqlConnection connection = new SqlConnection(connectionString))
@@ -85,7 +83,7 @@ namespace DevInternApp
 
                 SqlCommand command = new SqlCommand(insertQuery, connection);
                 command.Parameters.AddWithValue("@StockCode", stockCode);
-                command.Parameters.AddWithValue("@StockDescription", description); // Ensure the column name in the database matches
+                command.Parameters.AddWithValue("@StockDescription", description); 
                 command.Parameters.AddWithValue("@Cost", cost);
                 command.Parameters.AddWithValue("@SellingPrice", sellingPrice);
                 command.Parameters.AddWithValue("@TotalPurchasesExclVAT", totalPurchasesExclVAT);
@@ -101,7 +99,6 @@ namespace DevInternApp
                     if (rowsAffected > 0)
                     {
                         MessageBox.Show("Stock record added successfully!");
-                        // Clear input fields or perform any other necessary actions
                     }
                     else
                     {
@@ -133,8 +130,6 @@ namespace DevInternApp
             int qtySold = Convert.ToInt32(nudQtySold.Value);
             int stockOnHand = Convert.ToInt32(nudStock.Value);
 
-            // Validate input data (add your validation logic here)
-
             // Update the corresponding record in the database
             string connectionString = "data source=user\\SQLEXPRESS;initial catalog=xact1;trusted_connection=true"; 
             using (SqlConnection connection = new SqlConnection(connectionString))
@@ -163,7 +158,6 @@ namespace DevInternApp
                     if (rowsAffected > 0)
                     {
                         MessageBox.Show("Stock record updated successfully!");
-                        // Clear input fields or perform any other necessary actions
                     }
                     else
                     {
@@ -185,7 +179,7 @@ namespace DevInternApp
             if (result == DialogResult.Yes)
             {
                 // Delete the corresponding record from the database
-                string stockCode = txbStockCode.Text; // Assuming the stock code is used to identify the stock record
+                string stockCode = txbStockCode.Text; //Stock code is used to identify the stock record
 
                 string connectionString = "data source=user\\SQLEXPRESS;initial catalog=xact1;trusted_connection=true"; 
                 using (SqlConnection connection = new SqlConnection(connectionString))
@@ -202,7 +196,6 @@ namespace DevInternApp
                         if (rowsAffected > 0)
                         {
                             MessageBox.Show("Stock record deleted successfully!");
-                            // Clear input fields or perform any other necessary actions
                         }
                         else
                         {
@@ -219,15 +212,14 @@ namespace DevInternApp
 
         private void btnMainScreen_Click(object sender, EventArgs e)
         {
-            this.Close(); // Close the current form (frmStockEnquiry)
-            //frmMain mainForm = new frmMain();
-            //mainForm.Show(); // Show the main form (frmMain)
+            this.Close(); 
         }
 
         private void btnStockMaster_Click(object sender, EventArgs e)
         {
             frmStockEnquiry stockEnquiry = new frmStockEnquiry();
             stockEnquiry.Show();
+            this.Close();
         }
     }
 }

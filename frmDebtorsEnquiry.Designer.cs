@@ -28,12 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmDebtorsEnquiry));
             this.txbSearch = new System.Windows.Forms.TextBox();
             this.btnSearch = new System.Windows.Forms.Button();
             this.btnRefresh = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
             this.dataGridViewDisplay = new System.Windows.Forms.DataGridView();
             this.btnViewTransaction = new System.Windows.Forms.Button();
+            this.btnUpdateDebtors = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDisplay)).BeginInit();
             this.SuspendLayout();
             // 
@@ -58,10 +60,10 @@
             // 
             // btnRefresh
             // 
-            this.btnRefresh.Location = new System.Drawing.Point(193, 289);
+            this.btnRefresh.Location = new System.Drawing.Point(159, 202);
             this.btnRefresh.Margin = new System.Windows.Forms.Padding(2);
             this.btnRefresh.Name = "btnRefresh";
-            this.btnRefresh.Size = new System.Drawing.Size(132, 41);
+            this.btnRefresh.Size = new System.Drawing.Size(115, 41);
             this.btnRefresh.TabIndex = 2;
             this.btnRefresh.Text = "Load";
             this.btnRefresh.UseVisualStyleBackColor = true;
@@ -69,10 +71,10 @@
             // 
             // btnClose
             // 
-            this.btnClose.Location = new System.Drawing.Point(388, 289);
+            this.btnClose.Location = new System.Drawing.Point(463, 202);
             this.btnClose.Margin = new System.Windows.Forms.Padding(2);
             this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(132, 41);
+            this.btnClose.Size = new System.Drawing.Size(115, 41);
             this.btnClose.TabIndex = 3;
             this.btnClose.Text = "Close";
             this.btnClose.UseVisualStyleBackColor = true;
@@ -86,26 +88,40 @@
             this.dataGridViewDisplay.Name = "dataGridViewDisplay";
             this.dataGridViewDisplay.RowHeadersWidth = 51;
             this.dataGridViewDisplay.RowTemplate.Height = 24;
-            this.dataGridViewDisplay.Size = new System.Drawing.Size(511, 122);
+            this.dataGridViewDisplay.Size = new System.Drawing.Size(589, 122);
             this.dataGridViewDisplay.TabIndex = 4;
             this.dataGridViewDisplay.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewDisplay_CellContentClick);
             // 
             // btnViewTransaction
             // 
-            this.btnViewTransaction.Location = new System.Drawing.Point(9, 289);
+            this.btnViewTransaction.Location = new System.Drawing.Point(11, 202);
             this.btnViewTransaction.Margin = new System.Windows.Forms.Padding(2);
             this.btnViewTransaction.Name = "btnViewTransaction";
-            this.btnViewTransaction.Size = new System.Drawing.Size(132, 41);
+            this.btnViewTransaction.Size = new System.Drawing.Size(115, 41);
             this.btnViewTransaction.TabIndex = 5;
             this.btnViewTransaction.Text = "Transaction History";
             this.btnViewTransaction.UseVisualStyleBackColor = true;
             this.btnViewTransaction.Click += new System.EventHandler(this.btnViewTransaction_Click);
             // 
+            // btnUpdateDebtors
+            // 
+            this.btnUpdateDebtors.Location = new System.Drawing.Point(310, 202);
+            this.btnUpdateDebtors.Margin = new System.Windows.Forms.Padding(2);
+            this.btnUpdateDebtors.Name = "btnUpdateDebtors";
+            this.btnUpdateDebtors.Size = new System.Drawing.Size(115, 41);
+            this.btnUpdateDebtors.TabIndex = 6;
+            this.btnUpdateDebtors.Text = "Update Debtor";
+            this.btnUpdateDebtors.UseVisualStyleBackColor = true;
+            this.btnUpdateDebtors.Click += new System.EventHandler(this.btnUpdateDebtors_Click);
+            // 
             // frmDebtorsEnquiry
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(600, 366);
+            this.Controls.Add(this.btnUpdateDebtors);
             this.Controls.Add(this.btnViewTransaction);
             this.Controls.Add(this.dataGridViewDisplay);
             this.Controls.Add(this.btnClose);
@@ -130,5 +146,6 @@
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.DataGridView dataGridViewDisplay;
         private System.Windows.Forms.Button btnViewTransaction;
+        private System.Windows.Forms.Button btnUpdateDebtors;
     }
 }

@@ -78,8 +78,6 @@ namespace DevInternApp
             }
         }
 
-
-
         private void frmStockEnquiry_Load(object sender, EventArgs e)
         {
 
@@ -103,9 +101,7 @@ namespace DevInternApp
 
         private void btnClose_Click(object sender, EventArgs e)
         {
-            this.Close(); // Close the current form (frmStockEnquiry)
-            //frmMain mainForm = new frmMain();
-            //mainForm.Show(); // Show the main form (frmMain)
+            this.Close(); 
         }
 
         private void btnRefresh_Click(object sender, EventArgs e)

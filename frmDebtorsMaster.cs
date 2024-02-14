@@ -155,8 +155,6 @@ namespace DevInternApp
             decimal salesYearToDate = nudSalesYear.Value;
             decimal costYearToDate = nudCostYear.Value;
 
-            // Validate input data (add your validation logic here)
-
             // Update the corresponding record in the database
             string connectionString = "data source=user\\SQLEXPRESS;initial catalog=xact1;trusted_connection=true"; 
             using (SqlConnection connection = new SqlConnection(connectionString))
@@ -182,7 +180,6 @@ namespace DevInternApp
                     if (rowsAffected > 0)
                     {
                         MessageBox.Show("Debtor record updated successfully!");
-                        // Clear input fields or perform any other necessary actions
                     }
                     else
                     {
@@ -204,7 +201,7 @@ namespace DevInternApp
             if (result == DialogResult.Yes)
             {
                 // Delete the corresponding record from the database
-                int accountCode = Convert.ToInt32(txbAccountCode.Text); // Assuming the account code is used to identify the debtor record
+                int accountCode = Convert.ToInt32(txbAccountCode.Text); //Account code is used to identify the debtor record
 
                 string connectionString = "data source=user\\SQLEXPRESS;initial catalog=xact1;trusted_connection=true"; 
                 using (SqlConnection connection = new SqlConnection(connectionString))
@@ -236,26 +233,38 @@ namespace DevInternApp
             }
         }
 
+        public void PopulateFields(int accountCode, string address1, string address2, string address3, decimal balance, decimal salesYearToDate, decimal costYearToDate)
+        {
+            // Set the fields with the provided data
+            txbAccountCode.Text = accountCode.ToString();
+            txbAddress1.Text = address1;
+            txbAddress2.Text = address2;
+            txbAddress3.Text = address3;
+            nudBalance.Text = balance.ToString("N2"); // Format for currency
+            nudSalesYear.Text = salesYearToDate.ToString("N2"); // Format for currency
+            nudCostYear.Text = costYearToDate.ToString("N2"); // Format for currency
+            txbAccountCode.Enabled = false;
+        }
+
         private void frmDebtorsMaster_Load(object sender, EventArgs e)
         {
-            // Example: Populate the form with data for a specific debtor (e.g., account code 123)
+            //Populate the form with data for a specific debtor (e.g., account code 123)
             int accountCode = 123; 
 
-            // Call the PopulateDebtorData method to populate the form with data for the specified debtor
+            //Call the PopulateDebtorData method to populate the form with data for the specified debtor
             PopulateDebtorData(accountCode);
         }
 
         private void btnMainScreen_Click(object sender, EventArgs e)
         {
-            this.Close(); // Close the current form (frmStockEnquiry)
-            //frmMain mainForm = new frmMain();
-            //mainForm.Show(); // Show the main form (frmMain)
+            this.Close();
         }
 
         private void btnDebtorsEnquiry_Click(object sender, EventArgs e)
         {
             frmDebtorsEnquiry debtorsEnquiry = new frmDebtorsEnquiry();
             debtorsEnquiry.Show();
+            this.Close();
         }
 
         private void txbAccountCode_TextChanged(object sender, EventArgs e)

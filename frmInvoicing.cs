@@ -52,7 +52,7 @@ namespace DevInternApp
             dtpDate.Value = _date != DateTime.MinValue ? _date : DateTime.Today; // Check for default DateTime value
             txbTotalSellExclVat.Text = _totalSellExclVat.ToString("N2"); // Format for currency
             txbVat.Text = _vat.ToString("N2"); // Format for currency
-                                               // Assuming TotalCost is the sum of _totalSellExclVat and _vat
+                                               //TotalCost is the sum of _totalSellExclVat and _vat
             txbTotalCost.Text = (_totalSellExclVat + _vat).ToString("N2");
         }
 
@@ -129,8 +129,6 @@ namespace DevInternApp
             PopulateDebtorComboBox();
         }
 
-       
-
         private void btnSave_Click(object sender, EventArgs e)
         {
            
@@ -138,13 +136,11 @@ namespace DevInternApp
 
         private void dataGridViewDisplay_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            // Add columns to the DataGridView
 
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            // Assuming you have a way to obtain the currently selected InvoiceNo from your DataGridView or another control
             int invoiceNo = GetSelectedInvoiceNo();
 
             // Now, you pass this invoiceNo when constructing the frmInvoiceDetails form
@@ -154,16 +150,14 @@ namespace DevInternApp
 
         private int GetSelectedInvoiceNo()
         {
-            // You need to implement the logic to retrieve the selected invoice number from your DataGridView
-            // Here is just a placeholder for the logic you need to implement
             if (dataGridViewDisplay.CurrentRow != null)
             {
-                return Convert.ToInt32(dataGridViewDisplay.CurrentRow.Cells["InvoiceNo"].Value); //
+                return Convert.ToInt32(dataGridViewDisplay.CurrentRow.Cells["InvoiceNo"].Value); 
             }
             else
             {
                 MessageBox.Show("Please select an invoice from the list.");
-                return 0; // Or handle this scenario appropriately
+                return 0; 
             }
         }
 
@@ -238,9 +232,8 @@ namespace DevInternApp
         }
         private void ClearFormFields()
         {
-            // Replace these with your actual control names if they are different
             txbAccCode.Clear();
-            dtpDate.Value = DateTime.Now; // or set to DateTime.Today for just the date without time
+            dtpDate.Value = DateTime.Now; 
             txbTotalSellExclVat.Clear();
             txbVat.Clear();
             txbTotalCost.Clear();
@@ -260,7 +253,7 @@ namespace DevInternApp
             int startY = 55;
             int offsetY = 0;
 
-            // Set header widths based on your content width
+            // Set header widths
             int[] columnWidths = new int[] { 120, 100, 180, 50, 100 }; // Adjust the widths as needed
 
             // Print headers and draw vertical lines

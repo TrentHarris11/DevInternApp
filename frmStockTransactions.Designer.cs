@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmStockTransactions));
             this.btnClose = new System.Windows.Forms.Button();
             this.dataGridViewDisplay = new System.Windows.Forms.DataGridView();
             this.btnAdd = new System.Windows.Forms.Button();
@@ -48,7 +49,7 @@
             // 
             // btnClose
             // 
-            this.btnClose.Location = new System.Drawing.Point(291, 414);
+            this.btnClose.Location = new System.Drawing.Point(356, 400);
             this.btnClose.Margin = new System.Windows.Forms.Padding(2);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(94, 46);
@@ -70,7 +71,7 @@
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(162, 414);
+            this.btnAdd.Location = new System.Drawing.Point(227, 400);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(94, 46);
             this.btnAdd.TabIndex = 4;
@@ -183,6 +184,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(693, 472);
             this.Controls.Add(this.cmbTransactionType);
             this.Controls.Add(this.txbUnitSell);

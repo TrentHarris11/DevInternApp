@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmDebtorsMaster));
             this.txbAccountCode = new System.Windows.Forms.TextBox();
             this.nudBalance = new System.Windows.Forms.NumericUpDown();
             this.nudCostYear = new System.Windows.Forms.NumericUpDown();
@@ -55,7 +56,7 @@
             // txbAccountCode
             // 
             this.txbAccountCode.Location = new System.Drawing.Point(116, 33);
-            this.txbAccountCode.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txbAccountCode.Margin = new System.Windows.Forms.Padding(2);
             this.txbAccountCode.Name = "txbAccountCode";
             this.txbAccountCode.Size = new System.Drawing.Size(142, 20);
             this.txbAccountCode.TabIndex = 0;
@@ -64,7 +65,7 @@
             // nudBalance
             // 
             this.nudBalance.Location = new System.Drawing.Point(398, 37);
-            this.nudBalance.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.nudBalance.Margin = new System.Windows.Forms.Padding(2);
             this.nudBalance.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -77,7 +78,7 @@
             // nudCostYear
             // 
             this.nudCostYear.Location = new System.Drawing.Point(398, 145);
-            this.nudCostYear.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.nudCostYear.Margin = new System.Windows.Forms.Padding(2);
             this.nudCostYear.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -90,7 +91,7 @@
             // nudSalesYear
             // 
             this.nudSalesYear.Location = new System.Drawing.Point(398, 84);
-            this.nudSalesYear.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.nudSalesYear.Margin = new System.Windows.Forms.Padding(2);
             this.nudSalesYear.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -103,7 +104,7 @@
             // txbAddress1
             // 
             this.txbAddress1.Location = new System.Drawing.Point(116, 84);
-            this.txbAddress1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txbAddress1.Margin = new System.Windows.Forms.Padding(2);
             this.txbAddress1.Name = "txbAddress1";
             this.txbAddress1.Size = new System.Drawing.Size(142, 20);
             this.txbAddress1.TabIndex = 4;
@@ -111,7 +112,7 @@
             // txbAddress2
             // 
             this.txbAddress2.Location = new System.Drawing.Point(116, 141);
-            this.txbAddress2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txbAddress2.Margin = new System.Windows.Forms.Padding(2);
             this.txbAddress2.Name = "txbAddress2";
             this.txbAddress2.Size = new System.Drawing.Size(142, 20);
             this.txbAddress2.TabIndex = 5;
@@ -119,7 +120,7 @@
             // txbAddress3
             // 
             this.txbAddress3.Location = new System.Drawing.Point(116, 188);
-            this.txbAddress3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txbAddress3.Margin = new System.Windows.Forms.Padding(2);
             this.txbAddress3.Name = "txbAddress3";
             this.txbAddress3.Size = new System.Drawing.Size(142, 20);
             this.txbAddress3.TabIndex = 6;
@@ -197,7 +198,7 @@
             // btnAdd
             // 
             this.btnAdd.Location = new System.Drawing.Point(11, 273);
-            this.btnAdd.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnAdd.Margin = new System.Windows.Forms.Padding(2);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(98, 38);
             this.btnAdd.TabIndex = 14;
@@ -208,7 +209,7 @@
             // btnUpdate
             // 
             this.btnUpdate.Location = new System.Drawing.Point(129, 273);
-            this.btnUpdate.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnUpdate.Margin = new System.Windows.Forms.Padding(2);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(98, 38);
             this.btnUpdate.TabIndex = 15;
@@ -219,7 +220,7 @@
             // btnDelete
             // 
             this.btnDelete.Location = new System.Drawing.Point(247, 273);
-            this.btnDelete.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnDelete.Margin = new System.Windows.Forms.Padding(2);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(98, 38);
             this.btnDelete.TabIndex = 16;
@@ -230,7 +231,7 @@
             // btnMainScreen
             // 
             this.btnMainScreen.Location = new System.Drawing.Point(494, 273);
-            this.btnMainScreen.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnMainScreen.Margin = new System.Windows.Forms.Padding(2);
             this.btnMainScreen.Name = "btnMainScreen";
             this.btnMainScreen.Size = new System.Drawing.Size(98, 38);
             this.btnMainScreen.TabIndex = 17;
@@ -241,7 +242,7 @@
             // btnDebtorsEnquiry
             // 
             this.btnDebtorsEnquiry.Location = new System.Drawing.Point(372, 273);
-            this.btnDebtorsEnquiry.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnDebtorsEnquiry.Margin = new System.Windows.Forms.Padding(2);
             this.btnDebtorsEnquiry.Name = "btnDebtorsEnquiry";
             this.btnDebtorsEnquiry.Size = new System.Drawing.Size(98, 38);
             this.btnDebtorsEnquiry.TabIndex = 18;
@@ -253,6 +254,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(600, 366);
             this.Controls.Add(this.btnDebtorsEnquiry);
             this.Controls.Add(this.btnMainScreen);
@@ -273,7 +276,7 @@
             this.Controls.Add(this.nudCostYear);
             this.Controls.Add(this.nudBalance);
             this.Controls.Add(this.txbAccountCode);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmDebtorsMaster";
             this.Text = "frmDebtorsMaster";
             this.Load += new System.EventHandler(this.frmDebtorsMaster_Load);

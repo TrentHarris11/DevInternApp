@@ -33,8 +33,6 @@ namespace DevInternApp
         private DataTable GetStockData(string stockCode)
         {
             DataTable stockData = new DataTable();
-
-
             string connectionString = "data source=user\\SQLEXPRESS;initial catalog=xact1;trusted_connection=true";
 
             // SQL query to retrieve transaction details based on the account code
@@ -107,7 +105,6 @@ namespace DevInternApp
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            // Assume that you have validated the inputs and converted them to the appropriate data types
             string stockCode = selectedStockCode; // The stock code selected from the previous form
             string transactionType = cmbTransactionType.SelectedItem.ToString(); // The transaction type selected from the ComboBox
             int quantity; // The quantity entered by the user
@@ -124,7 +121,6 @@ namespace DevInternApp
                 return;
             }
 
-            // Assuming txbUnitCost and txbUnitSell are TextBoxes where the user enters unit cost and sell amount
             if (!decimal.TryParse(txbUnitCost.Text, out unitCost))
             {
                 MessageBox.Show("Please enter a valid unit cost.");

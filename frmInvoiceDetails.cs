@@ -36,8 +36,6 @@ namespace DevInternApp
             }
         }
 
-
-
         private void frmInvoiceHeader_Load(object sender, EventArgs e)
         {
 
@@ -87,8 +85,6 @@ namespace DevInternApp
 
         private void btnAddInvoice_Click(object sender, EventArgs e)
         {
-            // Input validation here...
-
             CalculateTotal();
 
             string insertQuery = @"INSERT INTO InvoiceDetail (InvoiceNo, StockCode, QtySold, UnitCost, UnitSell, Disc, Total)

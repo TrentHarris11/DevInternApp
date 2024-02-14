@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmTransactionHistory));
             this.dataGridViewDisplay = new System.Windows.Forms.DataGridView();
             this.btnClose = new System.Windows.Forms.Button();
             this.btnAddTransaction = new System.Windows.Forms.Button();
@@ -50,18 +51,18 @@
             // dataGridViewDisplay
             // 
             this.dataGridViewDisplay.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewDisplay.Location = new System.Drawing.Point(90, 250);
+            this.dataGridViewDisplay.Location = new System.Drawing.Point(35, 250);
             this.dataGridViewDisplay.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridViewDisplay.Name = "dataGridViewDisplay";
             this.dataGridViewDisplay.RowHeadersWidth = 51;
             this.dataGridViewDisplay.RowTemplate.Height = 24;
-            this.dataGridViewDisplay.Size = new System.Drawing.Size(524, 229);
+            this.dataGridViewDisplay.Size = new System.Drawing.Size(628, 229);
             this.dataGridViewDisplay.TabIndex = 0;
             this.dataGridViewDisplay.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewDisplay_CellContentClick);
             // 
             // btnClose
             // 
-            this.btnClose.Location = new System.Drawing.Point(295, 493);
+            this.btnClose.Location = new System.Drawing.Point(283, 495);
             this.btnClose.Margin = new System.Windows.Forms.Padding(2);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(114, 46);
@@ -72,7 +73,7 @@
             // 
             // btnAddTransaction
             // 
-            this.btnAddTransaction.Location = new System.Drawing.Point(113, 493);
+            this.btnAddTransaction.Location = new System.Drawing.Point(135, 494);
             this.btnAddTransaction.Margin = new System.Windows.Forms.Padding(2);
             this.btnAddTransaction.Name = "btnAddTransaction";
             this.btnAddTransaction.Size = new System.Drawing.Size(114, 46);
@@ -86,7 +87,7 @@
             this.lblDate.AutoSize = true;
             this.lblDate.Location = new System.Drawing.Point(12, 52);
             this.lblDate.Name = "lblDate";
-            this.lblDate.Size = new System.Drawing.Size(36, 16);
+            this.lblDate.Size = new System.Drawing.Size(30, 13);
             this.lblDate.TabIndex = 3;
             this.lblDate.Text = "Date";
             // 
@@ -95,7 +96,7 @@
             this.lblTransactionType.AutoSize = true;
             this.lblTransactionType.Location = new System.Drawing.Point(12, 123);
             this.lblTransactionType.Name = "lblTransactionType";
-            this.lblTransactionType.Size = new System.Drawing.Size(113, 16);
+            this.lblTransactionType.Size = new System.Drawing.Size(90, 13);
             this.lblTransactionType.TabIndex = 4;
             this.lblTransactionType.Text = "Transaction Type";
             // 
@@ -104,7 +105,7 @@
             this.lblDocumentNo.AutoSize = true;
             this.lblDocumentNo.Location = new System.Drawing.Point(12, 82);
             this.lblDocumentNo.Name = "lblDocumentNo";
-            this.lblDocumentNo.Size = new System.Drawing.Size(89, 16);
+            this.lblDocumentNo.Size = new System.Drawing.Size(73, 13);
             this.lblDocumentNo.TabIndex = 5;
             this.lblDocumentNo.Text = "Document No";
             // 
@@ -113,7 +114,7 @@
             this.lblTransactionValue.AutoSize = true;
             this.lblTransactionValue.Location = new System.Drawing.Point(12, 156);
             this.lblTransactionValue.Name = "lblTransactionValue";
-            this.lblTransactionValue.Size = new System.Drawing.Size(116, 16);
+            this.lblTransactionValue.Size = new System.Drawing.Size(93, 13);
             this.lblTransactionValue.TabIndex = 6;
             this.lblTransactionValue.Text = "Transaction Value";
             // 
@@ -122,7 +123,7 @@
             this.lblVat.AutoSize = true;
             this.lblVat.Location = new System.Drawing.Point(32, 196);
             this.lblVat.Name = "lblVat";
-            this.lblVat.Size = new System.Drawing.Size(27, 16);
+            this.lblVat.Size = new System.Drawing.Size(23, 13);
             this.lblVat.TabIndex = 7;
             this.lblVat.Text = "Vat";
             // 
@@ -130,21 +131,21 @@
             // 
             this.txbDocumentNo.Location = new System.Drawing.Point(113, 79);
             this.txbDocumentNo.Name = "txbDocumentNo";
-            this.txbDocumentNo.Size = new System.Drawing.Size(200, 22);
+            this.txbDocumentNo.Size = new System.Drawing.Size(200, 20);
             this.txbDocumentNo.TabIndex = 9;
             // 
             // txbGrossTransaction
             // 
             this.txbGrossTransaction.Location = new System.Drawing.Point(113, 153);
             this.txbGrossTransaction.Name = "txbGrossTransaction";
-            this.txbGrossTransaction.Size = new System.Drawing.Size(200, 22);
+            this.txbGrossTransaction.Size = new System.Drawing.Size(200, 20);
             this.txbGrossTransaction.TabIndex = 10;
             // 
             // txbVat
             // 
             this.txbVat.Location = new System.Drawing.Point(113, 193);
             this.txbVat.Name = "txbVat";
-            this.txbVat.Size = new System.Drawing.Size(200, 22);
+            this.txbVat.Size = new System.Drawing.Size(200, 20);
             this.txbVat.TabIndex = 11;
             this.txbVat.TextChanged += new System.EventHandler(this.textBox4_TextChanged);
             // 
@@ -152,7 +153,7 @@
             // 
             this.dtpDate.Location = new System.Drawing.Point(113, 45);
             this.dtpDate.Name = "dtpDate";
-            this.dtpDate.Size = new System.Drawing.Size(200, 22);
+            this.dtpDate.Size = new System.Drawing.Size(200, 20);
             this.dtpDate.TabIndex = 12;
             // 
             // cmbTransactionType
@@ -168,7 +169,7 @@
             // 
             // btnAddInvoice
             // 
-            this.btnAddInvoice.Location = new System.Drawing.Point(463, 493);
+            this.btnAddInvoice.Location = new System.Drawing.Point(444, 494);
             this.btnAddInvoice.Margin = new System.Windows.Forms.Padding(2);
             this.btnAddInvoice.Name = "btnAddInvoice";
             this.btnAddInvoice.Size = new System.Drawing.Size(114, 46);
@@ -182,7 +183,7 @@
             this.lblAccountCode.AutoSize = true;
             this.lblAccountCode.Location = new System.Drawing.Point(10, 19);
             this.lblAccountCode.Name = "lblAccountCode";
-            this.lblAccountCode.Size = new System.Drawing.Size(91, 16);
+            this.lblAccountCode.Size = new System.Drawing.Size(75, 13);
             this.lblAccountCode.TabIndex = 16;
             this.lblAccountCode.Text = "Account Code";
             // 
@@ -191,13 +192,15 @@
             this.txbAccountCode.Location = new System.Drawing.Point(113, 13);
             this.txbAccountCode.Name = "txbAccountCode";
             this.txbAccountCode.ReadOnly = true;
-            this.txbAccountCode.Size = new System.Drawing.Size(200, 22);
+            this.txbAccountCode.Size = new System.Drawing.Size(200, 20);
             this.txbAccountCode.TabIndex = 17;
             // 
             // frmTransactionHistory
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(715, 551);
             this.Controls.Add(this.txbAccountCode);
             this.Controls.Add(this.lblAccountCode);

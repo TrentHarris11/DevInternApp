@@ -78,10 +78,6 @@ namespace DevInternApp
             }
         }
 
-
-
-
-
         private void frmDebtorsEnquiry_Load(object sender, EventArgs e)
         {
 
@@ -125,6 +121,31 @@ namespace DevInternApp
         private void dataGridViewDisplay_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void btnUpdateDebtors_Click(object sender, EventArgs e)
+        {
+            if (dataGridViewDisplay.CurrentRow != null)
+            {
+                // Retrieve data from the selected row
+                var selectedRow = dataGridViewDisplay.CurrentRow;
+                int accountCode = Convert.ToInt32(selectedRow.Cells["AccountCode"].Value);
+                string address1 = selectedRow.Cells["Address1"].Value.ToString();
+                string address2 = selectedRow.Cells["Address2"].Value.ToString();
+                string address3 = selectedRow.Cells["Address3"].Value.ToString();
+                decimal balance = Convert.ToDecimal(selectedRow.Cells["Balance"].Value);
+                decimal salesYearToDate = Convert.ToDecimal(selectedRow.Cells["SalesYearToDate"].Value);
+                decimal costYearToDate = Convert.ToDecimal(selectedRow.Cells["CostYearToDate"].Value);
+
+                // Open frmDebtorsMaster with the data
+                frmDebtorsMaster masterForm = new frmDebtorsMaster();
+                masterForm.PopulateFields(accountCode, address1, address2, address3, balance, salesYearToDate, costYearToDate);
+                masterForm.Show();
+            }
+            else
+            {
+                MessageBox.Show("Please select a debtor to update.");
+            }
         }
     }
 }

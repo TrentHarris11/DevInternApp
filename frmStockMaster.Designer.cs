@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmStockMaster));
             this.txbStockCode = new System.Windows.Forms.TextBox();
             this.txbStockDescription = new System.Windows.Forms.TextBox();
             this.nudSellingP = new System.Windows.Forms.NumericUpDown();
@@ -62,188 +63,207 @@
             // 
             // txbStockCode
             // 
-            this.txbStockCode.Location = new System.Drawing.Point(202, 13);
+            this.txbStockCode.Location = new System.Drawing.Point(152, 11);
+            this.txbStockCode.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txbStockCode.Name = "txbStockCode";
-            this.txbStockCode.Size = new System.Drawing.Size(120, 22);
+            this.txbStockCode.Size = new System.Drawing.Size(91, 20);
             this.txbStockCode.TabIndex = 0;
             // 
             // txbStockDescription
             // 
-            this.txbStockDescription.Location = new System.Drawing.Point(202, 63);
+            this.txbStockDescription.Location = new System.Drawing.Point(152, 51);
+            this.txbStockDescription.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txbStockDescription.Name = "txbStockDescription";
-            this.txbStockDescription.Size = new System.Drawing.Size(120, 22);
+            this.txbStockDescription.Size = new System.Drawing.Size(91, 20);
             this.txbStockDescription.TabIndex = 1;
             // 
             // nudSellingP
             // 
-            this.nudSellingP.Location = new System.Drawing.Point(202, 185);
+            this.nudSellingP.Location = new System.Drawing.Point(152, 150);
+            this.nudSellingP.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.nudSellingP.Maximum = new decimal(new int[] {
             10000,
             0,
             0,
             0});
             this.nudSellingP.Name = "nudSellingP";
-            this.nudSellingP.Size = new System.Drawing.Size(120, 22);
+            this.nudSellingP.Size = new System.Drawing.Size(90, 20);
             this.nudSellingP.TabIndex = 2;
             // 
             // nudPurchasesExclVat
             // 
-            this.nudPurchasesExclVat.Location = new System.Drawing.Point(202, 238);
+            this.nudPurchasesExclVat.Location = new System.Drawing.Point(152, 193);
+            this.nudPurchasesExclVat.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.nudPurchasesExclVat.Maximum = new decimal(new int[] {
             10000,
             0,
             0,
             0});
             this.nudPurchasesExclVat.Name = "nudPurchasesExclVat";
-            this.nudPurchasesExclVat.Size = new System.Drawing.Size(120, 22);
+            this.nudPurchasesExclVat.Size = new System.Drawing.Size(90, 20);
             this.nudPurchasesExclVat.TabIndex = 3;
             // 
             // nudSalesExclVat
             // 
-            this.nudSalesExclVat.Location = new System.Drawing.Point(202, 290);
+            this.nudSalesExclVat.Location = new System.Drawing.Point(152, 236);
+            this.nudSalesExclVat.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.nudSalesExclVat.Maximum = new decimal(new int[] {
             10000,
             0,
             0,
             0});
             this.nudSalesExclVat.Name = "nudSalesExclVat";
-            this.nudSalesExclVat.Size = new System.Drawing.Size(120, 22);
+            this.nudSalesExclVat.Size = new System.Drawing.Size(90, 20);
             this.nudSalesExclVat.TabIndex = 4;
             // 
             // nudQtyPurchased
             // 
-            this.nudQtyPurchased.Location = new System.Drawing.Point(653, 13);
+            this.nudQtyPurchased.Location = new System.Drawing.Point(490, 11);
+            this.nudQtyPurchased.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.nudQtyPurchased.Maximum = new decimal(new int[] {
             10000,
             0,
             0,
             0});
             this.nudQtyPurchased.Name = "nudQtyPurchased";
-            this.nudQtyPurchased.Size = new System.Drawing.Size(120, 22);
+            this.nudQtyPurchased.Size = new System.Drawing.Size(90, 20);
             this.nudQtyPurchased.TabIndex = 5;
             // 
             // nudQtySold
             // 
-            this.nudQtySold.Location = new System.Drawing.Point(653, 64);
+            this.nudQtySold.Location = new System.Drawing.Point(490, 52);
+            this.nudQtySold.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.nudQtySold.Maximum = new decimal(new int[] {
             10000,
             0,
             0,
             0});
             this.nudQtySold.Name = "nudQtySold";
-            this.nudQtySold.Size = new System.Drawing.Size(120, 22);
+            this.nudQtySold.Size = new System.Drawing.Size(90, 20);
             this.nudQtySold.TabIndex = 6;
             // 
             // nudStock
             // 
-            this.nudStock.Location = new System.Drawing.Point(653, 126);
+            this.nudStock.Location = new System.Drawing.Point(490, 102);
+            this.nudStock.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.nudStock.Maximum = new decimal(new int[] {
             10000,
             0,
             0,
             0});
             this.nudStock.Name = "nudStock";
-            this.nudStock.Size = new System.Drawing.Size(120, 22);
+            this.nudStock.Size = new System.Drawing.Size(90, 20);
             this.nudStock.TabIndex = 7;
             // 
             // nudCost
             // 
-            this.nudCost.Location = new System.Drawing.Point(202, 137);
+            this.nudCost.Location = new System.Drawing.Point(152, 111);
+            this.nudCost.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.nudCost.Maximum = new decimal(new int[] {
             10000,
             0,
             0,
             0});
             this.nudCost.Name = "nudCost";
-            this.nudCost.Size = new System.Drawing.Size(120, 22);
+            this.nudCost.Size = new System.Drawing.Size(90, 20);
             this.nudCost.TabIndex = 8;
             // 
             // lblStockCode
             // 
             this.lblStockCode.AutoSize = true;
-            this.lblStockCode.Location = new System.Drawing.Point(12, 19);
+            this.lblStockCode.Location = new System.Drawing.Point(9, 15);
+            this.lblStockCode.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblStockCode.Name = "lblStockCode";
-            this.lblStockCode.Size = new System.Drawing.Size(77, 16);
+            this.lblStockCode.Size = new System.Drawing.Size(63, 13);
             this.lblStockCode.TabIndex = 9;
             this.lblStockCode.Text = "Stock Code";
             // 
             // lblStockDescription
             // 
             this.lblStockDescription.AutoSize = true;
-            this.lblStockDescription.Location = new System.Drawing.Point(12, 70);
+            this.lblStockDescription.Location = new System.Drawing.Point(9, 57);
+            this.lblStockDescription.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblStockDescription.Name = "lblStockDescription";
-            this.lblStockDescription.Size = new System.Drawing.Size(112, 16);
+            this.lblStockDescription.Size = new System.Drawing.Size(91, 13);
             this.lblStockDescription.TabIndex = 10;
             this.lblStockDescription.Text = "Stock Description";
             // 
             // lblCost
             // 
             this.lblCost.AutoSize = true;
-            this.lblCost.Location = new System.Drawing.Point(12, 143);
+            this.lblCost.Location = new System.Drawing.Point(9, 116);
+            this.lblCost.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblCost.Name = "lblCost";
-            this.lblCost.Size = new System.Drawing.Size(34, 16);
+            this.lblCost.Size = new System.Drawing.Size(28, 13);
             this.lblCost.TabIndex = 11;
             this.lblCost.Text = "Cost";
             // 
             // lblSellingPrice
             // 
             this.lblSellingPrice.AutoSize = true;
-            this.lblSellingPrice.Location = new System.Drawing.Point(12, 191);
+            this.lblSellingPrice.Location = new System.Drawing.Point(9, 155);
+            this.lblSellingPrice.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblSellingPrice.Name = "lblSellingPrice";
-            this.lblSellingPrice.Size = new System.Drawing.Size(82, 16);
+            this.lblSellingPrice.Size = new System.Drawing.Size(65, 13);
             this.lblSellingPrice.TabIndex = 12;
             this.lblSellingPrice.Text = "Selling Price";
             // 
             // lblTotalExclVat
             // 
             this.lblTotalExclVat.AutoSize = true;
-            this.lblTotalExclVat.Location = new System.Drawing.Point(12, 238);
+            this.lblTotalExclVat.Location = new System.Drawing.Point(9, 193);
+            this.lblTotalExclVat.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblTotalExclVat.Name = "lblTotalExclVat";
-            this.lblTotalExclVat.Size = new System.Drawing.Size(164, 16);
+            this.lblTotalExclVat.Size = new System.Drawing.Size(132, 13);
             this.lblTotalExclVat.TabIndex = 13;
             this.lblTotalExclVat.Text = "Total Purchases (Excl Vat)";
             // 
             // lblSalesExclVat
             // 
             this.lblSalesExclVat.AutoSize = true;
-            this.lblSalesExclVat.Location = new System.Drawing.Point(12, 296);
+            this.lblSalesExclVat.Location = new System.Drawing.Point(9, 240);
+            this.lblSalesExclVat.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblSalesExclVat.Name = "lblSalesExclVat";
-            this.lblSalesExclVat.Size = new System.Drawing.Size(135, 16);
+            this.lblSalesExclVat.Size = new System.Drawing.Size(108, 13);
             this.lblSalesExclVat.TabIndex = 14;
             this.lblSalesExclVat.Text = "Total Sales (Excl Vat)";
             // 
             // lblQtyPurchased
             // 
             this.lblQtyPurchased.AutoSize = true;
-            this.lblQtyPurchased.Location = new System.Drawing.Point(507, 19);
+            this.lblQtyPurchased.Location = new System.Drawing.Point(380, 15);
+            this.lblQtyPurchased.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblQtyPurchased.Name = "lblQtyPurchased";
-            this.lblQtyPurchased.Size = new System.Drawing.Size(123, 16);
+            this.lblQtyPurchased.Size = new System.Drawing.Size(100, 13);
             this.lblQtyPurchased.TabIndex = 15;
             this.lblQtyPurchased.Text = "Quantity Purchased";
             // 
             // lblQtySold
             // 
             this.lblQtySold.AutoSize = true;
-            this.lblQtySold.Location = new System.Drawing.Point(507, 69);
+            this.lblQtySold.Location = new System.Drawing.Point(380, 56);
+            this.lblQtySold.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblQtySold.Name = "lblQtySold";
-            this.lblQtySold.Size = new System.Drawing.Size(86, 16);
+            this.lblQtySold.Size = new System.Drawing.Size(70, 13);
             this.lblQtySold.TabIndex = 16;
             this.lblQtySold.Text = "Quantity Sold";
             // 
             // lblStock
             // 
             this.lblStock.AutoSize = true;
-            this.lblStock.Location = new System.Drawing.Point(507, 132);
+            this.lblStock.Location = new System.Drawing.Point(380, 107);
+            this.lblStock.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblStock.Name = "lblStock";
-            this.lblStock.Size = new System.Drawing.Size(95, 16);
+            this.lblStock.Size = new System.Drawing.Size(79, 13);
             this.lblStock.TabIndex = 17;
             this.lblStock.Text = "Stock on Hand";
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(15, 375);
+            this.btnAdd.Location = new System.Drawing.Point(11, 305);
+            this.btnAdd.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(130, 47);
+            this.btnAdd.Size = new System.Drawing.Size(98, 38);
             this.btnAdd.TabIndex = 19;
             this.btnAdd.Text = "Add";
             this.btnAdd.UseVisualStyleBackColor = true;
@@ -251,9 +271,10 @@
             // 
             // btnUpdate
             // 
-            this.btnUpdate.Location = new System.Drawing.Point(165, 375);
+            this.btnUpdate.Location = new System.Drawing.Point(124, 305);
+            this.btnUpdate.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(130, 47);
+            this.btnUpdate.Size = new System.Drawing.Size(98, 38);
             this.btnUpdate.TabIndex = 20;
             this.btnUpdate.Text = "Update";
             this.btnUpdate.UseVisualStyleBackColor = true;
@@ -261,9 +282,10 @@
             // 
             // btnDelete
             // 
-            this.btnDelete.Location = new System.Drawing.Point(327, 375);
+            this.btnDelete.Location = new System.Drawing.Point(245, 305);
+            this.btnDelete.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(130, 47);
+            this.btnDelete.Size = new System.Drawing.Size(98, 38);
             this.btnDelete.TabIndex = 21;
             this.btnDelete.Text = "Delete";
             this.btnDelete.UseVisualStyleBackColor = true;
@@ -271,9 +293,10 @@
             // 
             // btnMainScreen
             // 
-            this.btnMainScreen.Location = new System.Drawing.Point(643, 375);
+            this.btnMainScreen.Location = new System.Drawing.Point(482, 305);
+            this.btnMainScreen.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnMainScreen.Name = "btnMainScreen";
-            this.btnMainScreen.Size = new System.Drawing.Size(130, 47);
+            this.btnMainScreen.Size = new System.Drawing.Size(98, 38);
             this.btnMainScreen.TabIndex = 22;
             this.btnMainScreen.Text = "Main Screen";
             this.btnMainScreen.UseVisualStyleBackColor = true;
@@ -281,9 +304,10 @@
             // 
             // btnStockMaster
             // 
-            this.btnStockMaster.Location = new System.Drawing.Point(487, 375);
+            this.btnStockMaster.Location = new System.Drawing.Point(365, 305);
+            this.btnStockMaster.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnStockMaster.Name = "btnStockMaster";
-            this.btnStockMaster.Size = new System.Drawing.Size(130, 47);
+            this.btnStockMaster.Size = new System.Drawing.Size(98, 38);
             this.btnStockMaster.TabIndex = 23;
             this.btnStockMaster.Text = "View Stocks";
             this.btnStockMaster.UseVisualStyleBackColor = true;
@@ -291,9 +315,11 @@
             // 
             // frmStockMaster
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ClientSize = new System.Drawing.Size(600, 366);
             this.Controls.Add(this.btnStockMaster);
             this.Controls.Add(this.btnMainScreen);
             this.Controls.Add(this.btnDelete);
@@ -317,6 +343,7 @@
             this.Controls.Add(this.nudSellingP);
             this.Controls.Add(this.txbStockDescription);
             this.Controls.Add(this.txbStockCode);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "frmStockMaster";
             this.Text = "frmStockMaster";
             this.Load += new System.EventHandler(this.frmStockMaster_Load);

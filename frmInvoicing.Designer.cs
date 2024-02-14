@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmInvoicing));
             this.cmbDebtors = new System.Windows.Forms.ComboBox();
             this.dtpInvoice = new System.Windows.Forms.DateTimePicker();
             this.dataGridViewDisplay = new System.Windows.Forms.DataGridView();
@@ -300,6 +301,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(727, 623);
             this.Controls.Add(this.btnRefresh);
             this.Controls.Add(this.btnClear);
