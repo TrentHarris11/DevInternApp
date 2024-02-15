@@ -106,6 +106,13 @@ namespace DevInternApp
                     {
                         MessageBox.Show("Debtor record added successfully!");
                         // Clear input fields or perform any other necessary actions
+                        txbAccountCode.Clear();
+                        txbAddress1.Clear();
+                        txbAddress2.Clear();
+                        txbAddress3.Clear();
+                        nudBalance.Value = 0;
+                        nudCostYear.Value = 0;
+                        nudSalesYear.Value= 0;
                     }
                     else
                     {
@@ -119,7 +126,7 @@ namespace DevInternApp
             }
         }
 
-        private bool DoesAccountCodeExist(int accountCode)
+        private bool DoesAccountCodeExist(int accountCode) //Method to check whether account code exists
         {
             bool exists = false;
             string connectionString = "data source=user\\SQLEXPRESS;initial catalog=xact1;trusted_connection=true";
@@ -146,6 +153,18 @@ namespace DevInternApp
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
+
+            // Input validation
+            if (string.IsNullOrWhiteSpace(txbAccountCode.Text) ||
+                string.IsNullOrWhiteSpace(txbAddress1.Text) ||
+                string.IsNullOrWhiteSpace(txbAddress2.Text) ||
+                string.IsNullOrWhiteSpace(txbAddress3.Text))
+            {
+                MessageBox.Show("All fields must be populated.");
+                return;
+            }
+
+
             // Collect data from input fields
             int accountCode = Convert.ToInt32(txbAccountCode.Text);
             string address1 = txbAddress1.Text;
@@ -195,8 +214,20 @@ namespace DevInternApp
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
+            // Input validation
+            if (string.IsNullOrWhiteSpace(txbAccountCode.Text) ||
+                string.IsNullOrWhiteSpace(txbAddress1.Text) ||
+                string.IsNullOrWhiteSpace(txbAddress2.Text) ||
+                string.IsNullOrWhiteSpace(txbAddress3.Text))
+            {
+                MessageBox.Show("All fields must be populated.");
+                return;
+            }
+
             // Confirm with the user if they want to proceed with the deletion
             DialogResult result = MessageBox.Show("Are you sure you want to delete this debtor record?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+
 
             if (result == DialogResult.Yes)
             {
@@ -272,6 +303,10 @@ namespace DevInternApp
             
             
         }
-       
+
+        private void contextMenuStrip1_Opening(object sender, CancelEventArgs e)
+        {
+
+        }
     }
 }

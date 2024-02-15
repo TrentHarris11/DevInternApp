@@ -14,19 +14,22 @@ namespace DevInternApp
     public partial class frmStockTransactions : Form
     {
         private string selectedStockCode;
-        public frmStockTransactions(string stockCode)
+        private decimal unitCost;
+        private decimal unitSell;
+
+        // Combine the parameters into one constructor
+        public frmStockTransactions(string stockCode, decimal unitCost, decimal unitSell)
         {
             InitializeComponent();
             selectedStockCode = stockCode;
-            PopulateStockTransactionsDataGridView();
-        }
+            this.unitCost = unitCost;
+            this.unitSell = unitSell;
 
-        public frmStockTransactions(int selectedStockID, decimal unitCost, decimal unitSell)
-        {
-            InitializeComponent();
-            // Populate txbUnitCost and txbUnitSell with the passed values
+            // Now set the text boxes with the values passed in
             txbUnitCost.Text = unitCost.ToString();
             txbUnitSell.Text = unitSell.ToString();
+
+            PopulateStockTransactionsDataGridView();
         }
 
         private void PopulateStockTransactionsDataGridView()
@@ -95,7 +98,7 @@ namespace DevInternApp
                 command.Parameters.AddWithValue("@Date", dtpDate.Value);
                 command.Parameters.AddWithValue("@TransactionType", cmbTransactionType.Text);
                 command.Parameters.AddWithValue("@DocumentNo", txbDocumentNo.Text);
-                command.Parameters.AddWithValue("@Qty", Convert.ToInt32(txbQty.Text));
+                command.Parameters.AddWithValue("@Qty", Convert.ToInt32(txbQty.Text)); // 
                 command.Parameters.AddWithValue("@UnitCost", Convert.ToDecimal(txbUnitCost.Text));
                 command.Parameters.AddWithValue("@UnitSell", Convert.ToDecimal(txbUnitSell.Text));
 
@@ -119,13 +122,10 @@ namespace DevInternApp
             decimal unitCost; // The unit cost entered by the user for a purchase
             decimal unitSell; // The unit sell amount entered by the user for a sale
 
-
-            InsertNewStockTransaction();
-            PopulateStockTransactionsDataGridView();
             // Convert and validate quantity, unit cost, and unit sell inputs
-            if (!int.TryParse(txbQty.Text, out quantity))
+            if (!int.TryParse(txbQty.Text, out quantity) || quantity <= 0)
             {
-                MessageBox.Show("Please enter a valid quantity.");
+                MessageBox.Show("Please enter a valid quantity greater than 0.");
                 return;
             }
 
@@ -140,6 +140,9 @@ namespace DevInternApp
                 MessageBox.Show("Please enter a valid unit sell amount.");
                 return;
             }
+
+            InsertNewStockTransaction();
+            PopulateStockTransactionsDataGridView();
 
             // Call the method to update the StockMaster table
             UpdateStockMaster(stockCode, transactionType, quantity, unitCost, unitSell);
@@ -185,24 +188,24 @@ namespace DevInternApp
                 }
 
                 using (SqlCommand command = new SqlCommand(updateQuery, connection))
-        {
-            command.Parameters.AddWithValue("@StockCode", stockCode);
-            command.Parameters.AddWithValue("@Qty", qty);
-            command.Parameters.AddWithValue("@UnitCost", unitCost);
-            command.Parameters.AddWithValue("@UnitSell", unitSell);
+                {
+                    command.Parameters.AddWithValue("@StockCode", stockCode);
+                    command.Parameters.AddWithValue("@Qty", qty);
+                    command.Parameters.AddWithValue("@UnitCost", unitCost);
+                    command.Parameters.AddWithValue("@UnitSell", unitSell);
 
-            try
-            {
-                connection.Open();
-                command.ExecuteNonQuery();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("An error occurred while updating the stock: " + ex.Message);
+                    try
+                    {
+                        connection.Open();
+                        command.ExecuteNonQuery();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("An error occurred while updating the stock: " + ex.Message);
+                    }
+                }
             }
         }
-    }
-}
 
         private void cmbTransactionType_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -212,6 +215,57 @@ namespace DevInternApp
         private void btnAttach_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void dataGridViewDisplay_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void btnGenerate_Click(object sender, EventArgs e)
+        {
+            string documentNo = GenerateDocumentNo(selectedStockCode);
+            txbDocumentNo.Text = documentNo; // Assume you have a TextBox for Document No
+        }
+
+        private string GenerateDocumentNo(string stockCode)
+        {
+            string stockDescription = GetStockDescription(stockCode);
+
+            // Process the stock description to get the first four letters in uppercase
+            string docPrefix = stockDescription.Length >= 4 ? stockDescription.Substring(0, 4).ToUpper() : stockDescription.ToUpper();
+
+            // Generate a random 4-digit number
+            Random random = new Random();
+            int randomNumber = random.Next(1000, 10000); // Generates a number between 1000 and 9999
+
+            // Concatenate and return the DocumentNo
+            return docPrefix + randomNumber.ToString();
+        }
+
+        private string GetStockDescription(string stockCode)
+        {
+            string connectionString = "data source=user\\SQLEXPRESS;initial catalog=xact1;trusted_connection=true";
+            string stockDescription = "";
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                string query = "SELECT StockDescription FROM StockMaster WHERE StockCode = @StockCode";
+                SqlCommand command = new SqlCommand(query, connection);
+                command.Parameters.AddWithValue("@StockCode", stockCode);
+
+                try
+                {
+                    connection.Open();
+                    stockDescription = command.ExecuteScalar()?.ToString() ?? "";
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("An error occurred: " + ex.Message);
+                }
+            }
+
+            return stockDescription;
         }
     }
 }

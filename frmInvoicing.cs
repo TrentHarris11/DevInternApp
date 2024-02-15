@@ -95,7 +95,8 @@ namespace DevInternApp
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                string query = "SELECT AccountCode, (Address1 + ' ' + Address2 + ' ' + Address3) AS DebtorName FROM DebtorsMaster";
+                // Modify the query to concatenate AccountCode and Address1 with a comma
+                string query = "SELECT AccountCode, CAST(AccountCode AS NVARCHAR(10)) + ', ' + Address1 AS DisplayField FROM DebtorsMaster";
                 SqlCommand command = new SqlCommand(query, connection);
                 SqlDataAdapter adapter = new SqlDataAdapter(command);
                 DataTable debtorData = new DataTable();
@@ -105,7 +106,7 @@ namespace DevInternApp
                     connection.Open();
                     adapter.Fill(debtorData);
                     cmbDebtors.DataSource = debtorData;
-                    cmbDebtors.DisplayMember = "DebtorName";
+                    cmbDebtors.DisplayMember = "DisplayField"; // Use the new concatenated field for display
                     cmbDebtors.ValueMember = "AccountCode";
                 }
                 catch (Exception ex)

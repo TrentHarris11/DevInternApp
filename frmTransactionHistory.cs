@@ -68,6 +68,21 @@ namespace DevInternApp
 
         }
 
+        private bool DocumentNoExistsInStockTransactions(string documentNo)
+        {
+            string connectionString = @"data source=user\SQLEXPRESS;initial catalog=xact1;trusted_connection=true";
+            string query = "SELECT COUNT(1) FROM StockTransaction WHERE DocumentNo = @DocumentNo";
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            using (SqlCommand command = new SqlCommand(query, connection))
+            {
+                command.Parameters.AddWithValue("@DocumentNo", documentNo);
+                connection.Open();
+                int result = Convert.ToInt32(command.ExecuteScalar());
+                return result > 0;
+            }
+        }
+
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close(); // Close the frmTransactionHistory form
@@ -83,15 +98,44 @@ namespace DevInternApp
 
         }
 
+
+
         private void btnAddTransaction_Click(object sender, EventArgs e)
         {
+            // Input validation
+            if (string.IsNullOrWhiteSpace(txbDocumentNo.Text))
+            {
+                MessageBox.Show("Please enter a Document Number.");
+                return;
+            }
+            if (cmbTransactionType.SelectedItem == null)
+            {
+                MessageBox.Show("Please select a Transaction Type.");
+                return;
+            }
+            if (!decimal.TryParse(txbGrossTransaction.Text, out decimal grossTransactionValue))
+            {
+                MessageBox.Show("Please enter a valid Gross Transaction Value.");
+                return;
+            }
+            if (!decimal.TryParse(txbVat.Text, out decimal vatValue))
+            {
+                MessageBox.Show("Please enter a valid VAT Value.");
+                return;
+            }
+
+            // Check if DocumentNo exists in dbo.StockTransactions
+            if (!DocumentNoExistsInStockTransactions(txbDocumentNo.Text))
+            {
+                MessageBox.Show("The Document Number has not been recorded in Stock Transactions.");
+                return;
+            }
+
             // Use the private readonly field _accountCode
             int accountCode = this._accountCode;
             DateTime date = dtpDate.Value;
             string transactionType = cmbTransactionType.SelectedItem.ToString();
             string documentNo = txbDocumentNo.Text;
-            decimal grossTransactionValue = decimal.Parse(txbGrossTransaction.Text);
-            decimal vatValue = decimal.Parse(txbVat.Text);
 
             string connectionString = @"data source=user\SQLEXPRESS;initial catalog=xact1;trusted_connection=true";
             string insertQuery = @"

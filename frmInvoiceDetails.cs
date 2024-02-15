@@ -85,20 +85,30 @@ namespace DevInternApp
 
         private void btnAddInvoice_Click(object sender, EventArgs e)
         {
+            // Validate inputs before calculating total and adding invoice details
+            if (!decimal.TryParse(txbQtySold.Text, out decimal qtySold) || qtySold <= 0 ||
+                !decimal.TryParse(txbUnitCost.Text, out decimal unitCost) || unitCost <= 0 ||
+                !decimal.TryParse(txbUnitSell.Text, out decimal unitSell) || unitSell <= 0 ||
+                !decimal.TryParse(txbDiscount.Text, out decimal discount) || discount < 0) // Discount can be 0 but not negative
+            {
+                MessageBox.Show("Please enter values greater than 0 for Quantity Sold, Unit Cost, and Unit Sell. Discount cannot be negative.");
+                return;
+            }
+
             CalculateTotal();
 
             string insertQuery = @"INSERT INTO InvoiceDetail (InvoiceNo, StockCode, QtySold, UnitCost, UnitSell, Disc, Total)
-                               VALUES (@InvoiceNo, @StockCode, @QtySold, @UnitCost, @UnitSell, @Disc, @Total);";
+                       VALUES (@InvoiceNo, @StockCode, @QtySold, @UnitCost, @UnitSell, @Disc, @Total);";
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             using (SqlCommand command = new SqlCommand(insertQuery, connection))
             {
                 command.Parameters.AddWithValue("@InvoiceNo", currentInvoiceNo);
                 command.Parameters.AddWithValue("@StockCode", cmbStockCode.Text);
-                command.Parameters.AddWithValue("@QtySold", int.Parse(txbQtySold.Text));
-                command.Parameters.AddWithValue("@UnitCost", decimal.Parse(txbUnitCost.Text));
-                command.Parameters.AddWithValue("@UnitSell", decimal.Parse(txbUnitSell.Text));
-                command.Parameters.AddWithValue("@Disc", decimal.Parse(txbDiscount.Text));
+                command.Parameters.AddWithValue("@QtySold", qtySold);
+                command.Parameters.AddWithValue("@UnitCost", unitCost);
+                command.Parameters.AddWithValue("@UnitSell", unitSell);
+                command.Parameters.AddWithValue("@Disc", discount);
                 command.Parameters.AddWithValue("@Total", decimal.Parse(txbTotal.Text));
 
                 try
@@ -236,6 +246,21 @@ namespace DevInternApp
         private void btnPrint_Click(object sender, EventArgs e)
         {
             printDocument1.Print();
+        }
+
+        private void btnCalculate_Click(object sender, EventArgs e)
+        {
+            // Perform the calculation for the total
+            if (decimal.TryParse(txbQtySold.Text, out decimal qtySold) && decimal.TryParse(txbUnitSell.Text, out decimal unitSell) && decimal.TryParse(txbDiscount.Text, out decimal discount))
+            {
+                decimal total = qtySold * unitSell - discount;
+                // Set the calculated total to the corresponding textbox
+                txbTotal.Text = total.ToString();
+            }
+            else
+            {
+                MessageBox.Show("Please enter valid numeric values for Quantity Sold, Unit Sell, and Discount.");
+            }
         }
     }
 }

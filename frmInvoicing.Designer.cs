@@ -33,7 +33,6 @@
             this.dtpInvoice = new System.Windows.Forms.DateTimePicker();
             this.dataGridViewDisplay = new System.Windows.Forms.DataGridView();
             this.btnView = new System.Windows.Forms.Button();
-            this.btnSave = new System.Windows.Forms.Button();
             this.btnPrint = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
             this.lblDebtor = new System.Windows.Forms.Label();
@@ -89,7 +88,7 @@
             // 
             // btnView
             // 
-            this.btnView.Location = new System.Drawing.Point(32, 557);
+            this.btnView.Location = new System.Drawing.Point(118, 557);
             this.btnView.Margin = new System.Windows.Forms.Padding(2);
             this.btnView.Name = "btnView";
             this.btnView.Size = new System.Drawing.Size(98, 38);
@@ -98,20 +97,9 @@
             this.btnView.UseVisualStyleBackColor = true;
             this.btnView.Click += new System.EventHandler(this.btnAdd_Click);
             // 
-            // btnSave
-            // 
-            this.btnSave.Location = new System.Drawing.Point(155, 557);
-            this.btnSave.Margin = new System.Windows.Forms.Padding(2);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(98, 38);
-            this.btnSave.TabIndex = 21;
-            this.btnSave.Text = "Save Invoice";
-            this.btnSave.UseVisualStyleBackColor = true;
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
-            // 
             // btnPrint
             // 
-            this.btnPrint.Location = new System.Drawing.Point(409, 557);
+            this.btnPrint.Location = new System.Drawing.Point(350, 557);
             this.btnPrint.Margin = new System.Windows.Forms.Padding(2);
             this.btnPrint.Name = "btnPrint";
             this.btnPrint.Size = new System.Drawing.Size(98, 38);
@@ -122,7 +110,7 @@
             // 
             // btnClose
             // 
-            this.btnClose.Location = new System.Drawing.Point(558, 557);
+            this.btnClose.Location = new System.Drawing.Point(478, 557);
             this.btnClose.Margin = new System.Windows.Forms.Padding(2);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(98, 38);
@@ -137,7 +125,7 @@
             this.lblDebtor.Location = new System.Drawing.Point(91, 272);
             this.lblDebtor.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblDebtor.Name = "lblDebtor";
-            this.lblDebtor.Size = new System.Drawing.Size(39, 13);
+            this.lblDebtor.Size = new System.Drawing.Size(44, 15);
             this.lblDebtor.TabIndex = 24;
             this.lblDebtor.Text = "Debtor";
             // 
@@ -147,7 +135,7 @@
             this.lblInvoiceDate.Location = new System.Drawing.Point(374, 273);
             this.lblInvoiceDate.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblInvoiceDate.Name = "lblInvoiceDate";
-            this.lblInvoiceDate.Size = new System.Drawing.Size(68, 13);
+            this.lblInvoiceDate.Size = new System.Drawing.Size(74, 15);
             this.lblInvoiceDate.TabIndex = 25;
             this.lblInvoiceDate.Text = "Invoice Date";
             // 
@@ -157,7 +145,7 @@
             this.lblInvoiceNo.Location = new System.Drawing.Point(28, 28);
             this.lblInvoiceNo.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblInvoiceNo.Name = "lblInvoiceNo";
-            this.lblInvoiceNo.Size = new System.Drawing.Size(59, 13);
+            this.lblInvoiceNo.Size = new System.Drawing.Size(64, 15);
             this.lblInvoiceNo.TabIndex = 26;
             this.lblInvoiceNo.Text = "Invoice No";
             // 
@@ -167,7 +155,7 @@
             this.lblAccountCode.Location = new System.Drawing.Point(28, 58);
             this.lblAccountCode.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblAccountCode.Name = "lblAccountCode";
-            this.lblAccountCode.Size = new System.Drawing.Size(75, 13);
+            this.lblAccountCode.Size = new System.Drawing.Size(82, 15);
             this.lblAccountCode.TabIndex = 27;
             this.lblAccountCode.Text = "Account Code";
             // 
@@ -177,7 +165,7 @@
             this.lblDate.Location = new System.Drawing.Point(28, 98);
             this.lblDate.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblDate.Name = "lblDate";
-            this.lblDate.Size = new System.Drawing.Size(30, 13);
+            this.lblDate.Size = new System.Drawing.Size(33, 15);
             this.lblDate.TabIndex = 28;
             this.lblDate.Text = "Date";
             // 
@@ -187,7 +175,7 @@
             this.lblTotalSellAmountExclVat.Location = new System.Drawing.Point(406, 28);
             this.lblTotalSellAmountExclVat.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblTotalSellAmountExclVat.Name = "lblTotalSellAmountExclVat";
-            this.lblTotalSellAmountExclVat.Size = new System.Drawing.Size(138, 13);
+            this.lblTotalSellAmountExclVat.Size = new System.Drawing.Size(157, 15);
             this.lblTotalSellAmountExclVat.TabIndex = 29;
             this.lblTotalSellAmountExclVat.Text = "Total Sell Amount (Excl Vat)";
             // 
@@ -197,7 +185,7 @@
             this.lblVat.Location = new System.Drawing.Point(406, 58);
             this.lblVat.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblVat.Name = "lblVat";
-            this.lblVat.Size = new System.Drawing.Size(23, 13);
+            this.lblVat.Size = new System.Drawing.Size(24, 15);
             this.lblVat.TabIndex = 30;
             this.lblVat.Text = "Vat";
             // 
@@ -207,7 +195,7 @@
             this.lblTotalCost.Location = new System.Drawing.Point(406, 95);
             this.lblTotalCost.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblTotalCost.Name = "lblTotalCost";
-            this.lblTotalCost.Size = new System.Drawing.Size(55, 13);
+            this.lblTotalCost.Size = new System.Drawing.Size(61, 15);
             this.lblTotalCost.TabIndex = 31;
             this.lblTotalCost.Text = "Total Cost";
             this.lblTotalCost.Click += new System.EventHandler(this.lblTotalCost_Click);
@@ -288,7 +276,7 @@
             // 
             // btnRefresh
             // 
-            this.btnRefresh.Location = new System.Drawing.Point(281, 557);
+            this.btnRefresh.Location = new System.Drawing.Point(232, 557);
             this.btnRefresh.Margin = new System.Windows.Forms.Padding(2);
             this.btnRefresh.Name = "btnRefresh";
             this.btnRefresh.Size = new System.Drawing.Size(98, 38);
@@ -323,7 +311,6 @@
             this.Controls.Add(this.lblDebtor);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.btnPrint);
-            this.Controls.Add(this.btnSave);
             this.Controls.Add(this.btnView);
             this.Controls.Add(this.dataGridViewDisplay);
             this.Controls.Add(this.dtpInvoice);
@@ -344,7 +331,6 @@
         private System.Windows.Forms.DateTimePicker dtpInvoice;
         private System.Windows.Forms.DataGridView dataGridViewDisplay;
         private System.Windows.Forms.Button btnView;
-        private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button btnPrint;
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Label lblDebtor;

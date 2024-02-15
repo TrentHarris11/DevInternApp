@@ -20,7 +20,7 @@ namespace DevInternApp
 
         private void PopulateStockDataGridView()
         {
-            string connectionString = "data source=user\\SQLEXPRESS;initial catalog=xact1;trusted_connection=true"; 
+            string connectionString = "data source=user\\SQLEXPRESS;initial catalog=xact1;trusted_connection=true";
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -50,7 +50,7 @@ namespace DevInternApp
         // Method to search for specific stocks
         private void SearchStocks(string searchTerm)
         {
-            string connectionString = "data source=user\\SQLEXPRESS;initial catalog=xact1;trusted_connection=true"; 
+            string connectionString = "data source=user\\SQLEXPRESS;initial catalog=xact1;trusted_connection=true";
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -91,16 +91,14 @@ namespace DevInternApp
 
         private void btnViewTransaction_Click(object sender, EventArgs e)
         {
-            // Get the selected stock account code from the Stocks DataGridView
-            string selectedStockCode = dataGridViewDisplay.CurrentRow.Cells["StockCode"].Value.ToString();
-
             if (dataGridViewDisplay.CurrentRow != null)
             {
-                int selectedStockID = Convert.ToInt32(dataGridViewDisplay.CurrentRow.Cells["StockCode"].Value);
+                string selectedStockCode = dataGridViewDisplay.CurrentRow.Cells["StockCode"].Value.ToString();
                 decimal unitCost = Convert.ToDecimal(dataGridViewDisplay.CurrentRow.Cells["Cost"].Value);
                 decimal unitSell = Convert.ToDecimal(dataGridViewDisplay.CurrentRow.Cells["SellingPrice"].Value);
 
-                frmStockTransactions transactionsForm = new frmStockTransactions(selectedStockID, unitCost, unitSell);
+                // Use the new constructor that accepts all three parameters
+                frmStockTransactions transactionsForm = new frmStockTransactions(selectedStockCode, unitCost, unitSell);
                 transactionsForm.Show();
             }
             else
@@ -111,7 +109,7 @@ namespace DevInternApp
 
         private void btnClose_Click(object sender, EventArgs e)
         {
-            this.Close(); 
+            this.Close();
         }
 
         private void btnRefresh_Click(object sender, EventArgs e)

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmDebtorsMaster));
             this.txbAccountCode = new System.Windows.Forms.TextBox();
             this.nudBalance = new System.Windows.Forms.NumericUpDown();
@@ -48,6 +49,7 @@
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnMainScreen = new System.Windows.Forms.Button();
             this.btnDebtorsEnquiry = new System.Windows.Forms.Button();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.nudBalance)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudCostYear)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudSalesYear)).BeginInit();
@@ -131,7 +133,7 @@
             this.lblAccountCode.Location = new System.Drawing.Point(9, 33);
             this.lblAccountCode.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblAccountCode.Name = "lblAccountCode";
-            this.lblAccountCode.Size = new System.Drawing.Size(75, 13);
+            this.lblAccountCode.Size = new System.Drawing.Size(82, 15);
             this.lblAccountCode.TabIndex = 7;
             this.lblAccountCode.Text = "Account Code";
             // 
@@ -141,7 +143,7 @@
             this.lblAddress.Location = new System.Drawing.Point(9, 89);
             this.lblAddress.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblAddress.Name = "lblAddress";
-            this.lblAddress.Size = new System.Drawing.Size(45, 13);
+            this.lblAddress.Size = new System.Drawing.Size(51, 15);
             this.lblAddress.TabIndex = 8;
             this.lblAddress.Text = "Address";
             // 
@@ -151,7 +153,7 @@
             this.lblCity.Location = new System.Drawing.Point(9, 145);
             this.lblCity.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblCity.Name = "lblCity";
-            this.lblCity.Size = new System.Drawing.Size(24, 13);
+            this.lblCity.Size = new System.Drawing.Size(26, 15);
             this.lblCity.TabIndex = 9;
             this.lblCity.Text = "City";
             // 
@@ -161,7 +163,7 @@
             this.lblPostalCode.Location = new System.Drawing.Point(9, 193);
             this.lblPostalCode.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblPostalCode.Name = "lblPostalCode";
-            this.lblPostalCode.Size = new System.Drawing.Size(64, 13);
+            this.lblPostalCode.Size = new System.Drawing.Size(73, 15);
             this.lblPostalCode.TabIndex = 10;
             this.lblPostalCode.Text = "Postal Code";
             // 
@@ -171,7 +173,7 @@
             this.lblBalance.Location = new System.Drawing.Point(283, 38);
             this.lblBalance.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblBalance.Name = "lblBalance";
-            this.lblBalance.Size = new System.Drawing.Size(46, 13);
+            this.lblBalance.Size = new System.Drawing.Size(52, 15);
             this.lblBalance.TabIndex = 11;
             this.lblBalance.Text = "Balance";
             // 
@@ -181,7 +183,7 @@
             this.lblSalesYearToDate.Location = new System.Drawing.Point(283, 89);
             this.lblSalesYearToDate.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblSalesYearToDate.Name = "lblSalesYearToDate";
-            this.lblSalesYearToDate.Size = new System.Drawing.Size(103, 13);
+            this.lblSalesYearToDate.Size = new System.Drawing.Size(115, 15);
             this.lblSalesYearToDate.TabIndex = 12;
             this.lblSalesYearToDate.Text = "Sales Year To Date:";
             // 
@@ -191,7 +193,7 @@
             this.label7.Location = new System.Drawing.Point(283, 147);
             this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(95, 13);
+            this.label7.Size = new System.Drawing.Size(105, 15);
             this.label7.TabIndex = 13;
             this.label7.Text = "Cost Year To Date";
             // 
@@ -249,6 +251,13 @@
             this.btnDebtorsEnquiry.Text = "View Debtors";
             this.btnDebtorsEnquiry.UseVisualStyleBackColor = true;
             this.btnDebtorsEnquiry.Click += new System.EventHandler(this.btnDebtorsEnquiry_Click);
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
+            this.contextMenuStrip1.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStrip1_Opening);
             // 
             // frmDebtorsMaster
             // 
@@ -309,5 +318,6 @@
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnMainScreen;
         private System.Windows.Forms.Button btnDebtorsEnquiry;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
     }
 }

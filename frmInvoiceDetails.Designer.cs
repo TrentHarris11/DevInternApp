@@ -50,6 +50,7 @@
             this.cmbStockCode = new System.Windows.Forms.ComboBox();
             this.btnPrint = new System.Windows.Forms.Button();
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
+            this.btnCalculate = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDisplay)).BeginInit();
             this.SuspendLayout();
             // 
@@ -70,7 +71,7 @@
             this.lblInvoiceNo.AutoSize = true;
             this.lblInvoiceNo.Location = new System.Drawing.Point(63, 30);
             this.lblInvoiceNo.Name = "lblInvoiceNo";
-            this.lblInvoiceNo.Size = new System.Drawing.Size(59, 13);
+            this.lblInvoiceNo.Size = new System.Drawing.Size(64, 15);
             this.lblInvoiceNo.TabIndex = 1;
             this.lblInvoiceNo.Text = "Invoice No";
             // 
@@ -78,6 +79,7 @@
             // 
             this.txbInvoiceNo.Location = new System.Drawing.Point(133, 27);
             this.txbInvoiceNo.Name = "txbInvoiceNo";
+            this.txbInvoiceNo.ReadOnly = true;
             this.txbInvoiceNo.Size = new System.Drawing.Size(134, 20);
             this.txbInvoiceNo.TabIndex = 2;
             // 
@@ -85,6 +87,7 @@
             // 
             this.txbItemNo.Location = new System.Drawing.Point(133, 53);
             this.txbItemNo.Name = "txbItemNo";
+            this.txbItemNo.ReadOnly = true;
             this.txbItemNo.Size = new System.Drawing.Size(134, 20);
             this.txbItemNo.TabIndex = 4;
             // 
@@ -93,7 +96,7 @@
             this.lblItemNo.AutoSize = true;
             this.lblItemNo.Location = new System.Drawing.Point(63, 56);
             this.lblItemNo.Name = "lblItemNo";
-            this.lblItemNo.Size = new System.Drawing.Size(44, 13);
+            this.lblItemNo.Size = new System.Drawing.Size(50, 15);
             this.lblItemNo.TabIndex = 3;
             this.lblItemNo.Text = "Item No";
             // 
@@ -102,7 +105,7 @@
             this.lblStockCode.AutoSize = true;
             this.lblStockCode.Location = new System.Drawing.Point(63, 91);
             this.lblStockCode.Name = "lblStockCode";
-            this.lblStockCode.Size = new System.Drawing.Size(63, 13);
+            this.lblStockCode.Size = new System.Drawing.Size(69, 15);
             this.lblStockCode.TabIndex = 5;
             this.lblStockCode.Text = "Stock Code";
             // 
@@ -118,7 +121,7 @@
             this.lblQtySold.AutoSize = true;
             this.lblQtySold.Location = new System.Drawing.Point(63, 130);
             this.lblQtySold.Name = "lblQtySold";
-            this.lblQtySold.Size = new System.Drawing.Size(47, 13);
+            this.lblQtySold.Size = new System.Drawing.Size(52, 15);
             this.lblQtySold.TabIndex = 7;
             this.lblQtySold.Text = "Qty Sold";
             // 
@@ -134,7 +137,7 @@
             this.lblUnitCost.AutoSize = true;
             this.lblUnitCost.Location = new System.Drawing.Point(408, 30);
             this.lblUnitCost.Name = "lblUnitCost";
-            this.lblUnitCost.Size = new System.Drawing.Size(50, 13);
+            this.lblUnitCost.Size = new System.Drawing.Size(56, 15);
             this.lblUnitCost.TabIndex = 9;
             this.lblUnitCost.Text = "Unit Cost";
             // 
@@ -150,7 +153,7 @@
             this.lblUnitSell.AutoSize = true;
             this.lblUnitSell.Location = new System.Drawing.Point(408, 59);
             this.lblUnitSell.Name = "lblUnitSell";
-            this.lblUnitSell.Size = new System.Drawing.Size(46, 13);
+            this.lblUnitSell.Size = new System.Drawing.Size(53, 15);
             this.lblUnitSell.TabIndex = 11;
             this.lblUnitSell.Text = "Unit Sell";
             // 
@@ -160,14 +163,13 @@
             this.txbDiscount.Name = "txbDiscount";
             this.txbDiscount.Size = new System.Drawing.Size(134, 20);
             this.txbDiscount.TabIndex = 14;
-            this.txbDiscount.Text = "l";
             // 
             // lblDisc
             // 
             this.lblDisc.AutoSize = true;
             this.lblDisc.Location = new System.Drawing.Point(408, 91);
             this.lblDisc.Name = "lblDisc";
-            this.lblDisc.Size = new System.Drawing.Size(49, 13);
+            this.lblDisc.Size = new System.Drawing.Size(55, 15);
             this.lblDisc.TabIndex = 13;
             this.lblDisc.Text = "Discount";
             // 
@@ -183,7 +185,7 @@
             this.lblTotal.AutoSize = true;
             this.lblTotal.Location = new System.Drawing.Point(408, 130);
             this.lblTotal.Name = "lblTotal";
-            this.lblTotal.Size = new System.Drawing.Size(31, 13);
+            this.lblTotal.Size = new System.Drawing.Size(34, 15);
             this.lblTotal.TabIndex = 15;
             this.lblTotal.Text = "Total";
             // 
@@ -230,6 +232,16 @@
             // 
             this.printDocument1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument1_PrintPage);
             // 
+            // btnCalculate
+            // 
+            this.btnCalculate.Location = new System.Drawing.Point(628, 130);
+            this.btnCalculate.Name = "btnCalculate";
+            this.btnCalculate.Size = new System.Drawing.Size(75, 20);
+            this.btnCalculate.TabIndex = 21;
+            this.btnCalculate.Text = "Calculate";
+            this.btnCalculate.UseVisualStyleBackColor = true;
+            this.btnCalculate.Click += new System.EventHandler(this.btnCalculate_Click);
+            // 
             // frmInvoiceDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -237,6 +249,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(723, 502);
+            this.Controls.Add(this.btnCalculate);
             this.Controls.Add(this.btnPrint);
             this.Controls.Add(this.cmbStockCode);
             this.Controls.Add(this.btnClose);
@@ -290,5 +303,6 @@
         private System.Windows.Forms.ComboBox cmbStockCode;
         private System.Windows.Forms.Button btnPrint;
         private System.Drawing.Printing.PrintDocument printDocument1;
+        private System.Windows.Forms.Button btnCalculate;
     }
 }

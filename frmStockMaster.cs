@@ -63,6 +63,32 @@ namespace DevInternApp
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
+
+            // Input validation
+            if (string.IsNullOrWhiteSpace(txbStockCode.Text))
+            {
+                MessageBox.Show("Please enter a stock code.");
+                return; // Exit the event handler
+            }
+
+            if (nudCost.Value <= 0)
+            {
+                MessageBox.Show("Please enter a cost greater than 0.");
+                return; // Exit the event handler
+            }
+
+            if (nudSellingP.Value <= 0)
+            {
+                MessageBox.Show("Please enter a selling price greater than 0.");
+                return; // Exit the event handler
+            }
+
+            if (nudQtyPurchased.Value != nudStock.Value) // Assuming nudStock is another NumericUpDown control representing stock on hand
+            {
+                MessageBox.Show("Quantity purchased must be equivalent to stock on hand.");
+                return; // Exit the event handler
+            }
+
             //Collect data from input fields
             string stockCode = txbStockCode.Text;
             string description = txbStockDescription.Text;
@@ -220,6 +246,24 @@ namespace DevInternApp
             frmStockEnquiry stockEnquiry = new frmStockEnquiry();
             stockEnquiry.Show();
             this.Close();
+        }
+
+        private void btnCalcPurchases_Click(object sender, EventArgs e)
+        {
+            // Calculate the value for nudPurchasesExclVat
+            decimal cost = nudCost.Value;
+            int qtyPurchased = (int)nudQtyPurchased.Value;
+            decimal totalPurchasesExclVat = cost * qtyPurchased;
+            nudPurchasesExclVat.Value = totalPurchasesExclVat;
+        }
+
+        private void btnCalculateTotalSales_Click(object sender, EventArgs e)
+        {
+            // Calculate the value for nudSalesExclVat
+            decimal sellingPrice = nudSellingP.Value;
+            int qtySold = (int)nudQtySold.Value;
+            decimal totalSalesExclVat = sellingPrice * qtySold;
+            nudSalesExclVat.Value = totalSalesExclVat;
         }
     }
 }
