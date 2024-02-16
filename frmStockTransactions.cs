@@ -76,7 +76,11 @@ namespace DevInternApp
 
         private void frmStockTransactions_Load(object sender, EventArgs e)
         {
+            ToolTip toolTip1 = new ToolTip();
+            toolTip1.SetToolTip(cmbTransactionType, "Number Used To Link To Debtor Transactions");
 
+            ToolTip toolTip2 = new ToolTip();
+            toolTip1.SetToolTip(txbSearch, "Search For Transactions via DocumentNo");
         }
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -232,8 +236,18 @@ namespace DevInternApp
         {
             string stockDescription = GetStockDescription(stockCode);
 
-            // Process the stock description to get the first four letters in uppercase
-            string docPrefix = stockDescription.Length >= 4 ? stockDescription.Substring(0, 4).ToUpper() : stockDescription.ToUpper();
+            // Check the length of the stock description to determine the docPrefix
+            string docPrefix;
+            if (stockDescription.Length <= 3)
+            {
+                // If stock description is three letters or less, use the stock description itself
+                docPrefix = stockDescription.ToUpper();
+            }
+            else
+            {
+                // If stock description is more than four letters, take the first four letters
+                docPrefix = stockDescription.Substring(0, 4).ToUpper();
+            }
 
             // Generate a random 4-digit number
             Random random = new Random();
@@ -266,6 +280,36 @@ namespace DevInternApp
             }
 
             return stockDescription;
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            string searchTerm = txbSearch.Text;
+            SearchStockTransactions(searchTerm);
+        }
+
+        private void SearchStockTransactions(string searchTerm)
+        {
+            string connectionString = "data source=user\\SQLEXPRESS;initial catalog=xact1;trusted_connection=true";
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                string selectQuery = "SELECT * FROM StockTransaction WHERE DocumentNo LIKE @SearchTerm";
+                SqlCommand command = new SqlCommand(selectQuery, connection);
+                command.Parameters.AddWithValue("@SearchTerm", "%" + searchTerm + "%");
+
+                try
+                {
+                    connection.Open();
+                    SqlDataReader reader = command.ExecuteReader();
+                    DataTable dataTable = new DataTable();
+                    dataTable.Load(reader);
+                    dataGridViewDisplay.DataSource = dataTable; 
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("An error occurred: " + ex.Message);
+                }
+            }
         }
     }
 }

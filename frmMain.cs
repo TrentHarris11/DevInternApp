@@ -19,6 +19,7 @@ namespace DevInternApp
 
         private void btnDebtors_Click(object sender, EventArgs e)
         {
+
             // Create an instance of the frmDebtorsMaster form
             frmDebtorsMaster debtorsForm = new frmDebtorsMaster();
 
@@ -28,7 +29,14 @@ namespace DevInternApp
 
         private void frmMain_Load(object sender, EventArgs e)
         {
+            ToolTip toolTip1 = new ToolTip();
+            toolTip1.SetToolTip(btnDebtors, "Create, Update or Delete Debtor Records");
 
+            ToolTip toolTip2 = new ToolTip();
+            toolTip1.SetToolTip(btnStock, "Create, Update or Delete Stock Records");
+
+            ToolTip toolTip3 = new ToolTip();
+            toolTip1.SetToolTip(btnInvoices, "Create Invoices After A Transaction");
         }
 
         private void btnStock_Click(object sender, EventArgs e)
@@ -46,6 +54,11 @@ namespace DevInternApp
         private void pictureBox1_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void toolTip1_Popup(object sender, PopupEventArgs e)
+        {
+           
         }
     }
 }

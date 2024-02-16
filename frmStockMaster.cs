@@ -21,7 +21,7 @@ namespace DevInternApp
         // Method to populate the form with stock data
         private void PopulateStockData(string stockCode)
         {
-            string connectionString = "data source=user\\SQLEXPRESS;initial catalog=xact1;trusted_connection=true"; 
+            string connectionString = "data source=user\\SQLEXPRESS;initial catalog=xact1;trusted_connection=true";
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -109,7 +109,7 @@ namespace DevInternApp
 
                 SqlCommand command = new SqlCommand(insertQuery, connection);
                 command.Parameters.AddWithValue("@StockCode", stockCode);
-                command.Parameters.AddWithValue("@StockDescription", description); 
+                command.Parameters.AddWithValue("@StockDescription", description);
                 command.Parameters.AddWithValue("@Cost", cost);
                 command.Parameters.AddWithValue("@SellingPrice", sellingPrice);
                 command.Parameters.AddWithValue("@TotalPurchasesExclVAT", totalPurchasesExclVAT);
@@ -140,7 +140,17 @@ namespace DevInternApp
 
         private void frmStockMaster_Load(object sender, EventArgs e)
         {
+            ToolTip toolTip1 = new ToolTip();
+            toolTip1.SetToolTip(nudCost, "Cost Amount of Stock");
 
+            ToolTip toolTip2 = new ToolTip();
+            toolTip1.SetToolTip(nudSellingP, "Selling Price of Stock");
+
+            ToolTip toolTip3 = new ToolTip();
+            toolTip1.SetToolTip(nudPurchasesExclVat, "Accumulated Value Spent Buying Stock");
+
+            ToolTip toolTip4 = new ToolTip();
+            toolTip1.SetToolTip(nudSalesExclVat, "Accumulated Income From Sales Made This Year");
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
@@ -157,7 +167,7 @@ namespace DevInternApp
             int stockOnHand = Convert.ToInt32(nudStock.Value);
 
             // Update the corresponding record in the database
-            string connectionString = "data source=user\\SQLEXPRESS;initial catalog=xact1;trusted_connection=true"; 
+            string connectionString = "data source=user\\SQLEXPRESS;initial catalog=xact1;trusted_connection=true";
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 string updateQuery = "UPDATE StockMaster " +
@@ -207,7 +217,7 @@ namespace DevInternApp
                 // Delete the corresponding record from the database
                 string stockCode = txbStockCode.Text; //Stock code is used to identify the stock record
 
-                string connectionString = "data source=user\\SQLEXPRESS;initial catalog=xact1;trusted_connection=true"; 
+                string connectionString = "data source=user\\SQLEXPRESS;initial catalog=xact1;trusted_connection=true";
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {
                     string deleteQuery = "DELETE FROM StockMaster WHERE StockCode = @StockCode";
@@ -238,7 +248,7 @@ namespace DevInternApp
 
         private void btnMainScreen_Click(object sender, EventArgs e)
         {
-            this.Close(); 
+            this.Close();
         }
 
         private void btnStockMaster_Click(object sender, EventArgs e)
@@ -264,6 +274,20 @@ namespace DevInternApp
             int qtySold = (int)nudQtySold.Value;
             decimal totalSalesExclVat = sellingPrice * qtySold;
             nudSalesExclVat.Value = totalSalesExclVat;
+        }
+
+        private void txbStockCode_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txbStockCode_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+                MessageBox.Show("Please enter numbers only.", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

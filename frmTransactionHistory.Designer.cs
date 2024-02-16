@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmTransactionHistory));
             this.dataGridViewDisplay = new System.Windows.Forms.DataGridView();
             this.btnClose = new System.Windows.Forms.Button();
@@ -46,24 +47,27 @@
             this.lblAccountCode = new System.Windows.Forms.Label();
             this.txbAccountCode = new System.Windows.Forms.TextBox();
             this.btnCalculate = new System.Windows.Forms.Button();
+            this.btnSearch = new System.Windows.Forms.Button();
+            this.txbSearch = new System.Windows.Forms.TextBox();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDisplay)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridViewDisplay
             // 
             this.dataGridViewDisplay.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewDisplay.Location = new System.Drawing.Point(35, 250);
+            this.dataGridViewDisplay.Location = new System.Drawing.Point(30, 192);
             this.dataGridViewDisplay.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridViewDisplay.Name = "dataGridViewDisplay";
             this.dataGridViewDisplay.RowHeadersWidth = 51;
             this.dataGridViewDisplay.RowTemplate.Height = 24;
-            this.dataGridViewDisplay.Size = new System.Drawing.Size(628, 229);
+            this.dataGridViewDisplay.Size = new System.Drawing.Size(652, 229);
             this.dataGridViewDisplay.TabIndex = 0;
             this.dataGridViewDisplay.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewDisplay_CellContentClick);
             // 
             // btnClose
             // 
-            this.btnClose.Location = new System.Drawing.Point(283, 495);
+            this.btnClose.Location = new System.Drawing.Point(307, 439);
             this.btnClose.Margin = new System.Windows.Forms.Padding(2);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(114, 46);
@@ -74,7 +78,7 @@
             // 
             // btnAddTransaction
             // 
-            this.btnAddTransaction.Location = new System.Drawing.Point(135, 494);
+            this.btnAddTransaction.Location = new System.Drawing.Point(159, 438);
             this.btnAddTransaction.Margin = new System.Windows.Forms.Padding(2);
             this.btnAddTransaction.Name = "btnAddTransaction";
             this.btnAddTransaction.Size = new System.Drawing.Size(114, 46);
@@ -95,7 +99,7 @@
             // lblTransactionType
             // 
             this.lblTransactionType.AutoSize = true;
-            this.lblTransactionType.Location = new System.Drawing.Point(12, 123);
+            this.lblTransactionType.Location = new System.Drawing.Point(334, 20);
             this.lblTransactionType.Name = "lblTransactionType";
             this.lblTransactionType.Size = new System.Drawing.Size(90, 13);
             this.lblTransactionType.TabIndex = 4;
@@ -113,7 +117,7 @@
             // lblTransactionValue
             // 
             this.lblTransactionValue.AutoSize = true;
-            this.lblTransactionValue.Location = new System.Drawing.Point(12, 156);
+            this.lblTransactionValue.Location = new System.Drawing.Point(334, 51);
             this.lblTransactionValue.Name = "lblTransactionValue";
             this.lblTransactionValue.Size = new System.Drawing.Size(93, 13);
             this.lblTransactionValue.TabIndex = 6;
@@ -122,7 +126,7 @@
             // lblVat
             // 
             this.lblVat.AutoSize = true;
-            this.lblVat.Location = new System.Drawing.Point(32, 196);
+            this.lblVat.Location = new System.Drawing.Point(355, 82);
             this.lblVat.Name = "lblVat";
             this.lblVat.Size = new System.Drawing.Size(23, 13);
             this.lblVat.TabIndex = 7;
@@ -137,16 +141,16 @@
             // 
             // txbGrossTransaction
             // 
-            this.txbGrossTransaction.Location = new System.Drawing.Point(113, 153);
+            this.txbGrossTransaction.Location = new System.Drawing.Point(435, 48);
             this.txbGrossTransaction.Name = "txbGrossTransaction";
-            this.txbGrossTransaction.Size = new System.Drawing.Size(200, 20);
+            this.txbGrossTransaction.Size = new System.Drawing.Size(183, 20);
             this.txbGrossTransaction.TabIndex = 10;
             // 
             // txbVat
             // 
-            this.txbVat.Location = new System.Drawing.Point(113, 193);
+            this.txbVat.Location = new System.Drawing.Point(435, 79);
             this.txbVat.Name = "txbVat";
-            this.txbVat.Size = new System.Drawing.Size(200, 20);
+            this.txbVat.Size = new System.Drawing.Size(183, 20);
             this.txbVat.TabIndex = 11;
             this.txbVat.TextChanged += new System.EventHandler(this.textBox4_TextChanged);
             // 
@@ -162,14 +166,14 @@
             this.cmbTransactionType.FormattingEnabled = true;
             this.cmbTransactionType.Items.AddRange(new object[] {
             "Purchase"});
-            this.cmbTransactionType.Location = new System.Drawing.Point(113, 120);
+            this.cmbTransactionType.Location = new System.Drawing.Point(435, 17);
             this.cmbTransactionType.Name = "cmbTransactionType";
-            this.cmbTransactionType.Size = new System.Drawing.Size(200, 21);
+            this.cmbTransactionType.Size = new System.Drawing.Size(183, 21);
             this.cmbTransactionType.TabIndex = 14;
             // 
             // btnAddInvoice
             // 
-            this.btnAddInvoice.Location = new System.Drawing.Point(444, 494);
+            this.btnAddInvoice.Location = new System.Drawing.Point(468, 438);
             this.btnAddInvoice.Margin = new System.Windows.Forms.Padding(2);
             this.btnAddInvoice.Name = "btnAddInvoice";
             this.btnAddInvoice.Size = new System.Drawing.Size(114, 46);
@@ -197,13 +201,32 @@
             // 
             // btnCalculate
             // 
-            this.btnCalculate.Location = new System.Drawing.Point(322, 192);
+            this.btnCalculate.Location = new System.Drawing.Point(624, 79);
             this.btnCalculate.Name = "btnCalculate";
-            this.btnCalculate.Size = new System.Drawing.Size(75, 20);
+            this.btnCalculate.Size = new System.Drawing.Size(75, 23);
             this.btnCalculate.TabIndex = 18;
             this.btnCalculate.Text = "Calculate";
             this.btnCalculate.UseVisualStyleBackColor = true;
             this.btnCalculate.Click += new System.EventHandler(this.btnCalculate_Click);
+            // 
+            // btnSearch
+            // 
+            this.btnSearch.Location = new System.Drawing.Point(607, 159);
+            this.btnSearch.Margin = new System.Windows.Forms.Padding(2);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(75, 19);
+            this.btnSearch.TabIndex = 20;
+            this.btnSearch.Text = "Search";
+            this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
+            // 
+            // txbSearch
+            // 
+            this.txbSearch.Location = new System.Drawing.Point(30, 158);
+            this.txbSearch.Margin = new System.Windows.Forms.Padding(2);
+            this.txbSearch.Name = "txbSearch";
+            this.txbSearch.Size = new System.Drawing.Size(573, 20);
+            this.txbSearch.TabIndex = 19;
             // 
             // frmTransactionHistory
             // 
@@ -212,6 +235,8 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(715, 551);
+            this.Controls.Add(this.btnSearch);
+            this.Controls.Add(this.txbSearch);
             this.Controls.Add(this.btnCalculate);
             this.Controls.Add(this.txbAccountCode);
             this.Controls.Add(this.lblAccountCode);
@@ -258,5 +283,8 @@
         private System.Windows.Forms.Label lblAccountCode;
         private System.Windows.Forms.TextBox txbAccountCode;
         private System.Windows.Forms.Button btnCalculate;
+        private System.Windows.Forms.Button btnSearch;
+        private System.Windows.Forms.TextBox txbSearch;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }

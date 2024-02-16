@@ -279,6 +279,16 @@ namespace DevInternApp
 
         private void frmDebtorsMaster_Load(object sender, EventArgs e)
         {
+            ToolTip toolTip1 = new ToolTip();
+            toolTip1.SetToolTip(nudBalance, "Balance Amount Owed by Debtor");
+
+            ToolTip toolTip2 = new ToolTip();
+            toolTip1.SetToolTip(nudCostYear, "Accumulated Income From Debtor This Year");
+
+            ToolTip toolTip3 = new ToolTip();
+            toolTip1.SetToolTip(nudSalesYear, "Accumulated Value of Sales From Debtor This Year");
+
+
             //Populate the form with data for a specific debtor (e.g., account code 123)
             int accountCode = 123; 
 

@@ -28,11 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
             this.pictureBoxXACT = new System.Windows.Forms.PictureBox();
             this.btnStock = new System.Windows.Forms.Button();
             this.btnInvoices = new System.Windows.Forms.Button();
             this.btnDebtors = new System.Windows.Forms.Button();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxXACT)).BeginInit();
             this.SuspendLayout();
             // 
@@ -90,12 +92,17 @@
             this.btnDebtors.UseVisualStyleBackColor = false;
             this.btnDebtors.Click += new System.EventHandler(this.btnDebtors_Click);
             // 
+            // toolTip1
+            // 
+            this.toolTip1.Popup += new System.Windows.Forms.PopupEventHandler(this.toolTip1_Popup);
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(712, 366);
             this.Controls.Add(this.btnDebtors);
             this.Controls.Add(this.btnInvoices);
@@ -103,7 +110,7 @@
             this.Controls.Add(this.pictureBoxXACT);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmMain";
-            this.Text = "\\";
+            this.Text = "frmMain";
             this.Load += new System.EventHandler(this.frmMain_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxXACT)).EndInit();
             this.ResumeLayout(false);
@@ -117,6 +124,7 @@
         private System.Windows.Forms.Button btnStock;
         private System.Windows.Forms.Button btnInvoices;
         private System.Windows.Forms.Button btnDebtors;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }
 

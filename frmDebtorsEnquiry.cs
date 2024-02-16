@@ -80,7 +80,11 @@ namespace DevInternApp
 
         private void frmDebtorsEnquiry_Load(object sender, EventArgs e)
         {
+            ToolTip toolTip1 = new ToolTip();
+            toolTip1.SetToolTip(btnViewTransaction, "Create or View The Transaction History of Selected Debtor");
 
+            ToolTip toolTip2 = new ToolTip();
+            toolTip1.SetToolTip(txbSearch, "Search For A Debtor via Account Code");
         }
 
         // Event handler for Search Button click

@@ -9,6 +9,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+//using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+
 
 namespace DevInternApp
 {
@@ -25,7 +27,7 @@ namespace DevInternApp
             PopulateTransactionHistoryDataGridView();
         }
 
-       
+
 
         private void PopulateTransactionHistoryDataGridView()
         {
@@ -65,7 +67,8 @@ namespace DevInternApp
 
         private void frmTransactionHistory_Load(object sender, EventArgs e)
         {
-
+            ToolTip toolTip2 = new ToolTip();
+            toolTip1.SetToolTip(txbSearch, "Search For Transactions via DocumentNo");
         }
 
         private bool DocumentNoExistsInStockTransactions(string documentNo)
@@ -218,7 +221,7 @@ VALUES (@AccountCode, @Date, @TransactionType, @DocumentNo, @GrossTransactionVal
 
             // Open frmInvoicing with the selected data
             frmInvoicing invoicingForm = new frmInvoicing(accountCode, documentNo, date, totalSellExclVat, vat);
-            invoicingForm.Show(); 
+            invoicingForm.Show();
         }
 
         private void btnCalculate_Click(object sender, EventArgs e)
@@ -234,6 +237,41 @@ VALUES (@AccountCode, @Date, @TransactionType, @DocumentNo, @GrossTransactionVal
             {
                 MessageBox.Show("Please enter a valid amount in Gross Transaction.");
             }
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            string searchTerm = txbSearch.Text;
+            SearchDebtorsTransactions(searchTerm);
+        }
+
+        private void SearchDebtorsTransactions(string searchTerm)
+        {
+            string connectionString = "data source=user\\SQLEXPRESS;initial catalog=xact1;trusted_connection=true";
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                string selectQuery = "SELECT * FROM DebtorsTransaction WHERE DocumentNo LIKE @SearchTerm";
+                SqlCommand command = new SqlCommand(selectQuery, connection);
+                command.Parameters.AddWithValue("@SearchTerm", "%" + searchTerm + "%");
+
+                try
+                {
+                    connection.Open();
+                    SqlDataReader reader = command.ExecuteReader();
+                    DataTable dataTable = new DataTable();
+                    dataTable.Load(reader);
+                    dataGridViewDisplay.DataSource = dataTable; 
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("An error occurred: " + ex.Message);
+                }
+            }
+        }
+
+        private void toolTip1_Popup(object sender, PopupEventArgs e)
+        {
+
         }
     }
 }

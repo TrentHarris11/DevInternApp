@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmStockTransactions));
             this.btnClose = new System.Windows.Forms.Button();
             this.dataGridViewDisplay = new System.Windows.Forms.DataGridView();
@@ -45,12 +46,15 @@
             this.txbUnitSell = new System.Windows.Forms.TextBox();
             this.cmbTransactionType = new System.Windows.Forms.ComboBox();
             this.btnGenerate = new System.Windows.Forms.Button();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.btnSearch = new System.Windows.Forms.Button();
+            this.txbSearch = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDisplay)).BeginInit();
             this.SuspendLayout();
             // 
             // btnClose
             // 
-            this.btnClose.Location = new System.Drawing.Point(419, 410);
+            this.btnClose.Location = new System.Drawing.Point(419, 433);
             this.btnClose.Margin = new System.Windows.Forms.Padding(2);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(94, 46);
@@ -62,7 +66,7 @@
             // dataGridViewDisplay
             // 
             this.dataGridViewDisplay.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewDisplay.Location = new System.Drawing.Point(23, 166);
+            this.dataGridViewDisplay.Location = new System.Drawing.Point(23, 189);
             this.dataGridViewDisplay.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridViewDisplay.Name = "dataGridViewDisplay";
             this.dataGridViewDisplay.RowHeadersWidth = 51;
@@ -73,7 +77,7 @@
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(290, 410);
+            this.btnAdd.Location = new System.Drawing.Point(290, 433);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(94, 46);
             this.btnAdd.TabIndex = 4;
@@ -86,7 +90,7 @@
             this.lblDate.AutoSize = true;
             this.lblDate.Location = new System.Drawing.Point(26, 22);
             this.lblDate.Name = "lblDate";
-            this.lblDate.Size = new System.Drawing.Size(33, 15);
+            this.lblDate.Size = new System.Drawing.Size(30, 13);
             this.lblDate.TabIndex = 5;
             this.lblDate.Text = "Date";
             // 
@@ -95,7 +99,7 @@
             this.lblTransactionType.AutoSize = true;
             this.lblTransactionType.Location = new System.Drawing.Point(26, 66);
             this.lblTransactionType.Name = "lblTransactionType";
-            this.lblTransactionType.Size = new System.Drawing.Size(100, 15);
+            this.lblTransactionType.Size = new System.Drawing.Size(90, 13);
             this.lblTransactionType.TabIndex = 6;
             this.lblTransactionType.Text = "Transaction Type";
             // 
@@ -104,7 +108,7 @@
             this.lblDocumentNo.AutoSize = true;
             this.lblDocumentNo.Location = new System.Drawing.Point(26, 115);
             this.lblDocumentNo.Name = "lblDocumentNo";
-            this.lblDocumentNo.Size = new System.Drawing.Size(83, 15);
+            this.lblDocumentNo.Size = new System.Drawing.Size(73, 13);
             this.lblDocumentNo.TabIndex = 7;
             this.lblDocumentNo.Text = "Document No";
             // 
@@ -113,7 +117,7 @@
             this.lblQty.AutoSize = true;
             this.lblQty.Location = new System.Drawing.Point(489, 15);
             this.lblQty.Name = "lblQty";
-            this.lblQty.Size = new System.Drawing.Size(24, 15);
+            this.lblQty.Size = new System.Drawing.Size(23, 13);
             this.lblQty.TabIndex = 8;
             this.lblQty.Text = "Qty";
             // 
@@ -122,7 +126,7 @@
             this.lblUnitCost.AutoSize = true;
             this.lblUnitCost.Location = new System.Drawing.Point(483, 59);
             this.lblUnitCost.Name = "lblUnitCost";
-            this.lblUnitCost.Size = new System.Drawing.Size(56, 15);
+            this.lblUnitCost.Size = new System.Drawing.Size(50, 13);
             this.lblUnitCost.TabIndex = 9;
             this.lblUnitCost.Text = "Unit Cost";
             // 
@@ -131,7 +135,7 @@
             this.lblUnitSell.AutoSize = true;
             this.lblUnitSell.Location = new System.Drawing.Point(483, 107);
             this.lblUnitSell.Name = "lblUnitSell";
-            this.lblUnitSell.Size = new System.Drawing.Size(53, 15);
+            this.lblUnitSell.Size = new System.Drawing.Size(46, 13);
             this.lblUnitSell.TabIndex = 10;
             this.lblUnitSell.Text = "Unit Sell";
             // 
@@ -192,6 +196,25 @@
             this.btnGenerate.UseVisualStyleBackColor = true;
             this.btnGenerate.Click += new System.EventHandler(this.btnGenerate_Click);
             // 
+            // btnSearch
+            // 
+            this.btnSearch.Location = new System.Drawing.Point(620, 165);
+            this.btnSearch.Margin = new System.Windows.Forms.Padding(2);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(74, 20);
+            this.btnSearch.TabIndex = 20;
+            this.btnSearch.Text = "Search";
+            this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
+            // 
+            // txbSearch
+            // 
+            this.txbSearch.Location = new System.Drawing.Point(23, 165);
+            this.txbSearch.Margin = new System.Windows.Forms.Padding(2);
+            this.txbSearch.Name = "txbSearch";
+            this.txbSearch.Size = new System.Drawing.Size(593, 20);
+            this.txbSearch.TabIndex = 19;
+            // 
             // frmStockTransactions
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -199,6 +222,8 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(771, 522);
+            this.Controls.Add(this.btnSearch);
+            this.Controls.Add(this.txbSearch);
             this.Controls.Add(this.btnGenerate);
             this.Controls.Add(this.cmbTransactionType);
             this.Controls.Add(this.txbUnitSell);
@@ -243,5 +268,8 @@
         private System.Windows.Forms.TextBox txbUnitSell;
         private System.Windows.Forms.ComboBox cmbTransactionType;
         private System.Windows.Forms.Button btnGenerate;
+        private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.Button btnSearch;
+        private System.Windows.Forms.TextBox txbSearch;
     }
 }

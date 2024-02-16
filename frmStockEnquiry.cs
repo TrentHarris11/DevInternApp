@@ -80,7 +80,11 @@ namespace DevInternApp
 
         private void frmStockEnquiry_Load(object sender, EventArgs e)
         {
+            ToolTip toolTip1 = new ToolTip();
+            toolTip1.SetToolTip(btnViewTransaction, "Create or View Transaction History of Selected Stock");
 
+            ToolTip toolTip2 = new ToolTip();
+            toolTip1.SetToolTip(txbSearch, "CSearch For A Stock via Stock Code");
         }
 
         private void btnSearch_Click(object sender, EventArgs e)

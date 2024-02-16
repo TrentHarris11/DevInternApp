@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmDebtorsEnquiry));
             this.txbSearch = new System.Windows.Forms.TextBox();
             this.btnSearch = new System.Windows.Forms.Button();
@@ -36,6 +37,7 @@
             this.dataGridViewDisplay = new System.Windows.Forms.DataGridView();
             this.btnViewTransaction = new System.Windows.Forms.Button();
             this.btnUpdateDebtors = new System.Windows.Forms.Button();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDisplay)).BeginInit();
             this.SuspendLayout();
             // 
@@ -147,5 +149,6 @@
         private System.Windows.Forms.DataGridView dataGridViewDisplay;
         private System.Windows.Forms.Button btnViewTransaction;
         private System.Windows.Forms.Button btnUpdateDebtors;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }
