@@ -1,0 +1,53 @@
+## Introduction:
+
+As an intern for XACT ERP, I have been given a task by the company which, if done correctly, will allow me to move to the next phase of the program. The task is to build a minor ERP system for a small company. Enterprise Resource Planning (ERP) enables the automation of recurring business processes, including payroll, order processing, invoicing, reporting, and other functions. This automation reduces the need for manual data entry (something I tried to emphasize), minimizes errors, and allows employees to concentrate on tasks that add more value.
+The application is used for inventory management, tracking of sales and customers, as well as invoicing.
+
+## Scenarios
+
+Sale
+
+-If the user makes a sale, they would run the application and select Stocks.
+-This would redirect the user from **frmMain** to **frmStockMaster**
+-The user would then click on “View Stocks”
+-Once **frmStockEnquiry** has opened, the user can load or search for the stock they are looking for via stock code
+-Once the user has located the stock, they select that row from the dataGridView and click “View Transactions”
+-The user would now be taken to **frmStockTransactions** where they can enter the details of the sale
+-Once the stock transaction has been added, the user can go back to the main screen and select “Debtors”
+
+-The user would be redirected to **frmDebtorsMaster**, where they can add, update or delete the details of the debtor
+-If the debtor already exists in the system, the user can click “View Debtors”
+-Here, the user will be redirected to **frmDebtorsEnquiry** where they can search for their debtor via account code
+-Once located, select the row of the debtor, and click “View Transactions”
+-Here, the user will be redirected to **frmTransactionHistory** where they can add the transaction details of the purchase
+-Once added to the database, the data will be visible in the dataGridView.
+
+-If the debtor has not paid yet, the user can go back to **frmDebtorsEnquiry**, select the debtor and update their ‘Balance’ by clicking “Update Debtor” once selected in the dataGridView
+
+-If the debtor has paid, the user can select their transaction in the dataGridView of **frmDebtorsTransaction** and click “Add Invoice”
+-Here, the user will be redirected to **frmInvoicing**.
+-The values in **frmInvoicing** will already be pre populated with the values given in **frmTransactionHistory**
+-The user simply has to click “Add invoice” which will save the data to dbo.InvoiceHeaders
+-The data entered will be displayed in the dataGridView
+-The user can select the row of the data that has been entered and click “View Details”
+-The user will be redirected to **frmInvoiceDetails**, where they can enter the details of the invoice and populate dbo.InvoiceDetails.
+
+-Once done, if the debtor’s details need to be updated (dbo.DebtorsMaster), such as ‘Balances’ ‘Cost Year to Date’ etc, the user can select the debtor in frmDebtorsEnquiry and click “Update Debtor”
+
+**Now, the stock transaction has been recorded, debtor transaction has been recorded, invoices have been created and all tables have been updated.**
+**Sale done and recorded.**
+
+Additional Feature
+Users can print/save invoice headers and details.
+User simply has to select the invoice from the dataGridView and click “Print”
+This would save the invoice as a PDF file, and allow the option of printing it.
+
+## Purchase
+
+In this scenario, the user will be purchasing additional stock for the business.
+
+-If the user has purchased additional stock, they would record this by running the application and clicking on ‘Stocks’. Since the user has purchased additional stock, it would be fair to assume that the stock has already been created. 
+-Once the user has clicked on ‘Stocks’, they should click on “View Stocks” where they can search and locate their stock based off the stock code and description.
+-The user would highlight the row of the stock in the dataGridView and click “Transactions” which would redirect them to frmStockTransactions.
+-Here, the user would enter the details of the stock purchase and select ‘Purchase’ under transaction type.
+-Once added, the data for that stock would be updated in dbo.StockMaster. The stock on hand, quantity purchased and total purchases would all be updated accordingly.
